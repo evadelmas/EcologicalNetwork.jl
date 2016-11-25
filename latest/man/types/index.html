@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="no-js ie6"><![endif]-->
+<!--[if IE 7 ]><html class="no-js ie7"><![endif]-->
+<!--[if IE 8 ]><html class="no-js ie8"><![endif]-->
+<!--[if IE 9 ]><html class="no-js ie9"><![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html class="no-js"> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
+    
+      
+        <title>Types - EcologicalNetwork.jl</title>
+      
+      
+      
+      
+        <meta name="author" content="Timothée Poisot">
+      
+    
+    <meta property="og:url" content="None">
+    <meta property="og:title" content="EcologicalNetwork.jl">
+    <meta property="og:image" content="None/../../">
+    <meta name="apple-mobile-web-app-title" content="EcologicalNetwork.jl">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    
+    
+    <link rel="shortcut icon" type="image/x-icon" href="../../assets/images/favicon-e565ddfa3b.ico">
+    <link rel="icon" type="image/x-icon" href="../../assets/images/favicon-e565ddfa3b.ico">
+    <style>
+      @font-face {
+      	font-family: 'Icon';
+      	src: url('../../assets/fonts/icon.eot?52m981');
+      	src: url('../../assets/fonts/icon.eot?#iefix52m981')
+               format('embedded-opentype'),
+      		   url('../../assets/fonts/icon.woff?52m981')
+               format('woff'),
+      		   url('../../assets/fonts/icon.ttf?52m981')
+               format('truetype'),
+      		   url('../../assets/fonts/icon.svg?52m981#icon')
+               format('svg');
+      	font-weight: normal;
+      	font-style: normal;
+      }
+    </style>
+    <link rel="stylesheet" href="../../assets/stylesheets/application-a422ff04cc.css">
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/palettes-05ab2406df.css">
+    
+    
+      
+      
+      
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT Sans:400,700|PT+Mono">
+      <style>
+        body, input {
+          font-family: 'PT Sans', Helvetica, Arial, sans-serif;
+        }
+        pre, code {
+          font-family: 'PT Mono', 'Courier New', 'Courier', monospace;
+        }
+      </style>
+    
+    
+      <link rel="stylesheet" href="../../assets/Documenters.css">
+    
+    <script src="../../assets/javascripts/modernizr-4ab42b99fd.js"></script>
+    
+  </head>
+  
+  
+  
+  <body class="palette-primary-blue palette-accent-lightblue">
+    
+      
+      
+    
+    <div class="backdrop">
+      <div class="backdrop-paper"></div>
+    </div>
+    <input class="toggle" type="checkbox" id="toggle-drawer">
+    <input class="toggle" type="checkbox" id="toggle-search">
+    <label class="toggle-button overlay" for="toggle-drawer"></label>
+    <header class="header">
+      <nav aria-label="Header">
+  <div class="bar default">
+    <div class="button button-menu" role="button" aria-label="Menu">
+      <label class="toggle-button icon icon-menu" for="toggle-drawer">
+        <span></span>
+      </label>
+    </div>
+    <div class="stretch">
+      <div class="title">
+        
+          <span class="path">
+            
+              
+                Manual <i class="icon icon-link"></i>
+              
+            
+          </span>
+        
+        Types
+      </div>
+    </div>
+    
+      
+      <div class="button button-twitter" role="button" aria-label="Twitter">
+        <a href="https://twitter.com/poisotlab" title="@poisotlab on Twitter" target="_blank" class="toggle-button icon icon-twitter"></a>
+      </div>
+    
+    
+      
+      <div class="button button-github" role="button" aria-label="GitHub">
+        <a href="https://github.com/poisotlab" title="@poisotlab on GitHub" target="_blank" class="toggle-button icon icon-github"></a>
+      </div>
+    
+    <div class="button button-search" role="button" aria-label="Search">
+      <label class="toggle-button icon icon-search" title="Search" for="toggle-search"></label>
+    </div>
+  </div>
+  <div class="bar search">
+    <div class="button button-close" role="button" aria-label="Close">
+      <label class="toggle-button icon icon-back" for="toggle-search"></label>
+    </div>
+    <div class="stretch">
+      <div class="field">
+        <input class="query" type="text" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck>
+      </div>
+    </div>
+    <div class="button button-reset" role="button" aria-label="Search">
+      <button class="toggle-button icon icon-close" id="reset-search"></button>
+    </div>
+  </div>
+</nav>
+    </header>
+    <main class="main">
+      
+      <div class="drawer">
+        <nav aria-label="Navigation">
+  
+  <a href="https://github.com/PoisotLab/EcologicalNetwork.jl" class="project">
+    <div class="banner">
+      
+      <div class="name">
+        <strong>
+          EcologicalNetwork.jl
+          <span class="version">
+            
+          </span>
+        </strong>
+        
+          <br>
+          PoisotLab/EcologicalNetwork.jl
+        
+      </div>
+    </div>
+  </a>
+  <div class="scrollable">
+    <div class="wrapper">
+      
+        <ul class="repo">
+          <li class="repo-download">
+            
+            <a href="https://github.com/PoisotLab/EcologicalNetwork.jl/archive/master.zip" target="_blank" title="Download" data-action="download">
+              <i class="icon icon-download"></i> Download
+            </a>
+          </li>
+          <li class="repo-stars">
+            <a href="https://github.com/PoisotLab/EcologicalNetwork.jl/stargazers" target="_blank" title="Stargazers" data-action="star">
+              <i class="icon icon-star"></i> Stars
+              <span class="count">&ndash;</span>
+            </a>
+          </li>
+        </ul>
+        <hr>
+      
+      <div class="toc">
+        <ul>
+          
+            
+  <li>
+    <a class="" title="Home" href="../..">
+      Home
+    </a>
+    
+  </li>
+
+          
+            
+  <li>
+    <span class="section">Manual</span>
+    <ul>
+      
+        
+  <li>
+    <a class="current" title="Types" href="./">
+      Types
+    </a>
+    
+      
+        
+      
+      
+        <ul>
+          
+            <li class="anchor">
+              <a title="Type hierarchy" href="#type-hierarchy">
+                Type hierarchy
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="Data types" href="#data-types">
+                Data types
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="Type reference" href="#type-reference">
+                Type reference
+              </a>
+            </li>
+          
+        </ul>
+      
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Data" href="../data/">
+      Data
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Null models" href="../nullmodels/">
+      Null models
+    </a>
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+          
+        </ul>
+        
+          <hr>
+          <span class="section">The author</span>
+          <ul>
+            
+              
+              <li>
+                <a href="https://twitter.com/poisotlab" target="_blank" title="@poisotlab on Twitter">
+                  @poisotlab on Twitter
+                </a>
+              </li>
+            
+            
+              
+              <li>
+                <a href="https://github.com/poisotlab" target="_blank" title="@poisotlab on GitHub">
+                  @poisotlab on GitHub
+                </a>
+              </li>
+            
+          </ul>
+        
+      </div>
+    </div>
+  </div>
+</nav>
+      </div>
+      <article class="article">
+        <div class="wrapper">
+          
+          <p><a id='types-1'></a></p>
+<h1 id="informations-about-types">Informations about types</h1>
+<p>As there are many ways to represent ecological networks, and the correct way to measure a given property varies in function of the representation, <code>EcologicalNetwork</code> has a series of built-in types.</p>
+<p><a id='Type-hierarchy-1'></a></p>
+<h2 id="type-hierarchy">Type hierarchy</h2>
+<p>The <code>EcologicalNetwork</code> package has four main types that are meant to be used by the user: <code>BipartiteNetwork</code>, <code>BipartiteProbaNetwork</code>, <code>UnipartiteNetwork</code>, and <code>UnipartiteProbaNetwork</code>. All types with <code>Proba</code> in their names are meant to represent probabilistic networks, and are also part of the union type <code>ProbabilisticNetwork</code>. All types <em>without</em> <code>Proba</code> in their name are part of the union type <code>DeterministicNetwork</code>, and represent networks in which interactions are either present or absent. All types starting with <code>Bipartite</code> are also part of the abstract type <code>Bipartite</code>, and types with <code>Unipartite</code> in their names are part of the abstract type <code>Unipartite</code>. Finally, both <code>Unipartite</code> and <code>Bipartite</code> are part of the abstract type <code>EcoNetwork</code>.</p>
+<p>Although this may seem convoluted, this is important to understand: when writing functions, you can restrict them to any type of network you want by using the right type in their declaration. You can also check properties of a network just by looking at its type. For example, one can check whether a network <code>N</code> is bipartite with:</p>
+<pre><code class="julia">typeof(N) &lt;: Bipartite
+</code></pre>
+
+<p>Networks are represented as two-dimensional matrices. All types are simply wrappers around an adjacency matrix, stored as the <code>A</code> property of the object. To look at the adjacency matrix of a network <code>N</code>, one therefore uses <code>N.A</code>. These matrices must be read as: the existence/probability of an interaction <em>from</em> the species of the <em>i</em>-th row <em>to</em> the species in the <em>j</em>-th column. This implies that the networks are, by default, directed.</p>
+<p><a id='Data-types-1'></a></p>
+<h2 id="data-types">Data types</h2>
+<p>Interactions in deterministic networks are represented as boolean (<code>true</code>/<code>false</code>) values. This is memory efficient, so large networks can be represented (one interactions represented as a boolean uses 8 times fewer memory than the same interaction represented as an integer). This being said, all networks of the <code>DeterministicNetwork</code> type can be read from matrices of integers, <em>as long as these matrices only contain 0 and 1</em>.</p>
+<p>In probabilistic networks, interactions are stored as floating point (<code>Float64</code>) numbers. These values have to be between 0.0 and 1.0, as they represent probabilities.</p>
+<p>Networks of the <code>Unipartite</code> class must have the same number of rows and columns. The species in the rows and columns are the same. Networks of the <code>Bipartite</code> class are expected to have different numbers of rows and columns, as the species in rows and columns are different species. It is possible to convert a network from <code>Bipartite</code> to <code>Unipartite</code> using the <code>make_unipartite</code> function:</p>
+<pre><code class="julia">B = BipartiteNetwork(rand(Bool, (3, 5)))
+richnes(B) # 8
+U = make_unipartite(B)
+richness(U) # 8
+</code></pre>
+
+<p>The documentation for <code>make_unipartite</code> gives additional explanations about how the conversion is done. In the overwhelming majority of cases, applying any measure to a bipartite network, and to the same network made unipartite, should give the same results (connectance is one notable example).</p>
+<p><a id='Type-reference-1'></a></p>
+<h2 id="type-reference">Type reference</h2>
+<p><a id='EcologicalNetwork.Bipartite' href='#EcologicalNetwork.Bipartite'>#</a>
+<strong><code>EcologicalNetwork.Bipartite</code></strong> &mdash; <em>Type</em>.</p>
+<p>Bipartite type</p>
+<p>All bipartite networks</p>
+<p><a target='_blank' href='https://github.com/PoisotLab/EcologicalNetwork.jl/tree/ad8d4773be523c3fd6dcee222a2981d447d4aa68/src/./types.jl#L19-L23' class='documenter-source'>source</a><br></p>
+<p><a id='EcologicalNetwork.BipartiteNetwork' href='#EcologicalNetwork.BipartiteNetwork'>#</a>
+<strong><code>EcologicalNetwork.BipartiteNetwork</code></strong> &mdash; <em>Type</em>.</p>
+<p>BipartiteNetwork</p>
+<p>A bipartite deterministic network.</p>
+<p><a target='_blank' href='https://github.com/PoisotLab/EcologicalNetwork.jl/tree/ad8d4773be523c3fd6dcee222a2981d447d4aa68/src/./types.jl#L26-L30' class='documenter-source'>source</a><br></p>
+<p><a id='EcologicalNetwork.BipartiteNetwork-Tuple{Array{Int64,2}}' href='#EcologicalNetwork.BipartiteNetwork-Tuple{Array{Int64,2}}'>#</a>
+<strong><code>EcologicalNetwork.BipartiteNetwork</code></strong> &mdash; <em>Method</em>.</p>
+<p>Construct a bipartite network from a matrix of integer</p>
+<p><a target='_blank' href='https://github.com/PoisotLab/EcologicalNetwork.jl/tree/ad8d4773be523c3fd6dcee222a2981d447d4aa68/src/./types.jl#L35-L37' class='documenter-source'>source</a><br></p>
+<p><a id='EcologicalNetwork.EcoNetwork' href='#EcologicalNetwork.EcoNetwork'>#</a>
+<strong><code>EcologicalNetwork.EcoNetwork</code></strong> &mdash; <em>Type</em>.</p>
+<p>EcoNetwork type</p>
+<p>This is an abstract type that allows to generate functions for all sorts of networks. All other types are derived from this one.</p>
+<p><a target='_blank' href='https://github.com/PoisotLab/EcologicalNetwork.jl/tree/ad8d4773be523c3fd6dcee222a2981d447d4aa68/src/./types.jl#L3-L9' class='documenter-source'>source</a><br></p>
+<p><a id='EcologicalNetwork.Unipartite' href='#EcologicalNetwork.Unipartite'>#</a>
+<strong><code>EcologicalNetwork.Unipartite</code></strong> &mdash; <em>Type</em>.</p>
+<p>Unipartite type</p>
+<p>All unipartite networks</p>
+<p><a target='_blank' href='https://github.com/PoisotLab/EcologicalNetwork.jl/tree/ad8d4773be523c3fd6dcee222a2981d447d4aa68/src/./types.jl#L12-L16' class='documenter-source'>source</a><br></p>
+<p><a id='EcologicalNetwork.UnipartiteNetwork' href='#EcologicalNetwork.UnipartiteNetwork'>#</a>
+<strong><code>EcologicalNetwork.UnipartiteNetwork</code></strong> &mdash; <em>Type</em>.</p>
+<p>UnipartiteNetwork</p>
+<p>An unipartite deterministic network.</p>
+<p><a target='_blank' href='https://github.com/PoisotLab/EcologicalNetwork.jl/tree/ad8d4773be523c3fd6dcee222a2981d447d4aa68/src/./types.jl#L49-L53' class='documenter-source'>source</a><br></p>
+<p><a id='EcologicalNetwork.UnipartiteNetwork-Tuple{Array{Int64,2}}' href='#EcologicalNetwork.UnipartiteNetwork-Tuple{Array{Int64,2}}'>#</a>
+<strong><code>EcologicalNetwork.UnipartiteNetwork</code></strong> &mdash; <em>Method</em>.</p>
+<p>Construct an unipartite network from a matrix of integer</p>
+<p><a target='_blank' href='https://github.com/PoisotLab/EcologicalNetwork.jl/tree/ad8d4773be523c3fd6dcee222a2981d447d4aa68/src/./types.jl#L59-L61' class='documenter-source'>source</a><br></p>
+          <aside class="copyright" role="note">
+            
+            Documentation built with
+            <a href="http://www.mkdocs.org" target="_blank">MkDocs</a>
+            using the
+            <a href="http://squidfunk.github.io/mkdocs-material/" target="_blank">
+              Material
+            </a>
+            theme.
+          </aside>
+          
+            <footer class="footer">
+              
+  <nav class="pagination" aria-label="Footer">
+    <div class="previous">
+      
+        <a href="../.." title="Home">
+          <span class="direction">
+            Previous
+          </span>
+          <div class="page">
+            <div class="button button-previous" role="button" aria-label="Previous">
+              <i class="icon icon-back"></i>
+            </div>
+            <div class="stretch">
+              <div class="title">
+                Home
+              </div>
+            </div>
+          </div>
+        </a>
+      
+    </div>
+    <div class="next">
+      
+        <a href="../data/" title="Data">
+          <span class="direction">
+            Next
+          </span>
+          <div class="page">
+            <div class="stretch">
+              <div class="title">
+                Data
+              </div>
+            </div>
+            <div class="button button-next" role="button" aria-label="Next">
+              <i class="icon icon-forward"></i>
+            </div>
+          </div>
+        </a>
+      
+    </div>
+  </nav>
+
+            </footer>
+          
+        </div>
+      </article>
+      <div class="results" role="status" aria-live="polite">
+        <div class="scrollable">
+          <div class="wrapper">
+            <div class="meta"></div>
+            <div class="list"></div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script>
+      var base_url = '../..';
+      var repo_id  = 'PoisotLab/EcologicalNetwork.jl';
+    </script>
+    <script src="../../assets/javascripts/application-997097ee0c.js"></script>
+    
+      <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+      <script src="../../assets/mathjaxhelper.js"></script>
+    
+    
+  </body>
+</html>
