@@ -70,7 +70,7 @@
   
   
   
-  <body class="palette-primary-blue palette-accent-lightblue">
+  <body class="palette-primary-blue palette-accent-deep-orange">
     
       
       
@@ -315,8 +315,9 @@
 <h2 id="type-hierarchy">Type hierarchy</h2>
 <p>The <code>EcologicalNetwork</code> package has four main types that are meant to be used by the user: <code>BipartiteNetwork</code>, <code>BipartiteProbaNetwork</code>, <code>UnipartiteNetwork</code>, and <code>UnipartiteProbaNetwork</code>. All types with <code>Proba</code> in their names are meant to represent probabilistic networks, and are also part of the union type <code>ProbabilisticNetwork</code>. All types <em>without</em> <code>Proba</code> in their name are part of the union type <code>DeterministicNetwork</code>, and represent networks in which interactions are either present or absent. All types starting with <code>Bipartite</code> are also part of the abstract type <code>Bipartite</code>, and types with <code>Unipartite</code> in their names are part of the abstract type <code>Unipartite</code>. Finally, both <code>Unipartite</code> and <code>Bipartite</code> are part of the abstract type <code>EcoNetwork</code>.</p>
 <p>Although this may seem convoluted, this is important to understand: when writing functions, you can restrict them to any type of network you want by using the right type in their declaration. You can also check properties of a network just by looking at its type. For example, one can check whether a network <code>N</code> is bipartite with:</p>
-<pre><code class="julia">typeof(N) &lt;: Bipartite
-</code></pre>
+<div class="codehilite"><pre><span></span><span class="nb">typeof</span><span class="p">(</span><span class="n">N</span><span class="p">)</span> <span class="o">&lt;:</span> <span class="n">Bipartite</span>
+</pre></div>
+
 
 <p>Networks are represented as two-dimensional matrices. All types are simply wrappers around an adjacency matrix, stored as the <code>A</code> property of the object. To look at the adjacency matrix of a network <code>N</code>, one therefore uses <code>N.A</code>. These matrices must be read as: the existence/probability of an interaction <em>from</em> the species of the <em>i</em>-th row <em>to</em> the species in the <em>j</em>-th column. This implies that the networks are, by default, directed.</p>
 <p><a id='Data-types-1'></a></p>
@@ -324,11 +325,12 @@
 <p>Interactions in deterministic networks are represented as boolean (<code>true</code>/<code>false</code>) values. This is memory efficient, so large networks can be represented (one interactions represented as a boolean uses 8 times fewer memory than the same interaction represented as an integer). This being said, all networks of the <code>DeterministicNetwork</code> type can be read from matrices of integers, <em>as long as these matrices only contain 0 and 1</em>.</p>
 <p>In probabilistic networks, interactions are stored as floating point (<code>Float64</code>) numbers. These values have to be between 0.0 and 1.0, as they represent probabilities.</p>
 <p>Networks of the <code>Unipartite</code> class must have the same number of rows and columns. The species in the rows and columns are the same. Networks of the <code>Bipartite</code> class are expected to have different numbers of rows and columns, as the species in rows and columns are different species. It is possible to convert a network from <code>Bipartite</code> to <code>Unipartite</code> using the <code>make_unipartite</code> function:</p>
-<pre><code class="julia">B = BipartiteNetwork(rand(Bool, (3, 5)))
-richnes(B) # 8
-U = make_unipartite(B)
-richness(U) # 8
-</code></pre>
+<div class="codehilite"><pre><span></span><span class="n">B</span> <span class="o">=</span> <span class="n">BipartiteNetwork</span><span class="p">(</span><span class="n">rand</span><span class="p">(</span><span class="kt">Bool</span><span class="p">,</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">)))</span>
+<span class="n">richnes</span><span class="p">(</span><span class="n">B</span><span class="p">)</span> <span class="c"># 8</span>
+<span class="n">U</span> <span class="o">=</span> <span class="n">make_unipartite</span><span class="p">(</span><span class="n">B</span><span class="p">)</span>
+<span class="n">richness</span><span class="p">(</span><span class="n">U</span><span class="p">)</span> <span class="c"># 8</span>
+</pre></div>
+
 
 <p>The documentation for <code>make_unipartite</code> gives additional explanations about how the conversion is done. In the overwhelming majority of cases, applying any measure to a bipartite network, and to the same network made unipartite, should give the same results (connectance is one notable example).</p>
 <p><a id='Type-reference-1'></a></p>
