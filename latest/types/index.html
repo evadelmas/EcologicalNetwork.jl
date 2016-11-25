@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta name="author" content="Timothée Poisot">
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Types - EcologicalNetwork.jl</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../css/highlight.css">
+  <link href="../assets/Documenters.css" rel="stylesheet">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Types";
+    var mkdocs_page_input_path = "types.md";
+    var mkdocs_page_url = "/types/";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js"></script>
+  <script src="../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../js/highlight.pack.js"></script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> EcologicalNetwork.jl</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="..">Home</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 current">
+        <a class="current" href="./">Types</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#informations-about-types">Informations about types</a></li>
+                
+                    <li><a class="toctree-l4" href="#type-hierarchy">Type hierarchy</a></li>
+                
+                    <li><a class="toctree-l4" href="#data-types">Data types</a></li>
+                
+                    <li><a class="toctree-l4" href="#type-reference">Type reference</a></li>
+                
+            
+            </ul>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../nullmodels/">Null models</a>
+        
+    </li>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">EcologicalNetwork.jl</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Types</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/PoisotLab/EcologicalNetwork.jl/edit/master/docs/types.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <p><a id='types-1'></a></p>
+<h1 id="informations-about-types">Informations about types</h1>
+<p>As there are many ways to represent ecological networks, and the correct way to measure a given property varies in function of the representation, <code>EcologicalNetwork</code> has a series of built-in types.</p>
+<p><a id='Type-hierarchy-1'></a></p>
+<h2 id="type-hierarchy">Type hierarchy</h2>
+<p>The <code>EcologicalNetwork</code> package has four main types that are meant to be used by the user: <code>BipartiteNetwork</code>, <code>BipartiteProbaNetwork</code>, <code>UnipartiteNetwork</code>, and <code>UnipartiteProbaNetwork</code>. All types with <code>Proba</code> in their names are meant to represent probabilistic networks, and are also part of the union type <code>ProbabilisticNetwork</code>. All types <em>without</em> <code>Proba</code> in their name are part of the union type <code>DeterministicNetwork</code>, and represent networks in which interactions are either present or absent. All types starting with <code>Bipartite</code> are also part of the abstract type <code>Bipartite</code>, and types with <code>Unipartite</code> in their names are part of the abstract type <code>Unipartite</code>. Finally, both <code>Unipartite</code> and <code>Bipartite</code> are part of the abstract type <code>EcoNetwork</code>.</p>
+<p>Although this may seem convoluted, this is important to understand: when writing functions, you can restrict them to any type of network you want by using the right type in their declaration. You can also check properties of a network just by looking at its type. For example, one can check whether a network <code>N</code> is bipartite with:</p>
+<pre><code class="julia">typeof(N) &lt;: Bipartite
+</code></pre>
+
+<p>Networks are represented as two-dimensional matrices. All types are simply wrappers around an adjacency matrix, stored as the <code>A</code> property of the object. To look at the adjacency matrix of a network <code>N</code>, one therefore uses <code>N.A</code>. These matrices must be read as: the existence/probability of an interaction <em>from</em> the species of the <em>i</em>-th row <em>to</em> the species in the <em>j</em>-th column. This implies that the networks are, by default, directed.</p>
+<p><a id='Data-types-1'></a></p>
+<h2 id="data-types">Data types</h2>
+<p>Interactions in deterministic networks are represented as boolean (<code>true</code>/<code>false</code>) values. This is memory efficient, so large networks can be represented (one interactions represented as a boolean uses 8 times fewer memory than the same interaction represented as an integer). This being said, all networks of the <code>DeterministicNetwork</code> type can be read from matrices of integers, <em>as long as these matrices only contain 0 and 1</em>.</p>
+<p>In probabilistic networks, interactions are stored as floating point (<code>Float64</code>) numbers. These values have to be between 0.0 and 1.0, as they represent probabilities.</p>
+<p>Networks of the <code>Unipartite</code> class must have the same number of rows and columns. The species in the rows and columns are the same. Networks of the <code>Bipartite</code> class are expected to have different numbers of rows and columns, as the species in rows and columns are different species. It is possible to convert a network from <code>Bipartite</code> to <code>Unipartite</code> using the <code>make_unipartite</code> function:</p>
+<pre><code class="julia">B = BipartiteNetwork(rand(Bool, (3, 5)))
+richnes(B) # 8
+U = make_unipartite(B)
+richness(U) # 8
+</code></pre>
+
+<p>The documentation for <code>make_unipartite</code> gives additional explanations about how the conversion is done. In the overwhelming majority of cases, applying any measure to a bipartite network, and to the same network made unipartite, should give the same results (connectance is one notable example).</p>
+<p><a id='Type-reference-1'></a></p>
+<h2 id="type-reference">Type reference</h2>
+<p><a id='EcologicalNetwork.Bipartite' href='#EcologicalNetwork.Bipartite'>#</a>
+<strong><code>EcologicalNetwork.Bipartite</code></strong> &mdash; <em>Type</em>.</p>
+<p>Bipartite type</p>
+<p>All bipartite networks</p>
+<p><a target='_blank' href='https://github.com/PoisotLab/EcologicalNetwork.jl/tree/c3af0e64c91587a46ce172901c78c16af5beaad9/src/./types.jl#L19-L23' class='documenter-source'>source</a><br></p>
+<p><a id='EcologicalNetwork.BipartiteNetwork' href='#EcologicalNetwork.BipartiteNetwork'>#</a>
+<strong><code>EcologicalNetwork.BipartiteNetwork</code></strong> &mdash; <em>Type</em>.</p>
+<p>BipartiteNetwork</p>
+<p>A bipartite deterministic network.</p>
+<p><a target='_blank' href='https://github.com/PoisotLab/EcologicalNetwork.jl/tree/c3af0e64c91587a46ce172901c78c16af5beaad9/src/./types.jl#L26-L30' class='documenter-source'>source</a><br></p>
+<p><a id='EcologicalNetwork.BipartiteNetwork-Tuple{Array{Int64,2}}' href='#EcologicalNetwork.BipartiteNetwork-Tuple{Array{Int64,2}}'>#</a>
+<strong><code>EcologicalNetwork.BipartiteNetwork</code></strong> &mdash; <em>Method</em>.</p>
+<p>Construct a bipartite network from a matrix of integer</p>
+<p><a target='_blank' href='https://github.com/PoisotLab/EcologicalNetwork.jl/tree/c3af0e64c91587a46ce172901c78c16af5beaad9/src/./types.jl#L35-L37' class='documenter-source'>source</a><br></p>
+<p><a id='EcologicalNetwork.EcoNetwork' href='#EcologicalNetwork.EcoNetwork'>#</a>
+<strong><code>EcologicalNetwork.EcoNetwork</code></strong> &mdash; <em>Type</em>.</p>
+<p>EcoNetwork type</p>
+<p>This is an abstract type that allows to generate functions for all sorts of networks. All other types are derived from this one.</p>
+<p><a target='_blank' href='https://github.com/PoisotLab/EcologicalNetwork.jl/tree/c3af0e64c91587a46ce172901c78c16af5beaad9/src/./types.jl#L3-L9' class='documenter-source'>source</a><br></p>
+<p><a id='EcologicalNetwork.Unipartite' href='#EcologicalNetwork.Unipartite'>#</a>
+<strong><code>EcologicalNetwork.Unipartite</code></strong> &mdash; <em>Type</em>.</p>
+<p>Unipartite type</p>
+<p>All unipartite networks</p>
+<p><a target='_blank' href='https://github.com/PoisotLab/EcologicalNetwork.jl/tree/c3af0e64c91587a46ce172901c78c16af5beaad9/src/./types.jl#L12-L16' class='documenter-source'>source</a><br></p>
+<p><a id='EcologicalNetwork.UnipartiteNetwork' href='#EcologicalNetwork.UnipartiteNetwork'>#</a>
+<strong><code>EcologicalNetwork.UnipartiteNetwork</code></strong> &mdash; <em>Type</em>.</p>
+<p>UnipartiteNetwork</p>
+<p>An unipartite deterministic network.</p>
+<p><a target='_blank' href='https://github.com/PoisotLab/EcologicalNetwork.jl/tree/c3af0e64c91587a46ce172901c78c16af5beaad9/src/./types.jl#L49-L53' class='documenter-source'>source</a><br></p>
+<p><a id='EcologicalNetwork.UnipartiteNetwork-Tuple{Array{Int64,2}}' href='#EcologicalNetwork.UnipartiteNetwork-Tuple{Array{Int64,2}}'>#</a>
+<strong><code>EcologicalNetwork.UnipartiteNetwork</code></strong> &mdash; <em>Method</em>.</p>
+<p>Construct an unipartite network from a matrix of integer</p>
+<p><a target='_blank' href='https://github.com/PoisotLab/EcologicalNetwork.jl/tree/c3af0e64c91587a46ce172901c78c16af5beaad9/src/./types.jl#L59-L61' class='documenter-source'>source</a><br></p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../nullmodels/" class="btn btn-neutral float-right" title="Null models">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href=".." class="btn btn-neutral" title="Home"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+    
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/PoisotLab/EcologicalNetwork.jl" class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href=".." style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../nullmodels/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script src="../js/theme.js"></script>
+      <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script src="../assets/mathjaxhelper.js"></script>
+
+</body>
+</html>
