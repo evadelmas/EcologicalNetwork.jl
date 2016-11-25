@@ -19,10 +19,12 @@
     
     <meta property="og:url" content="None">
     <meta property="og:title" content="EcologicalNetwork.jl">
-    <meta property="og:image" content="None/../../">
+    <meta property="og:image" content="None/../../images/logo.png">
     <meta name="apple-mobile-web-app-title" content="EcologicalNetwork.jl">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    
+      <link rel="apple-touch-icon" href="../../images/logo.png">
     
     
     <link rel="shortcut icon" type="image/x-icon" href="../../assets/images/favicon-e565ddfa3b.ico">
@@ -70,7 +72,7 @@
   
   
   
-  <body class="palette-primary-blue palette-accent-deep-orange">
+  <body class="palette-primary-green palette-accent-teal">
     
       
       
@@ -141,6 +143,10 @@
   
   <a href="https://github.com/PoisotLab/EcologicalNetwork.jl" class="project">
     <div class="banner">
+      
+        <div class="logo">
+          <img src="../../images/logo.png">
+        </div>
       
       <div class="name">
         <strong>
@@ -319,9 +325,9 @@
 <li><a href="./#EcologicalNetwork.BipartiteNetwork-Tuple{Array{Int64,2}}"><code>EcologicalNetwork.BipartiteNetwork</code></a></li>
 <li><a href="./#EcologicalNetwork.BipartiteNetwork"><code>EcologicalNetwork.BipartiteNetwork</code></a></li>
 <li><a href="./#EcologicalNetwork.EcoNetwork"><code>EcologicalNetwork.EcoNetwork</code></a></li>
-<li><a href="./#EcologicalNetwork.Partition-Tuple{EcologicalNetwork.EcoNetwork}"><code>EcologicalNetwork.Partition</code></a></li>
-<li><a href="./#EcologicalNetwork.Partition"><code>EcologicalNetwork.Partition</code></a></li>
 <li><a href="./#EcologicalNetwork.Partition-Tuple{EcologicalNetwork.EcoNetwork,Array{Int64,1}}"><code>EcologicalNetwork.Partition</code></a></li>
+<li><a href="./#EcologicalNetwork.Partition"><code>EcologicalNetwork.Partition</code></a></li>
+<li><a href="./#EcologicalNetwork.Partition-Tuple{EcologicalNetwork.EcoNetwork}"><code>EcologicalNetwork.Partition</code></a></li>
 <li><a href="./#EcologicalNetwork.Unipartite"><code>EcologicalNetwork.Unipartite</code></a></li>
 <li><a href="./#EcologicalNetwork.UnipartiteNetwork-Tuple{Array{Int64,2}}"><code>EcologicalNetwork.UnipartiteNetwork</code></a></li>
 <li><a href="./#EcologicalNetwork.UnipartiteNetwork"><code>EcologicalNetwork.UnipartiteNetwork</code></a></li>
@@ -334,21 +340,21 @@
 <strong><code>EcologicalNetwork.Bipartite</code></strong> &mdash; <em>Type</em>.</p>
 <p>Bipartite type</p>
 <p>All bipartite networks</p>
-<p><a target='_blank' href='https://github.com/PoisotLab/EcologicalNetwork.jl/tree/230d0dbfa73726c4e063b954e5b90749a72ddc0a/src/./types.jl#L19-L23' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/EcologicalNetwork.jl/tree/8f270e555b404f293fdd7416fb1d42b91a25bc03/src/./types.jl#L19-L23' class='documenter-source'>source</a><br></p>
 <p><a id='EcologicalNetwork.BipartiteNetwork' href='#EcologicalNetwork.BipartiteNetwork'>#</a>
 <strong><code>EcologicalNetwork.BipartiteNetwork</code></strong> &mdash; <em>Type</em>.</p>
 <p>BipartiteNetwork</p>
 <p>A bipartite deterministic network.</p>
-<p><a target='_blank' href='https://github.com/PoisotLab/EcologicalNetwork.jl/tree/230d0dbfa73726c4e063b954e5b90749a72ddc0a/src/./types.jl#L26-L30' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/EcologicalNetwork.jl/tree/8f270e555b404f293fdd7416fb1d42b91a25bc03/src/./types.jl#L26-L30' class='documenter-source'>source</a><br></p>
 <p><a id='EcologicalNetwork.BipartiteNetwork-Tuple{Array{Int64,2}}' href='#EcologicalNetwork.BipartiteNetwork-Tuple{Array{Int64,2}}'>#</a>
 <strong><code>EcologicalNetwork.BipartiteNetwork</code></strong> &mdash; <em>Method</em>.</p>
 <p>Construct a bipartite network from a matrix of integer</p>
-<p><a target='_blank' href='https://github.com/PoisotLab/EcologicalNetwork.jl/tree/230d0dbfa73726c4e063b954e5b90749a72ddc0a/src/./types.jl#L35-L37' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/EcologicalNetwork.jl/tree/8f270e555b404f293fdd7416fb1d42b91a25bc03/src/./types.jl#L35-L37' class='documenter-source'>source</a><br></p>
 <p><a id='EcologicalNetwork.EcoNetwork' href='#EcologicalNetwork.EcoNetwork'>#</a>
 <strong><code>EcologicalNetwork.EcoNetwork</code></strong> &mdash; <em>Type</em>.</p>
 <p>EcoNetwork type</p>
 <p>This is an abstract type that allows to generate functions for all sorts of networks. All other types are derived from this one.</p>
-<p><a target='_blank' href='https://github.com/PoisotLab/EcologicalNetwork.jl/tree/230d0dbfa73726c4e063b954e5b90749a72ddc0a/src/./types.jl#L3-L9' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/EcologicalNetwork.jl/tree/8f270e555b404f293fdd7416fb1d42b91a25bc03/src/./types.jl#L3-L9' class='documenter-source'>source</a><br></p>
 <p><a id='EcologicalNetwork.Partition' href='#EcologicalNetwork.Partition'>#</a>
 <strong><code>EcologicalNetwork.Partition</code></strong> &mdash; <em>Type</em>.</p>
 <p>Type to store a community partition</p>
@@ -358,29 +364,29 @@
 <li><code>L</code>, the array of (integers) module labels</li>
 <li><code>Q</code>, if needed, the modularity value</li>
 </ul>
-<p><a target='_blank' href='https://github.com/PoisotLab/EcologicalNetwork.jl/tree/230d0dbfa73726c4e063b954e5b90749a72ddc0a/src/./modularity.jl#L1-L10' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/EcologicalNetwork.jl/tree/8f270e555b404f293fdd7416fb1d42b91a25bc03/src/./modularity.jl#L1-L10' class='documenter-source'>source</a><br></p>
 <p><a id='EcologicalNetwork.Partition-Tuple{EcologicalNetwork.EcoNetwork,Array{Int64,1}}' href='#EcologicalNetwork.Partition-Tuple{EcologicalNetwork.EcoNetwork,Array{Int64,1}}'>#</a>
 <strong><code>EcologicalNetwork.Partition</code></strong> &mdash; <em>Method</em>.</p>
 <p>Constructor for the <code>Partition</code> type</p>
-<p><a target='_blank' href='https://github.com/PoisotLab/EcologicalNetwork.jl/tree/230d0dbfa73726c4e063b954e5b90749a72ddc0a/src/./modularity.jl#L25-L27' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/EcologicalNetwork.jl/tree/8f270e555b404f293fdd7416fb1d42b91a25bc03/src/./modularity.jl#L25-L27' class='documenter-source'>source</a><br></p>
 <p><a id='EcologicalNetwork.Partition-Tuple{EcologicalNetwork.EcoNetwork}' href='#EcologicalNetwork.Partition-Tuple{EcologicalNetwork.EcoNetwork}'>#</a>
 <strong><code>EcologicalNetwork.Partition</code></strong> &mdash; <em>Method</em>.</p>
 <p>Constructor for the <code>Partition</code> type</p>
-<p><a target='_blank' href='https://github.com/PoisotLab/EcologicalNetwork.jl/tree/230d0dbfa73726c4e063b954e5b90749a72ddc0a/src/./modularity.jl#L17-L19' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/EcologicalNetwork.jl/tree/8f270e555b404f293fdd7416fb1d42b91a25bc03/src/./modularity.jl#L17-L19' class='documenter-source'>source</a><br></p>
 <p><a id='EcologicalNetwork.Unipartite' href='#EcologicalNetwork.Unipartite'>#</a>
 <strong><code>EcologicalNetwork.Unipartite</code></strong> &mdash; <em>Type</em>.</p>
 <p>Unipartite type</p>
 <p>All unipartite networks</p>
-<p><a target='_blank' href='https://github.com/PoisotLab/EcologicalNetwork.jl/tree/230d0dbfa73726c4e063b954e5b90749a72ddc0a/src/./types.jl#L12-L16' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/EcologicalNetwork.jl/tree/8f270e555b404f293fdd7416fb1d42b91a25bc03/src/./types.jl#L12-L16' class='documenter-source'>source</a><br></p>
 <p><a id='EcologicalNetwork.UnipartiteNetwork' href='#EcologicalNetwork.UnipartiteNetwork'>#</a>
 <strong><code>EcologicalNetwork.UnipartiteNetwork</code></strong> &mdash; <em>Type</em>.</p>
 <p>UnipartiteNetwork</p>
 <p>An unipartite deterministic network.</p>
-<p><a target='_blank' href='https://github.com/PoisotLab/EcologicalNetwork.jl/tree/230d0dbfa73726c4e063b954e5b90749a72ddc0a/src/./types.jl#L49-L53' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/EcologicalNetwork.jl/tree/8f270e555b404f293fdd7416fb1d42b91a25bc03/src/./types.jl#L49-L53' class='documenter-source'>source</a><br></p>
 <p><a id='EcologicalNetwork.UnipartiteNetwork-Tuple{Array{Int64,2}}' href='#EcologicalNetwork.UnipartiteNetwork-Tuple{Array{Int64,2}}'>#</a>
 <strong><code>EcologicalNetwork.UnipartiteNetwork</code></strong> &mdash; <em>Method</em>.</p>
 <p>Construct an unipartite network from a matrix of integer</p>
-<p><a target='_blank' href='https://github.com/PoisotLab/EcologicalNetwork.jl/tree/230d0dbfa73726c4e063b954e5b90749a72ddc0a/src/./types.jl#L59-L61' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/EcologicalNetwork.jl/tree/8f270e555b404f293fdd7416fb1d42b91a25bc03/src/./types.jl#L59-L61' class='documenter-source'>source</a><br></p>
           <aside class="copyright" role="note">
             
             Documentation built with
