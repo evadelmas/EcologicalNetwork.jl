@@ -332,42 +332,52 @@
 
 <span class="n">julia</span><span class="o">&gt;</span> <span class="c"># We will create a function to return the nestedness of the entire</span>
        <span class="c"># network instead of an array of nestedness values</span>
-       <span class="k">function</span><span class="nf"> nest</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-           <span class="k">return</span> <span class="n">η</span><span class="p">(</span><span class="n">x</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
-       <span class="k">end</span>
-<span class="n">nest</span> <span class="p">(</span><span class="n">generic</span> <span class="k">function</span><span class="nf"> with</span> <span class="mi">1</span> <span class="n">method</span><span class="p">)</span>
+       <span class="n">nest</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">η</span><span class="p">(</span><span class="n">x</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+<span class="p">(::</span><span class="c">#1) (generic function with 1 method)</span>
 
 <span class="n">julia</span><span class="o">&gt;</span> <span class="c"># The nestedness of the network is...</span>
        <span class="n">nest</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
 <span class="mf">0.6409545623198333</span>
 
-<span class="n">julia</span><span class="o">&gt;</span> <span class="c"># There is a functionm to apply a test rapidly to randomized networks that are</span>
-       <span class="c"># generated on the fly.</span>
-       <span class="n">results</span> <span class="o">=</span> <span class="n">test_network_property</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">nest</span><span class="p">,</span>
-               <span class="n">model</span><span class="o">=</span><span class="n">null2</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">max</span><span class="o">=</span><span class="mi">2000</span><span class="p">,</span>
+<span class="n">julia</span><span class="o">&gt;</span> <span class="c"># We will now generate a series of random networks preserving the degree</span>
+       <span class="c"># distribution</span>
+       <span class="n">S</span> <span class="o">=</span> <span class="n">nullmodel</span><span class="p">(</span><span class="n">null2</span><span class="p">(</span><span class="n">N</span><span class="p">));</span>
+
+<span class="n">julia</span><span class="o">&gt;</span> <span class="c"># There is a function to apply a test rapidly to randomized networks. In this</span>
+       <span class="c"># situation we are interested in testing the fact that the network is more</span>
+       <span class="c"># nested than expected by chance.</span>
+       <span class="n">results</span> <span class="o">=</span> <span class="n">test_network_property</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">nest</span><span class="p">,</span> <span class="n">S</span><span class="p">,</span>
                <span class="n">test</span><span class="o">=</span><span class="p">:</span><span class="n">greater</span><span class="p">);</span>
-<span class="n">ERROR</span><span class="p">:</span> <span class="n">MethodError</span><span class="p">:</span> <span class="n">no</span> <span class="n">method</span> <span class="n">matching</span> <span class="n">test_network_property</span><span class="p">(::</span><span class="n">EcologicalNetwork</span><span class="o">.</span><span class="n">BipartiteNetwork</span><span class="p">,</span> <span class="p">::</span><span class="c">##repl-#279.#nest, ::Array{EcologicalNetwork.BipartiteNetwork,1}; test=:greater)</span>
-<span class="n">Closest</span> <span class="n">candidates</span> <span class="n">are</span><span class="p">:</span>
-  <span class="n">test_network_property</span><span class="p">(::</span><span class="n">Union</span><span class="p">{</span><span class="n">EcologicalNetwork</span><span class="o">.</span><span class="n">BipartiteNetwork</span><span class="p">,</span><span class="n">EcologicalNetwork</span><span class="o">.</span><span class="n">UnipartiteNetwork</span><span class="p">},</span> <span class="p">::</span><span class="kt">Any</span><span class="p">;</span> <span class="n">n</span><span class="p">,</span> <span class="n">max</span><span class="p">,</span> <span class="n">test</span><span class="p">,</span> <span class="n">model</span><span class="p">)</span> <span class="n">at</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">travis</span><span class="o">/.</span><span class="n">julia</span><span class="o">/</span><span class="n">v0</span><span class="o">.</span><span class="mi">5</span><span class="o">/</span><span class="n">EcologicalNetwork</span><span class="o">/</span><span class="n">src</span><span class="o">/./</span><span class="n">test</span><span class="o">.</span><span class="n">jl</span><span class="p">:</span><span class="mi">61</span>
-  <span class="n">test_network_property</span><span class="p">(::</span><span class="n">Union</span><span class="p">{</span><span class="n">EcologicalNetwork</span><span class="o">.</span><span class="n">BipartiteNetwork</span><span class="p">,</span><span class="n">EcologicalNetwork</span><span class="o">.</span><span class="n">UnipartiteNetwork</span><span class="p">},</span> <span class="p">::</span><span class="kt">Any</span><span class="p">,</span> <span class="o">!</span><span class="n">Matched</span><span class="p">::</span><span class="n">Array</span><span class="p">{</span><span class="n">Union</span><span class="p">{</span><span class="n">EcologicalNetwork</span><span class="o">.</span><span class="n">BipartiteNetwork</span><span class="p">,</span><span class="n">EcologicalNetwork</span><span class="o">.</span><span class="n">UnipartiteNetwork</span><span class="p">},</span><span class="mi">1</span><span class="p">};</span> <span class="n">test</span><span class="p">)</span> <span class="n">at</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">travis</span><span class="o">/.</span><span class="n">julia</span><span class="o">/</span><span class="n">v0</span><span class="o">.</span><span class="mi">5</span><span class="o">/</span><span class="n">EcologicalNetwork</span><span class="o">/</span><span class="n">src</span><span class="o">/./</span><span class="n">test</span><span class="o">.</span><span class="n">jl</span><span class="p">:</span><span class="mi">32</span>
 
 <span class="n">julia</span><span class="o">&gt;</span> <span class="c"># We can look at the p-value of the test</span>
        <span class="n">results</span><span class="o">.</span><span class="n">pval</span>
-<span class="n">ERROR</span><span class="p">:</span> <span class="n">UndefVarError</span><span class="p">:</span> <span class="n">results</span> <span class="n">not</span> <span class="n">defined</span>
+<span class="mf">0.0</span>
 
 <span class="n">julia</span><span class="o">&gt;</span> <span class="c"># Or the z-scores</span>
        <span class="n">minimum</span><span class="p">(</span><span class="n">results</span><span class="o">.</span><span class="n">z</span><span class="p">)</span>
-<span class="n">ERROR</span><span class="p">:</span> <span class="n">UndefVarError</span><span class="p">:</span> <span class="n">results</span> <span class="n">not</span> <span class="n">defined</span>
+<span class="o">-</span><span class="mf">6.38374088041687</span>
 
 <span class="n">julia</span><span class="o">&gt;</span> <span class="n">median</span><span class="p">(</span><span class="n">results</span><span class="o">.</span><span class="n">z</span><span class="p">)</span>
-<span class="n">ERROR</span><span class="p">:</span> <span class="n">UndefVarError</span><span class="p">:</span> <span class="n">results</span> <span class="n">not</span> <span class="n">defined</span>
+<span class="o">-</span><span class="mf">3.5086172053059164</span>
 
 <span class="n">julia</span><span class="o">&gt;</span> <span class="n">maximum</span><span class="p">(</span><span class="n">results</span><span class="o">.</span><span class="n">z</span><span class="p">)</span>
-<span class="n">ERROR</span><span class="p">:</span> <span class="n">UndefVarError</span><span class="p">:</span> <span class="n">results</span> <span class="n">not</span> <span class="n">defined</span>
+<span class="o">-</span><span class="mf">0.6130913884168928</span>
 </pre></div>
 
 
-<p>In this simple example, we used <a href="../../man/nullmodels/#EcologicalNetwork.nullmodel"><code>nullmodel</code></a> to generate random realizations of a network, and <a href="../../lib/internals/#EcologicalNetwork.test_network_property-Tuple{Union{EcologicalNetwork.BipartiteNetwork,EcologicalNetwork.UnipartiteNetwork},Any,Array{Union{EcologicalNetwork.BipartiteNetwork,EcologicalNetwork.UnipartiteNetwork},1}}"><code>test_network_property</code></a> to evaluate whether the observed nestedness was observed by chance. As it stands, all randomized networks had <em>lower</em> values, and so the <em>p</em>-value is (essentially) null. In short, this network is significantly more nested than expected by chance knowing its degree distribution.</p>
+<p>In this simple example, we used <a href="../../man/nullmodels/#EcologicalNetwork.nullmodel"><code>nullmodel</code></a> to generate random realizations of a network, and <a href="../../lib/internals/#EcologicalNetwork.test_network_property-Tuple{EcologicalNetwork.EcoNetwork,Any,Any}"><code>test_network_property</code></a> to evaluate whether the observed nestedness was observed by chance. As it stands, all randomized networks had <em>lower</em> values, and so the <em>p</em>-value is (essentially) null. In short, this network is significantly more nested than expected by chance knowing its degree distribution.</p>
+<p>We can also decide to plot the network to visualize what it looks like:</p>
+<div class="codehilite"><pre><span></span><span class="n">julia</span><span class="o">&gt;</span> <span class="k">using</span> <span class="n">EcologicalNetwork</span>
+
+<span class="n">julia</span><span class="o">&gt;</span> <span class="n">N</span> <span class="o">=</span> <span class="n">ollerton</span><span class="p">()</span>
+<span class="n">EcologicalNetwork</span><span class="o">.</span><span class="n">BipartiteNetwork</span><span class="p">(</span><span class="kt">Bool</span><span class="p">[</span><span class="n">true</span> <span class="n">true</span> <span class="n">…</span> <span class="n">true</span> <span class="n">true</span><span class="p">;</span> <span class="n">true</span> <span class="n">true</span> <span class="n">…</span> <span class="n">false</span> <span class="n">false</span><span class="p">;</span> <span class="n">…</span> <span class="p">;</span> <span class="n">false</span> <span class="n">false</span> <span class="n">…</span> <span class="n">false</span> <span class="n">false</span><span class="p">;</span> <span class="n">false</span> <span class="n">true</span> <span class="n">…</span> <span class="n">false</span> <span class="n">false</span><span class="p">])</span>
+
+<span class="n">julia</span><span class="o">&gt;</span> <span class="n">plot_network</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="s">&quot;ollerton.png&quot;</span><span class="p">)</span>
+</pre></div>
+
+
+<p>This is what the result should look like:</p>
+<p><img alt="ollerton plot" src="../ollerton.png" /></p>
           <aside class="copyright" role="note">
             
             Documentation built with
