@@ -195,6 +195,24 @@
           
             
   <li>
+    <span class="section">Use cases</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="Nestedness" href="../../usecase/nestedness/">
+      Nestedness
+    </a>
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+          
+            
+  <li>
     <span class="section">Manual</span>
     <ul>
       
@@ -341,41 +359,48 @@
 <p>Interactions in deterministic networks are represented as boolean (<code>true</code>/<code>false</code>) values. This is memory efficient, so large networks can be represented (one interactions represented as a boolean uses 8 times fewer memory than the same interaction represented as an integer). This being said, all networks of the <code>DeterministicNetwork</code> type can be read from matrices of integers, <em>as long as these matrices only contain 0 and 1</em>.</p>
 <p>In probabilistic networks, interactions are stored as floating point (<code>Float64</code>) numbers. These values have to be between 0.0 and 1.0, as they represent probabilities. In quantitative networks, interactions are stored as any type of number.</p>
 <p>Networks of the <code>Unipartite</code> class must have the same number of rows and columns. The species in the rows and columns are the same. Networks of the <code>Bipartite</code> class are expected to have different numbers of rows and columns, as the species in rows and columns are different species. It is possible to convert a network from <code>Bipartite</code> to <code>Unipartite</code> using the <code>make_unipartite</code> function:</p>
-<p><code>@example
-B = BipartiteNetwork(rand(Bool, (3, 5)))
-U = make_unipartite(B)
-richness(U) == richness(B)</code></p>
+<div class="codehilite"><pre><span></span><span class="k">using</span> <span class="n">EcologicalNetwork</span>
+<span class="n">B</span> <span class="o">=</span> <span class="n">BipartiteNetwork</span><span class="p">(</span><span class="n">rand</span><span class="p">(</span><span class="kt">Bool</span><span class="p">,</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">)))</span>
+<span class="n">U</span> <span class="o">=</span> <span class="n">make_unipartite</span><span class="p">(</span><span class="n">B</span><span class="p">)</span>
+<span class="n">richness</span><span class="p">(</span><span class="n">U</span><span class="p">)</span> <span class="o">==</span> <span class="n">richness</span><span class="p">(</span><span class="n">B</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span>true
+</pre></div>
+
+
 <p>The documentation for <code>make_unipartite</code> gives additional explanations about how the conversion is done. In the overwhelming majority of cases, applying any measure to a bipartite network, and to the same network made unipartite, should give the same results (connectance is one notable example).</p>
 <p><a id='Type-reference-1'></a></p>
 <h2 id="type-reference">Type reference</h2>
 <p><a id='EcologicalNetwork.Bipartite' href='#EcologicalNetwork.Bipartite'>#</a>
 <strong><code>EcologicalNetwork.Bipartite</code></strong> &mdash; <em>Type</em>.</p>
 <p>All bipartite networks</p>
-<p><a target='_blank' href='https://github.com/PoisotLab/EcologicalNetwork.jl/tree/8ec33a765dce41ddd8dcf3242a2eb935d7df2729/src/./types.jl#L14-L16' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/EcologicalNetwork.jl/tree/ce9250cb4eac53c55084304c327f19e18e0ae162/src/./types.jl#L14-L16' class='documenter-source'>source</a><br></p>
 <p><a id='EcologicalNetwork.BipartiteNetwork' href='#EcologicalNetwork.BipartiteNetwork'>#</a>
 <strong><code>EcologicalNetwork.BipartiteNetwork</code></strong> &mdash; <em>Type</em>.</p>
 <p>A bipartite deterministic network is a two-dimensional array of boolean values.</p>
-<p><a target='_blank' href='https://github.com/PoisotLab/EcologicalNetwork.jl/tree/8ec33a765dce41ddd8dcf3242a2eb935d7df2729/src/./types.jl#L19-L21' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/EcologicalNetwork.jl/tree/ce9250cb4eac53c55084304c327f19e18e0ae162/src/./types.jl#L19-L21' class='documenter-source'>source</a><br></p>
 <p><a id='EcologicalNetwork.BipartiteNetwork-Tuple{Array{Int64,2}}' href='#EcologicalNetwork.BipartiteNetwork-Tuple{Array{Int64,2}}'>#</a>
 <strong><code>EcologicalNetwork.BipartiteNetwork</code></strong> &mdash; <em>Method</em>.</p>
 <p>Construct a bipartite network from a matrix of integer</p>
-<p><a target='_blank' href='https://github.com/PoisotLab/EcologicalNetwork.jl/tree/8ec33a765dce41ddd8dcf3242a2eb935d7df2729/src/./types.jl#L26-L28' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/EcologicalNetwork.jl/tree/ce9250cb4eac53c55084304c327f19e18e0ae162/src/./types.jl#L26-L28' class='documenter-source'>source</a><br></p>
 <p><a id='EcologicalNetwork.EcoNetwork' href='#EcologicalNetwork.EcoNetwork'>#</a>
 <strong><code>EcologicalNetwork.EcoNetwork</code></strong> &mdash; <em>Type</em>.</p>
 <p>This is an abstract type that allows to generate functions for all sorts of networks. All other types are derived from this one.</p>
-<p><a target='_blank' href='https://github.com/PoisotLab/EcologicalNetwork.jl/tree/8ec33a765dce41ddd8dcf3242a2eb935d7df2729/src/./types.jl#L3-L6' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/EcologicalNetwork.jl/tree/ce9250cb4eac53c55084304c327f19e18e0ae162/src/./types.jl#L3-L6' class='documenter-source'>source</a><br></p>
 <p><a id='EcologicalNetwork.Unipartite' href='#EcologicalNetwork.Unipartite'>#</a>
 <strong><code>EcologicalNetwork.Unipartite</code></strong> &mdash; <em>Type</em>.</p>
 <p>All unipartite networks</p>
-<p><a target='_blank' href='https://github.com/PoisotLab/EcologicalNetwork.jl/tree/8ec33a765dce41ddd8dcf3242a2eb935d7df2729/src/./types.jl#L9-L11' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/EcologicalNetwork.jl/tree/ce9250cb4eac53c55084304c327f19e18e0ae162/src/./types.jl#L9-L11' class='documenter-source'>source</a><br></p>
 <p><a id='EcologicalNetwork.UnipartiteNetwork' href='#EcologicalNetwork.UnipartiteNetwork'>#</a>
 <strong><code>EcologicalNetwork.UnipartiteNetwork</code></strong> &mdash; <em>Type</em>.</p>
 <p>An unipartite deterministic network.</p>
-<p><a target='_blank' href='https://github.com/PoisotLab/EcologicalNetwork.jl/tree/8ec33a765dce41ddd8dcf3242a2eb935d7df2729/src/./types.jl#L40-L42' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/EcologicalNetwork.jl/tree/ce9250cb4eac53c55084304c327f19e18e0ae162/src/./types.jl#L40-L42' class='documenter-source'>source</a><br></p>
 <p><a id='EcologicalNetwork.UnipartiteNetwork-Tuple{Array{Int64,2}}' href='#EcologicalNetwork.UnipartiteNetwork-Tuple{Array{Int64,2}}'>#</a>
 <strong><code>EcologicalNetwork.UnipartiteNetwork</code></strong> &mdash; <em>Method</em>.</p>
 <p>Construct an unipartite network from a matrix of integer</p>
-<p><a target='_blank' href='https://github.com/PoisotLab/EcologicalNetwork.jl/tree/8ec33a765dce41ddd8dcf3242a2eb935d7df2729/src/./types.jl#L48-L50' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/EcologicalNetwork.jl/tree/ce9250cb4eac53c55084304c327f19e18e0ae162/src/./types.jl#L48-L50' class='documenter-source'>source</a><br></p>
           <aside class="copyright" role="note">
             
             Documentation built with
@@ -392,7 +417,7 @@ richness(U) == richness(B)</code></p>
   <nav class="pagination" aria-label="Footer">
     <div class="previous">
       
-        <a href="../.." title="Home">
+        <a href="../../usecase/nestedness/" title="Nestedness">
           <span class="direction">
             Previous
           </span>
@@ -402,7 +427,7 @@ richness(U) == richness(B)</code></p>
             </div>
             <div class="stretch">
               <div class="title">
-                Home
+                Nestedness
               </div>
             </div>
           </div>
