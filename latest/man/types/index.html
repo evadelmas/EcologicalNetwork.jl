@@ -323,66 +323,59 @@
       <article class="article">
         <div class="wrapper">
           
-          <p><a id='types-1'></a></p>
+          <p><a id='Informations-about-types-1'></a></p>
 <h1 id="informations-about-types">Informations about types</h1>
 <p>As there are many ways to represent ecological networks, and the correct way to measure a given property varies in function of the representation, <code>EcologicalNetwork</code> has a series of built-in types.</p>
 <p><a id='Type-hierarchy-1'></a></p>
 <h2 id="type-hierarchy">Type hierarchy</h2>
-<p>The <code>EcologicalNetwork</code> package has four main types that are meant to be used by the user: <code>BipartiteNetwork</code>, <code>BipartiteProbaNetwork</code>, <code>UnipartiteNetwork</code>, and <code>UnipartiteProbaNetwork</code>. All types with <code>Proba</code> in their names are meant to represent probabilistic networks, and are also part of the union type <code>ProbabilisticNetwork</code>. All types <em>without</em> <code>Proba</code> in their name are part of the union type <code>DeterministicNetwork</code>, and represent networks in which interactions are either present or absent. All types starting with <code>Bipartite</code> are also part of the abstract type <code>Bipartite</code>, and types with <code>Unipartite</code> in their names are part of the abstract type <code>Unipartite</code>. Finally, both <code>Unipartite</code> and <code>Bipartite</code> are part of the abstract type <code>EcoNetwork</code>.</p>
+<p>The <code>EcologicalNetwork</code> package has six main types that are meant to be used by the user: <code>BipartiteNetwork</code>, <code>BipartiteProbaNetwork</code>, <code>BipartiteQuantiNetwork</code>, <code>UnipartiteNetwork</code>, <code>UnipartiteProbaNetwork</code> and <code>UnipartiteQuantiNetwork</code>. All types with <code>Proba</code> in their names are meant to represent probabilistic networks, and are also part of the union type <code>ProbabilisticNetwork</code>. All types <em>without</em> <code>Proba</code> in their name are part of the union type <code>DeterministicNetwork</code>, and represent networks in which interactions are either present or absent. All types with <code>Quanti</code> in their names are part of the <code>QuantitativeNetwork</code> groups, and represent networks with weighted interactions. All types starting with <code>Bipartite</code> are also part of the abstract type <code>Bipartite</code>, and types with <code>Unipartite</code> in their names are part of the abstract type <code>Unipartite</code>. Finally, both <code>Unipartite</code> and <code>Bipartite</code> are part of the abstract type <code>EcoNetwork</code>.</p>
 <p>Although this may seem convoluted, this is important to understand: when writing functions, you can restrict them to any type of network you want by using the right type in their declaration. You can also check properties of a network just by looking at its type. For example, one can check whether a network <code>N</code> is bipartite with:</p>
 <div class="codehilite"><pre><span></span><span class="nb">typeof</span><span class="p">(</span><span class="n">N</span><span class="p">)</span> <span class="o">&lt;:</span> <span class="n">Bipartite</span>
 </pre></div>
 
 
 <p>Networks are represented as two-dimensional matrices. All types are simply wrappers around an adjacency matrix, stored as the <code>A</code> property of the object. To look at the adjacency matrix of a network <code>N</code>, one therefore uses <code>N.A</code>. These matrices must be read as: the existence/probability of an interaction <em>from</em> the species of the <em>i</em>-th row <em>to</em> the species in the <em>j</em>-th column. This implies that the networks are, by default, directed.</p>
+<p>Note that the type of a network will determine what methods can be applied to it. For example, all measures of variance are only making sense for probabilistic networks.</p>
 <p><a id='Data-types-1'></a></p>
 <h2 id="data-types">Data types</h2>
 <p>Interactions in deterministic networks are represented as boolean (<code>true</code>/<code>false</code>) values. This is memory efficient, so large networks can be represented (one interactions represented as a boolean uses 8 times fewer memory than the same interaction represented as an integer). This being said, all networks of the <code>DeterministicNetwork</code> type can be read from matrices of integers, <em>as long as these matrices only contain 0 and 1</em>.</p>
-<p>In probabilistic networks, interactions are stored as floating point (<code>Float64</code>) numbers. These values have to be between 0.0 and 1.0, as they represent probabilities.</p>
+<p>In probabilistic networks, interactions are stored as floating point (<code>Float64</code>) numbers. These values have to be between 0.0 and 1.0, as they represent probabilities. In quantitative networks, interactions are stored as any type of number.</p>
 <p>Networks of the <code>Unipartite</code> class must have the same number of rows and columns. The species in the rows and columns are the same. Networks of the <code>Bipartite</code> class are expected to have different numbers of rows and columns, as the species in rows and columns are different species. It is possible to convert a network from <code>Bipartite</code> to <code>Unipartite</code> using the <code>make_unipartite</code> function:</p>
-<div class="codehilite"><pre><span></span><span class="n">B</span> <span class="o">=</span> <span class="n">BipartiteNetwork</span><span class="p">(</span><span class="n">rand</span><span class="p">(</span><span class="kt">Bool</span><span class="p">,</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">)))</span>
-<span class="n">richnes</span><span class="p">(</span><span class="n">B</span><span class="p">)</span> <span class="c"># 8</span>
-<span class="n">U</span> <span class="o">=</span> <span class="n">make_unipartite</span><span class="p">(</span><span class="n">B</span><span class="p">)</span>
-<span class="n">richness</span><span class="p">(</span><span class="n">U</span><span class="p">)</span> <span class="c"># 8</span>
-</pre></div>
-
-
+<p><code>@example
+B = BipartiteNetwork(rand(Bool, (3, 5)))
+U = make_unipartite(B)
+richness(U) == richness(B)</code></p>
 <p>The documentation for <code>make_unipartite</code> gives additional explanations about how the conversion is done. In the overwhelming majority of cases, applying any measure to a bipartite network, and to the same network made unipartite, should give the same results (connectance is one notable example).</p>
 <p><a id='Type-reference-1'></a></p>
 <h2 id="type-reference">Type reference</h2>
 <p><a id='EcologicalNetwork.Bipartite' href='#EcologicalNetwork.Bipartite'>#</a>
 <strong><code>EcologicalNetwork.Bipartite</code></strong> &mdash; <em>Type</em>.</p>
-<p>Bipartite type</p>
 <p>All bipartite networks</p>
-<p><a target='_blank' href='https://github.com/PoisotLab/EcologicalNetwork.jl/tree/1b04f5467dca779aa242dfac88d9a0827952732e/src/./types.jl#L19-L23' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/EcologicalNetwork.jl/tree/00515e723c2793a9fd161ca3b3954efea0342453/src/./types.jl#L14-L16' class='documenter-source'>source</a><br></p>
 <p><a id='EcologicalNetwork.BipartiteNetwork' href='#EcologicalNetwork.BipartiteNetwork'>#</a>
 <strong><code>EcologicalNetwork.BipartiteNetwork</code></strong> &mdash; <em>Type</em>.</p>
-<p>BipartiteNetwork</p>
-<p>A bipartite deterministic network.</p>
-<p><a target='_blank' href='https://github.com/PoisotLab/EcologicalNetwork.jl/tree/1b04f5467dca779aa242dfac88d9a0827952732e/src/./types.jl#L26-L30' class='documenter-source'>source</a><br></p>
+<p>A bipartite deterministic network is a two-dimensional array of boolean values.</p>
+<p><a target='_blank' href='https://github.com/PoisotLab/EcologicalNetwork.jl/tree/00515e723c2793a9fd161ca3b3954efea0342453/src/./types.jl#L19-L21' class='documenter-source'>source</a><br></p>
 <p><a id='EcologicalNetwork.BipartiteNetwork-Tuple{Array{Int64,2}}' href='#EcologicalNetwork.BipartiteNetwork-Tuple{Array{Int64,2}}'>#</a>
 <strong><code>EcologicalNetwork.BipartiteNetwork</code></strong> &mdash; <em>Method</em>.</p>
 <p>Construct a bipartite network from a matrix of integer</p>
-<p><a target='_blank' href='https://github.com/PoisotLab/EcologicalNetwork.jl/tree/1b04f5467dca779aa242dfac88d9a0827952732e/src/./types.jl#L35-L37' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/EcologicalNetwork.jl/tree/00515e723c2793a9fd161ca3b3954efea0342453/src/./types.jl#L26-L28' class='documenter-source'>source</a><br></p>
 <p><a id='EcologicalNetwork.EcoNetwork' href='#EcologicalNetwork.EcoNetwork'>#</a>
 <strong><code>EcologicalNetwork.EcoNetwork</code></strong> &mdash; <em>Type</em>.</p>
-<p>EcoNetwork type</p>
 <p>This is an abstract type that allows to generate functions for all sorts of networks. All other types are derived from this one.</p>
-<p><a target='_blank' href='https://github.com/PoisotLab/EcologicalNetwork.jl/tree/1b04f5467dca779aa242dfac88d9a0827952732e/src/./types.jl#L3-L9' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/EcologicalNetwork.jl/tree/00515e723c2793a9fd161ca3b3954efea0342453/src/./types.jl#L3-L6' class='documenter-source'>source</a><br></p>
 <p><a id='EcologicalNetwork.Unipartite' href='#EcologicalNetwork.Unipartite'>#</a>
 <strong><code>EcologicalNetwork.Unipartite</code></strong> &mdash; <em>Type</em>.</p>
-<p>Unipartite type</p>
 <p>All unipartite networks</p>
-<p><a target='_blank' href='https://github.com/PoisotLab/EcologicalNetwork.jl/tree/1b04f5467dca779aa242dfac88d9a0827952732e/src/./types.jl#L12-L16' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/EcologicalNetwork.jl/tree/00515e723c2793a9fd161ca3b3954efea0342453/src/./types.jl#L9-L11' class='documenter-source'>source</a><br></p>
 <p><a id='EcologicalNetwork.UnipartiteNetwork' href='#EcologicalNetwork.UnipartiteNetwork'>#</a>
 <strong><code>EcologicalNetwork.UnipartiteNetwork</code></strong> &mdash; <em>Type</em>.</p>
-<p>UnipartiteNetwork</p>
 <p>An unipartite deterministic network.</p>
-<p><a target='_blank' href='https://github.com/PoisotLab/EcologicalNetwork.jl/tree/1b04f5467dca779aa242dfac88d9a0827952732e/src/./types.jl#L49-L53' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/EcologicalNetwork.jl/tree/00515e723c2793a9fd161ca3b3954efea0342453/src/./types.jl#L40-L42' class='documenter-source'>source</a><br></p>
 <p><a id='EcologicalNetwork.UnipartiteNetwork-Tuple{Array{Int64,2}}' href='#EcologicalNetwork.UnipartiteNetwork-Tuple{Array{Int64,2}}'>#</a>
 <strong><code>EcologicalNetwork.UnipartiteNetwork</code></strong> &mdash; <em>Method</em>.</p>
 <p>Construct an unipartite network from a matrix of integer</p>
-<p><a target='_blank' href='https://github.com/PoisotLab/EcologicalNetwork.jl/tree/1b04f5467dca779aa242dfac88d9a0827952732e/src/./types.jl#L59-L61' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/EcologicalNetwork.jl/tree/00515e723c2793a9fd161ca3b3954efea0342453/src/./types.jl#L48-L50' class='documenter-source'>source</a><br></p>
           <aside class="copyright" role="note">
             
             Documentation built with
