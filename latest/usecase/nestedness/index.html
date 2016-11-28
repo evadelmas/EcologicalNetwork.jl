@@ -322,46 +322,39 @@
           <p><a id='Measuring-the-nestedness-of-a-network-1'></a></p>
 <h1 id="measuring-the-nestedness-of-a-network">Measuring the nestedness of a network</h1>
 <p>The goal of this use case is to (i) measure the nestedness of a bipartite network and (ii) evaluate whether it differs from the random expectation. We will use the <a href="../../man/data/#EcologicalNetwork.ollerton"><code>ollerton</code></a> data, which are reasonably small, and the <a href="../../lib/internals/#EcologicalNetwork.η-Tuple{EcologicalNetwork.Bipartite}"><code>η</code></a> measure of nestedness.</p>
-<div class="codehilite"><pre><span></span><span class="n">julia</span><span class="o">&gt;</span> <span class="k">using</span> <span class="n">EcologicalNetwork</span>
+<div class="codehilite"><pre><span></span><span class="k">using</span> <span class="n">EcologicalNetwork</span>
 
-<span class="n">julia</span><span class="o">&gt;</span> <span class="c"># Get the data in an object</span>
-       <span class="n">N</span> <span class="o">=</span> <span class="n">ollerton</span><span class="p">();</span>
+<span class="c"># Get the data in an object</span>
+<span class="n">N</span> <span class="o">=</span> <span class="n">ollerton</span><span class="p">();</span>
 
-<span class="n">julia</span><span class="o">&gt;</span> <span class="n">richness</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
-<span class="mi">36</span>
+<span class="c"># We will create a function to return the nestedness of the entire</span>
+<span class="c"># network instead of an array of nestedness values</span>
+<span class="n">nest</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">η</span><span class="p">(</span><span class="n">x</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
 
-<span class="n">julia</span><span class="o">&gt;</span> <span class="c"># We will create a function to return the nestedness of the entire</span>
-       <span class="c"># network instead of an array of nestedness values</span>
-       <span class="n">nest</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">η</span><span class="p">(</span><span class="n">x</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
-<span class="p">(::</span><span class="c">#1) (generic function with 1 method)</span>
+<span class="c"># We will now generate a series of random networks preserving the degree</span>
+<span class="c"># distribution</span>
+<span class="n">S</span> <span class="o">=</span> <span class="n">nullmodel</span><span class="p">(</span><span class="n">null2</span><span class="p">(</span><span class="n">N</span><span class="p">));</span>
 
-<span class="n">julia</span><span class="o">&gt;</span> <span class="c"># The nestedness of the network is...</span>
-       <span class="n">nest</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
-<span class="mf">0.6409545623198333</span>
+<span class="c"># There is a function to apply a test rapidly to randomized networks. In this</span>
+<span class="c"># situation we are interested in testing the fact that the network is more</span>
+<span class="c"># nested than expected by chance.</span>
+<span class="n">results</span> <span class="o">=</span> <span class="n">test_network_property</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">nest</span><span class="p">,</span> <span class="n">S</span><span class="p">,</span>
+        <span class="n">test</span><span class="o">=</span><span class="p">:</span><span class="n">greater</span><span class="p">);</span>
 
-<span class="n">julia</span><span class="o">&gt;</span> <span class="c"># We will now generate a series of random networks preserving the degree</span>
-       <span class="c"># distribution</span>
-       <span class="n">S</span> <span class="o">=</span> <span class="n">nullmodel</span><span class="p">(</span><span class="n">null2</span><span class="p">(</span><span class="n">N</span><span class="p">));</span>
+<span class="c"># We can print the results</span>
+<span class="n">println</span><span class="p">(</span>
+        <span class="s">&quot;The original network has a nestedness of &quot;</span><span class="p">,</span>
+        <span class="n">nest</span><span class="p">(</span><span class="n">N</span><span class="p">),</span>
+        <span class="s">&quot;, which is greater than expected by chance (p ~ &quot;</span><span class="p">,</span>
+        <span class="n">results</span><span class="o">.</span><span class="n">pval</span><span class="p">,</span>
+        <span class="s">&quot;) -- &quot;</span><span class="p">,</span>
+        <span class="n">results</span><span class="o">.</span><span class="n">n</span><span class="p">,</span>
+        <span class="s">&quot; random networks.&quot;</span>
+        <span class="p">)</span>
+</pre></div>
 
-<span class="n">julia</span><span class="o">&gt;</span> <span class="c"># There is a function to apply a test rapidly to randomized networks. In this</span>
-       <span class="c"># situation we are interested in testing the fact that the network is more</span>
-       <span class="c"># nested than expected by chance.</span>
-       <span class="n">results</span> <span class="o">=</span> <span class="n">test_network_property</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">nest</span><span class="p">,</span> <span class="n">S</span><span class="p">,</span>
-               <span class="n">test</span><span class="o">=</span><span class="p">:</span><span class="n">greater</span><span class="p">);</span>
 
-<span class="n">julia</span><span class="o">&gt;</span> <span class="c"># We can look at the p-value of the test</span>
-       <span class="n">results</span><span class="o">.</span><span class="n">pval</span>
-<span class="mf">0.0</span>
-
-<span class="n">julia</span><span class="o">&gt;</span> <span class="c"># Or the z-scores</span>
-       <span class="n">minimum</span><span class="p">(</span><span class="n">results</span><span class="o">.</span><span class="n">z</span><span class="p">)</span>
-<span class="o">-</span><span class="mf">6.566745558651506</span>
-
-<span class="n">julia</span><span class="o">&gt;</span> <span class="n">median</span><span class="p">(</span><span class="n">results</span><span class="o">.</span><span class="n">z</span><span class="p">)</span>
-<span class="o">-</span><span class="mf">3.7896987215169387</span>
-
-<span class="n">julia</span><span class="o">&gt;</span> <span class="n">maximum</span><span class="p">(</span><span class="n">results</span><span class="o">.</span><span class="n">z</span><span class="p">)</span>
-<span class="o">-</span><span class="mf">1.1597241336770394</span>
+<div class="codehilite"><pre><span></span>The original network has a nestedness of 0.6409545623198333, which is greater than expected by chance (p ~ 0.0) -- 307 random networks.
 </pre></div>
 
 
