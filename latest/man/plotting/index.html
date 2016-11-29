@@ -274,6 +274,12 @@
         <ul>
           
             <li class="anchor">
+              <a title="Plotting modular networks" href="#plotting-modular-networks">
+                Plotting modular networks
+              </a>
+            </li>
+          
+            <li class="anchor">
               <a title="Additional information" href="#additional-information">
                 Additional information
               </a>
@@ -361,6 +367,9 @@
 
 <p>This is what the result should look like:</p>
 <p><img alt="Bluthgen network, ordered by degree" src="../bluthgenDegree.png" /></p>
+<p><a id='Plotting-modular-networks-1'></a></p>
+<h2 id="plotting-modular-networks">Plotting modular networks</h2>
+<p>Plotting modular networks is a special case, for which the <code>plot_network</code> function accepts an additional argument (a network <a href="../../lib/public/#EcologicalNetwork.Partition"><code>Partition</code></a>).</p>
 <p><a id='Additional-information-1'></a></p>
 <h2 id="additional-information">Additional information</h2>
 <p><a id='EcologicalNetwork.plot_network' href='#EcologicalNetwork.plot_network'>#</a>
@@ -376,7 +385,20 @@
 <li><code>transform::Function</code>, the function to apply to every interaction (<code>x -&gt; x</code> by default, but can be <code>sqrt</code>, <code>log</code>, ...)</li>
 <li><code>file</code>, the name of the file (with the <code>.png</code> extension) to write to</li>
 </ul>
-<p><a target='_blank' href='https://github.com/PoisotLab/EcologicalNetwork.jl/tree/f360b0ddccc4f0be98eb2072bfc48f84cecabf87/src/./draw.jl#L1-L13' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/EcologicalNetwork.jl/tree/2dd500406543bf90b1c66c93818fe90b20f1d844/src/./draw.jl#L1-L13' class='documenter-source'>source</a><br></p>
+<p>Draw a network as a matrix to a png file, and respects the modules of every nodes. In the case of a quantitative or probabilistic network, nuances of grey indicate interaction strength.</p>
+<p>Arguments:</p>
+<ol>
+<li><code>N::EcoNetwork</code>, the network to draw</li>
+<li><code>P::Partition</code>, the partition of the network</li>
+</ol>
+<p>Keywords:</p>
+<ul>
+<li><code>order::Symbol</code>, either <code>:none</code> or <code>:degree</code> (default), the criteria to use to re-order nodes within modules</li>
+<li><code>transform::Function</code>, the function to apply to every interaction (<code>x -&gt; x</code> by default, but can be <code>sqrt</code>, <code>log</code>, ...)</li>
+<li><code>file</code>, the name of the file (with the <code>.png</code> extension) to write to</li>
+</ul>
+<p><a target='_blank' href='https://github.com/PoisotLab/EcologicalNetwork.jl/tree/2dd500406543bf90b1c66c93818fe90b20f1d844/src/./draw.jl#L45-L59' class='documenter-source'>source</a><br></p>
           <aside class="copyright" role="note">
             
             Documentation built with
