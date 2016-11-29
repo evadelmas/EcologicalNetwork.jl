@@ -362,20 +362,18 @@
 
 <span class="n">julia</span><span class="o">&gt;</span> <span class="c"># Note the &quot;dot&quot; notation here: we apply Q to every elements of M</span>
        <span class="n">histogram</span><span class="p">(</span><span class="n">Q</span><span class="o">.</span><span class="p">(</span><span class="n">M</span><span class="p">),</span> <span class="n">symb</span><span class="o">=</span><span class="s">&quot;-&quot;</span><span class="p">)</span>
-               <span class="n">┌────────────────────────────────────────┐</span>
-    <span class="p">(</span><span class="mf">0.4</span><span class="p">,</span><span class="mf">0.42</span><span class="p">]</span> <span class="n">│</span><span class="o">-</span> <span class="mi">1</span>                                     <span class="n">│</span>
-   <span class="p">(</span><span class="mf">0.42</span><span class="p">,</span><span class="mf">0.44</span><span class="p">]</span> <span class="n">│</span> <span class="mi">0</span>                                      <span class="n">│</span>
-   <span class="p">(</span><span class="mf">0.44</span><span class="p">,</span><span class="mf">0.46</span><span class="p">]</span> <span class="n">│</span><span class="o">---</span> <span class="mi">4</span>                                   <span class="n">│</span>
-   <span class="p">(</span><span class="mf">0.46</span><span class="p">,</span><span class="mf">0.48</span><span class="p">]</span> <span class="n">│</span><span class="o">-------</span> <span class="mi">11</span>                              <span class="n">│</span>
-    <span class="p">(</span><span class="mf">0.48</span><span class="p">,</span><span class="mf">0.5</span><span class="p">]</span> <span class="n">│</span><span class="o">--------------</span> <span class="mi">21</span>                       <span class="n">│</span>
-    <span class="p">(</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">0.52</span><span class="p">]</span> <span class="n">│</span><span class="o">------------------------------------</span> <span class="mi">54</span> <span class="n">│</span>
-   <span class="p">(</span><span class="mf">0.52</span><span class="p">,</span><span class="mf">0.54</span><span class="p">]</span> <span class="n">│</span><span class="o">------</span> <span class="mi">9</span>                                <span class="n">│</span>
-               <span class="n">└────────────────────────────────────────┘</span>
+              <span class="n">┌────────────────────────────────────────┐</span>
+   <span class="p">(</span><span class="mf">0.3</span><span class="p">,</span><span class="mf">0.35</span><span class="p">]</span> <span class="n">│</span><span class="o">-</span> <span class="mi">1</span>                                     <span class="n">│</span>
+   <span class="p">(</span><span class="mf">0.35</span><span class="p">,</span><span class="mf">0.4</span><span class="p">]</span> <span class="n">│</span> <span class="mi">0</span>                                      <span class="n">│</span>
+   <span class="p">(</span><span class="mf">0.4</span><span class="p">,</span><span class="mf">0.45</span><span class="p">]</span> <span class="n">│</span><span class="o">-</span> <span class="mi">2</span>                                     <span class="n">│</span>
+   <span class="p">(</span><span class="mf">0.45</span><span class="p">,</span><span class="mf">0.5</span><span class="p">]</span> <span class="n">│</span><span class="o">------------------</span> <span class="mi">32</span>                   <span class="n">│</span>
+   <span class="p">(</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">0.55</span><span class="p">]</span> <span class="n">│</span><span class="o">------------------------------------</span> <span class="mi">65</span> <span class="n">│</span>
+              <span class="n">└────────────────────────────────────────┘</span>
 
 <span class="n">julia</span><span class="o">&gt;</span> <span class="c"># Finally, we can get the best partition</span>
        <span class="n">b_part</span> <span class="o">=</span> <span class="n">best_partition</span><span class="p">(</span><span class="n">M</span><span class="p">);</span>
 
-<span class="n">Q</span><span class="p">:</span> <span class="mf">0.53</span> <span class="o">|</span><span class="n">c</span><span class="o">|</span><span class="p">:</span> <span class="mi">19</span>
+<span class="n">Q</span><span class="p">:</span> <span class="mf">0.55</span> <span class="o">|</span><span class="n">c</span><span class="o">|</span><span class="p">:</span> <span class="mi">15</span>
 <span class="n">julia</span><span class="o">&gt;</span> <span class="c"># And print its modularity and number of modules</span>
        <span class="n">println</span><span class="p">(</span><span class="s">&quot;Q: &quot;</span><span class="p">,</span>
                <span class="n">round</span><span class="p">(</span><span class="n">b_part</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">Q</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span>
