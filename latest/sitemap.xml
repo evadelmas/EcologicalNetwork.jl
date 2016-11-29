@@ -51,6 +51,12 @@
      <changefreq>daily</changefreq>
     </url>
         
+    <url>
+     <loc>/man/plotting/</loc>
+     <lastmod>2016-11-29</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
     
 
     

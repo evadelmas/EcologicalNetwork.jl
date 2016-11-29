@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     
       
-        <title>Public - EcologicalNetwork.jl</title>
+        <title>Plotting - EcologicalNetwork.jl</title>
       
       
       
@@ -97,12 +97,12 @@
           <span class="path">
             
               
-                Library <i class="icon icon-link"></i>
+                Manual <i class="icon icon-link"></i>
               
             
           </span>
         
-        Public
+        Plotting
       </div>
     </div>
     
@@ -227,7 +227,7 @@
       
         
   <li>
-    <a class="" title="Types" href="../../man/types/">
+    <a class="" title="Types" href="../types/">
       Types
     </a>
     
@@ -236,7 +236,7 @@
       
         
   <li>
-    <a class="" title="Data" href="../../man/data/">
+    <a class="" title="Data" href="../data/">
       Data
     </a>
     
@@ -245,7 +245,7 @@
       
         
   <li>
-    <a class="" title="Null models" href="../../man/nullmodels/">
+    <a class="" title="Null models" href="../nullmodels/">
       Null models
     </a>
     
@@ -254,7 +254,7 @@
       
         
   <li>
-    <a class="" title="Modularity" href="../../man/modularity/">
+    <a class="" title="Modularity" href="../modularity/">
       Modularity
     </a>
     
@@ -263,9 +263,24 @@
       
         
   <li>
-    <a class="" title="Plotting" href="../../man/plotting/">
+    <a class="current" title="Plotting" href="./">
       Plotting
     </a>
+    
+      
+        
+      
+      
+        <ul>
+          
+            <li class="anchor">
+              <a title="Additional information" href="#additional-information">
+                Additional information
+              </a>
+            </li>
+          
+        </ul>
+      
     
   </li>
 
@@ -281,43 +296,16 @@
       
         
   <li>
-    <a class="current" title="Public" href="./">
+    <a class="" title="Public" href="../../lib/public/">
       Public
     </a>
-    
-      
-        
-      
-      
-        <ul>
-          
-            <li class="anchor">
-              <a title="Index" href="#index">
-                Index
-              </a>
-            </li>
-          
-            <li class="anchor">
-              <a title="Functions" href="#functions">
-                Functions
-              </a>
-            </li>
-          
-            <li class="anchor">
-              <a title="Types" href="#types">
-                Types
-              </a>
-            </li>
-          
-        </ul>
-      
     
   </li>
 
       
         
   <li>
-    <a class="" title="Internals" href="../internals/">
+    <a class="" title="Internals" href="../../lib/internals/">
       Internals
     </a>
     
@@ -359,39 +347,36 @@
       <article class="article">
         <div class="wrapper">
           
-          <p><a id='Public-Documentation-1'></a></p>
-<h1 id="public-documentation">Public Documentation</h1>
-<p>Documentation for EcologicalNetwork's public (exported) interface.</p>
-<p>See <a href="../internals/#Internal-Documentation-1">Internal Documentation</a> for documentation on internal functions.</p>
-<p><a id='Index-1'></a></p>
-<h2 id="index">Index</h2>
+          <p><a id='Plotting-1'></a></p>
+<h1 id="plotting">Plotting</h1>
+<p>Plotting is done with the <a href="./#EcologicalNetwork.plot_network"><code>plot_network</code></a> function.</p>
+<div class="codehilite"><pre><span></span><span class="n">julia</span><span class="o">&gt;</span> <span class="k">using</span> <span class="n">EcologicalNetwork</span>
+
+<span class="n">julia</span><span class="o">&gt;</span> <span class="n">N</span> <span class="o">=</span> <span class="n">bluthgen</span><span class="p">()</span>
+<span class="n">EcologicalNetwork</span><span class="o">.</span><span class="n">BipartiteQuantiNetwork</span><span class="p">(</span><span class="n">Number</span><span class="p">[</span><span class="mf">1.0</span> <span class="mf">0.0</span> <span class="n">…</span> <span class="mf">0.0</span> <span class="mf">0.0</span><span class="p">;</span> <span class="mf">0.0</span> <span class="mf">0.0</span> <span class="n">…</span> <span class="mf">0.0</span> <span class="mf">0.0</span><span class="p">;</span> <span class="n">…</span> <span class="p">;</span> <span class="mf">0.0</span> <span class="mf">0.0</span> <span class="n">…</span> <span class="mf">0.0</span> <span class="mf">1.0</span><span class="p">;</span> <span class="mf">0.0</span> <span class="mf">0.0</span> <span class="n">…</span> <span class="mf">0.0</span> <span class="mf">0.0</span><span class="p">])</span>
+
+<span class="n">julia</span><span class="o">&gt;</span> <span class="n">plot_network</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="s">&quot;bluthgenDegree.png&quot;</span><span class="p">)</span>
+</pre></div>
+
+
+<p>This is what the result should look like:</p>
+<p><img alt="Bluthgen network, ordered by degree" src="../bluthgenDegree.png" /></p>
+<p><a id='Additional-information-1'></a></p>
+<h2 id="additional-information">Additional information</h2>
+<p><a id='EcologicalNetwork.plot_network' href='#EcologicalNetwork.plot_network'>#</a>
+<strong><code>EcologicalNetwork.plot_network</code></strong> &mdash; <em>Function</em>.</p>
+<p>Draw a network as a matrix to a png file. In the case of a quantitative or probabilistic network, nuances of grey indicate interaction strength.</p>
+<p>Arguments:</p>
+<ol>
+<li><code>N::EcoNetwork</code>, the network to draw</li>
+</ol>
+<p>Keywords:</p>
 <ul>
-<li><a href="./#EcologicalNetwork.Partition"><code>EcologicalNetwork.Partition</code></a></li>
-<li><a href="./#EcologicalNetwork.Partition-Tuple{EcologicalNetwork.EcoNetwork,Array{Int64,1}}"><code>EcologicalNetwork.Partition</code></a></li>
-<li><a href="./#EcologicalNetwork.Partition-Tuple{EcologicalNetwork.EcoNetwork}"><code>EcologicalNetwork.Partition</code></a></li>
+<li><code>order::Symbol</code>, either <code>:none</code> or <code>:degree</code> (default), the criteria to use to re-order nodes</li>
+<li><code>transform::Function</code>, the function to apply to every interaction (<code>x -&gt; x</code> by default, but can be <code>sqrt</code>, <code>log</code>, ...)</li>
+<li><code>file</code>, the name of the file (with the <code>.png</code> extension) to write to</li>
 </ul>
-<p><a id='Functions-1'></a></p>
-<h2 id="functions">Functions</h2>
-<p><a id='Types-1'></a></p>
-<h2 id="types">Types</h2>
-<p><a id='EcologicalNetwork.Partition' href='#EcologicalNetwork.Partition'>#</a>
-<strong><code>EcologicalNetwork.Partition</code></strong> &mdash; <em>Type</em>.</p>
-<p>Type to store a community partition</p>
-<p>This type has three elements:</p>
-<ul>
-<li><code>N</code>, the network</li>
-<li><code>L</code>, the array of (integers) module labels</li>
-<li><code>Q</code>, if needed, the modularity value</li>
-</ul>
-<p><a target='_blank' href='https://github.com/PoisotLab/EcologicalNetwork.jl/tree/f360b0ddccc4f0be98eb2072bfc48f84cecabf87/src/./modularity.jl#L1-L10' class='documenter-source'>source</a><br></p>
-<p><a id='EcologicalNetwork.Partition-Tuple{EcologicalNetwork.EcoNetwork,Array{Int64,1}}' href='#EcologicalNetwork.Partition-Tuple{EcologicalNetwork.EcoNetwork,Array{Int64,1}}'>#</a>
-<strong><code>EcologicalNetwork.Partition</code></strong> &mdash; <em>Method</em>.</p>
-<p>Constructor for the <code>Partition</code> type from an <code>EcoNetwork</code> object and an array of module id.</p>
-<p><a target='_blank' href='https://github.com/PoisotLab/EcologicalNetwork.jl/tree/f360b0ddccc4f0be98eb2072bfc48f84cecabf87/src/./modularity.jl#L25-L28' class='documenter-source'>source</a><br></p>
-<p><a id='EcologicalNetwork.Partition-Tuple{EcologicalNetwork.EcoNetwork}' href='#EcologicalNetwork.Partition-Tuple{EcologicalNetwork.EcoNetwork}'>#</a>
-<strong><code>EcologicalNetwork.Partition</code></strong> &mdash; <em>Method</em>.</p>
-<p>Constructor for the <code>Partition</code> type from a <code>EcoNetwork</code> object.</p>
-<p><a target='_blank' href='https://github.com/PoisotLab/EcologicalNetwork.jl/tree/f360b0ddccc4f0be98eb2072bfc48f84cecabf87/src/./modularity.jl#L17-L19' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/EcologicalNetwork.jl/tree/f360b0ddccc4f0be98eb2072bfc48f84cecabf87/src/./draw.jl#L1-L13' class='documenter-source'>source</a><br></p>
           <aside class="copyright" role="note">
             
             Documentation built with
@@ -408,7 +393,7 @@
   <nav class="pagination" aria-label="Footer">
     <div class="previous">
       
-        <a href="../../man/plotting/" title="Plotting">
+        <a href="../modularity/" title="Modularity">
           <span class="direction">
             Previous
           </span>
@@ -418,7 +403,7 @@
             </div>
             <div class="stretch">
               <div class="title">
-                Plotting
+                Modularity
               </div>
             </div>
           </div>
@@ -427,14 +412,14 @@
     </div>
     <div class="next">
       
-        <a href="../internals/" title="Internals">
+        <a href="../../lib/public/" title="Public">
           <span class="direction">
             Next
           </span>
           <div class="page">
             <div class="stretch">
               <div class="title">
-                Internals
+                Public
               </div>
             </div>
             <div class="button button-next" role="button" aria-label="Next">
