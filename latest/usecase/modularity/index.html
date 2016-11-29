@@ -341,7 +341,7 @@
 
 <span class="n">julia</span><span class="o">&gt;</span> <span class="c"># We can now start a repeated number of attempts to find the best partition. If</span>
        <span class="c"># julia is started in parallel, this will use all assigned CPUs.</span>
-       <span class="n">M</span> <span class="o">=</span> <span class="n">modularity</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">L</span><span class="p">,</span> <span class="n">replicates</span><span class="o">=</span><span class="mi">30</span><span class="p">);</span>
+       <span class="n">M</span> <span class="o">=</span> <span class="n">modularity</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">L</span><span class="p">,</span> <span class="n">replicates</span><span class="o">=</span><span class="mi">100</span><span class="p">);</span>
 
 <span class="n">INFO</span><span class="p">:</span> <span class="n">Cloning</span> <span class="n">cache</span> <span class="n">of</span> <span class="n">UnicodePlots</span> <span class="n">from</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">Evizero</span><span class="o">/</span><span class="n">UnicodePlots</span><span class="o">.</span><span class="n">jl</span><span class="o">.</span><span class="n">git</span>
 <span class="n">INFO</span><span class="p">:</span> <span class="n">Installing</span> <span class="n">UnicodePlots</span> <span class="n">v0</span><span class="o">.</span><span class="mf">2.2</span>
@@ -353,24 +353,25 @@
 
 <span class="n">julia</span><span class="o">&gt;</span> <span class="c"># Note the &quot;dot&quot; notation here: we apply Q to every elements of M</span>
        <span class="n">histogram</span><span class="p">(</span><span class="n">Q</span><span class="o">.</span><span class="p">(</span><span class="n">M</span><span class="p">),</span> <span class="n">symb</span><span class="o">=</span><span class="s">&quot;-&quot;</span><span class="p">)</span>
-              <span class="n">┌────────────────────────────────────────┐</span>
-   <span class="p">(</span><span class="mf">0.35</span><span class="p">,</span><span class="mf">0.4</span><span class="p">]</span> <span class="n">│</span><span class="o">--</span> <span class="mi">1</span>                                    <span class="n">│</span>
-   <span class="p">(</span><span class="mf">0.4</span><span class="p">,</span><span class="mf">0.45</span><span class="p">]</span> <span class="n">│</span> <span class="mi">0</span>                                      <span class="n">│</span>
-   <span class="p">(</span><span class="mf">0.45</span><span class="p">,</span><span class="mf">0.5</span><span class="p">]</span> <span class="n">│</span><span class="o">------------------------------------</span> <span class="mi">22</span> <span class="n">│</span>
-   <span class="p">(</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">0.55</span><span class="p">]</span> <span class="n">│</span><span class="o">-----------</span> <span class="mi">7</span>                           <span class="n">│</span>
-              <span class="n">└────────────────────────────────────────┘</span>
+               <span class="n">┌────────────────────────────────────────┐</span>
+   <span class="p">(</span><span class="mf">0.42</span><span class="p">,</span><span class="mf">0.44</span><span class="p">]</span> <span class="n">│</span><span class="o">--</span> <span class="mi">3</span>                                    <span class="n">│</span>
+   <span class="p">(</span><span class="mf">0.44</span><span class="p">,</span><span class="mf">0.46</span><span class="p">]</span> <span class="n">│</span><span class="o">-</span> <span class="mi">2</span>                                     <span class="n">│</span>
+   <span class="p">(</span><span class="mf">0.46</span><span class="p">,</span><span class="mf">0.48</span><span class="p">]</span> <span class="n">│</span><span class="o">-----</span> <span class="mi">7</span>                                 <span class="n">│</span>
+    <span class="p">(</span><span class="mf">0.48</span><span class="p">,</span><span class="mf">0.5</span><span class="p">]</span> <span class="n">│</span><span class="o">--------------------</span> <span class="mi">29</span>                 <span class="n">│</span>
+    <span class="p">(</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">0.52</span><span class="p">]</span> <span class="n">│</span><span class="o">------------------------------------</span> <span class="mi">51</span> <span class="n">│</span>
+   <span class="p">(</span><span class="mf">0.52</span><span class="p">,</span><span class="mf">0.54</span><span class="p">]</span> <span class="n">│</span><span class="o">------</span> <span class="mi">8</span>                                <span class="n">│</span>
+               <span class="n">└────────────────────────────────────────┘</span>
 
 <span class="n">julia</span><span class="o">&gt;</span> <span class="c"># Finally, we can get the best partition</span>
        <span class="n">b_part</span> <span class="o">=</span> <span class="n">best_partition</span><span class="p">(</span><span class="n">M</span><span class="p">);</span>
-<span class="n">ERROR</span><span class="p">:</span> <span class="n">UndefVarError</span><span class="p">:</span> <span class="n">M</span> <span class="n">not</span> <span class="n">defined</span>
 
+<span class="n">Q</span><span class="p">:</span> <span class="mf">0.53</span> <span class="o">|</span><span class="n">c</span><span class="o">|</span><span class="p">:</span> <span class="mi">18</span>
 <span class="n">julia</span><span class="o">&gt;</span> <span class="c"># And print its modularity and number of modules</span>
        <span class="n">println</span><span class="p">(</span><span class="s">&quot;Q: &quot;</span><span class="p">,</span>
                <span class="n">round</span><span class="p">(</span><span class="n">b_part</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">Q</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span>
                <span class="s">&quot; |c|: &quot;</span><span class="p">,</span>
                <span class="n">length</span><span class="p">(</span><span class="n">unique</span><span class="p">(</span><span class="n">b_part</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">L</span><span class="p">))</span>
                <span class="p">)</span>
-<span class="n">ERROR</span><span class="p">:</span> <span class="n">UndefVarError</span><span class="p">:</span> <span class="n">b_part</span> <span class="n">not</span> <span class="n">defined</span>
 </pre></div>
           <aside class="copyright" role="note">
             
