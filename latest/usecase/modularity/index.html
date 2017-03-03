@@ -36,8 +36,8 @@
         
         
         
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT Sans:300,400,400i,700|PT+Mono">
-        <style>body,input{font-family:"PT Sans","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"PT Mono","Courier New",Courier,monospace}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
       
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
@@ -455,18 +455,20 @@
 <span class="n">julia</span><span class="o">&gt;</span> <span class="c"># Note the &quot;dot&quot; notation here: we apply Q to every elements of M</span>
        <span class="n">histogram</span><span class="p">(</span><span class="n">Q</span><span class="o">.</span><span class="p">(</span><span class="n">M</span><span class="p">),</span> <span class="n">symb</span><span class="o">=</span><span class="s">&quot;-&quot;</span><span class="p">)</span>
                <span class="n">┌────────────────────────────────────────┐</span>
-   <span class="p">(</span><span class="mf">0.42</span><span class="p">,</span><span class="mf">0.44</span><span class="p">]</span> <span class="n">│</span><span class="o">--</span> <span class="mi">2</span>                                    <span class="n">│</span>
-   <span class="p">(</span><span class="mf">0.44</span><span class="p">,</span><span class="mf">0.46</span><span class="p">]</span> <span class="n">│</span><span class="o">-</span> <span class="mi">1</span>                                     <span class="n">│</span>
-   <span class="p">(</span><span class="mf">0.46</span><span class="p">,</span><span class="mf">0.48</span><span class="p">]</span> <span class="n">│</span><span class="o">-------</span> <span class="mi">8</span>                               <span class="n">│</span>
-    <span class="p">(</span><span class="mf">0.48</span><span class="p">,</span><span class="mf">0.5</span><span class="p">]</span> <span class="n">│</span><span class="o">------------------</span> <span class="mi">22</span>                   <span class="n">│</span>
-    <span class="p">(</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">0.52</span><span class="p">]</span> <span class="n">│</span><span class="o">------------------------------------</span> <span class="mi">44</span> <span class="n">│</span>
-   <span class="p">(</span><span class="mf">0.52</span><span class="p">,</span><span class="mf">0.54</span><span class="p">]</span> <span class="n">│</span><span class="o">-------------------</span> <span class="mi">23</span>                  <span class="n">│</span>
+    <span class="p">(</span><span class="mf">0.4</span><span class="p">,</span><span class="mf">0.42</span><span class="p">]</span> <span class="n">│</span><span class="o">-</span> <span class="mi">1</span>                                     <span class="n">│</span>
+   <span class="p">(</span><span class="mf">0.42</span><span class="p">,</span><span class="mf">0.44</span><span class="p">]</span> <span class="n">│</span> <span class="mi">0</span>                                      <span class="n">│</span>
+   <span class="p">(</span><span class="mf">0.44</span><span class="p">,</span><span class="mf">0.46</span><span class="p">]</span> <span class="n">│</span><span class="o">--</span> <span class="mi">2</span>                                    <span class="n">│</span>
+   <span class="p">(</span><span class="mf">0.46</span><span class="p">,</span><span class="mf">0.48</span><span class="p">]</span> <span class="n">│</span><span class="o">------</span> <span class="mi">6</span>                                <span class="n">│</span>
+    <span class="p">(</span><span class="mf">0.48</span><span class="p">,</span><span class="mf">0.5</span><span class="p">]</span> <span class="n">│</span><span class="o">------------------------------------</span> <span class="mi">34</span> <span class="n">│</span>
+    <span class="p">(</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">0.52</span><span class="p">]</span> <span class="n">│</span><span class="o">------------------------------------</span> <span class="mi">34</span> <span class="n">│</span>
+   <span class="p">(</span><span class="mf">0.52</span><span class="p">,</span><span class="mf">0.54</span><span class="p">]</span> <span class="n">│</span><span class="o">-----------------------</span> <span class="mi">22</span>              <span class="n">│</span>
+   <span class="p">(</span><span class="mf">0.54</span><span class="p">,</span><span class="mf">0.56</span><span class="p">]</span> <span class="n">│</span><span class="o">-</span> <span class="mi">1</span>                                     <span class="n">│</span>
                <span class="n">└────────────────────────────────────────┘</span>
 
 <span class="n">julia</span><span class="o">&gt;</span> <span class="c"># Finally, we can get the best partition</span>
        <span class="n">b_part</span> <span class="o">=</span> <span class="n">best_partition</span><span class="p">(</span><span class="n">M</span><span class="p">);</span>
 
-<span class="n">Q</span><span class="o">:</span> <span class="mf">0.54</span> <span class="o">|</span><span class="n">c</span><span class="o">|:</span> <span class="mi">22</span>
+<span class="n">Q</span><span class="o">:</span> <span class="mf">0.54</span> <span class="o">|</span><span class="n">c</span><span class="o">|:</span> <span class="mi">16</span>
 <span class="n">julia</span><span class="o">&gt;</span> <span class="c"># And print its modularity and number of modules</span>
        <span class="n">println</span><span class="p">(</span><span class="s">&quot;Q: &quot;</span><span class="p">,</span>
                <span class="n">round</span><span class="p">(</span><span class="n">b_part</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">Q</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span>
