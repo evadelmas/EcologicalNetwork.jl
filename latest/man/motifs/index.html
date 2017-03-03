@@ -19,7 +19,7 @@
     
     
       
-        <title>Plotting - EcologicalNetwork.jl</title>
+        <title>Motifs - EcologicalNetwork.jl</title>
       
     
     
@@ -87,7 +87,7 @@
                 </span>
               
             
-            Plotting
+            Motifs
           
         </span>
       </div>
@@ -317,18 +317,6 @@
           
           
 
-
-  <li class="md-nav__item">
-    <a href="../motifs/" title="Motifs" class="md-nav__link">
-      Motifs
-    </a>
-  </li>
-
-        
-          
-          
-          
-
   
 
 
@@ -340,11 +328,11 @@
     
     
       <label class="md-nav__link md-nav__link--active" for="toc">
-        Plotting
+        Motifs
       </label>
     
-    <a href="./" title="Plotting" class="md-nav__link md-nav__link--active">
-      Plotting
+    <a href="./" title="Motifs" class="md-nav__link md-nav__link--active">
+      Motifs
     </a>
     
       
@@ -358,15 +346,22 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#plotting-modular-networks" title="Plotting modular networks" class="md-nav__link">
-    Plotting modular networks
+  <a href="#how-it-works" title="How it works" class="md-nav__link">
+    How it works
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#additional-information" title="Additional information" class="md-nav__link">
-    Additional information
+  <a href="#caveats" title="Caveats" class="md-nav__link">
+    Caveats
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usual-motifs" title="Usual motifs" class="md-nav__link">
+    Usual motifs
   </a>
   
 </li>
@@ -375,6 +370,18 @@
   
 </nav>
     
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../plotting/" title="Plotting" class="md-nav__link">
+      Plotting
+    </a>
   </li>
 
         
@@ -452,15 +459,22 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#plotting-modular-networks" title="Plotting modular networks" class="md-nav__link">
-    Plotting modular networks
+  <a href="#how-it-works" title="How it works" class="md-nav__link">
+    How it works
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#additional-information" title="Additional information" class="md-nav__link">
-    Additional information
+  <a href="#caveats" title="Caveats" class="md-nav__link">
+    Caveats
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usual-motifs" title="Usual motifs" class="md-nav__link">
+    Usual motifs
   </a>
   
 </li>
@@ -476,56 +490,33 @@
           <div class="md-content">
             <article class="md-content__inner md-typeset">
                
-                 <a href="https://github.com/PoisotLab/EcologicalNetwork.jl/edit/master/docs/man/plotting.md" title="Edit this page" class="md-icon md-content__edit">edit</a>
+                 <a href="https://github.com/PoisotLab/EcologicalNetwork.jl/edit/master/docs/man/motifs.md" title="Edit this page" class="md-icon md-content__edit">edit</a>
                
               
                 
-                <p><a id='Plotting-1'></a></p>
-<h1 id="plotting">Plotting</h1>
-<p>Plotting is done with the <a href="./#EcologicalNetwork.plot_network"><code>plot_network</code></a> function.</p>
-<div class="codehilite"><pre><span></span><span class="n">julia</span><span class="o">&gt;</span> <span class="k">using</span> <span class="n">EcologicalNetwork</span>
-
-<span class="n">julia</span><span class="o">&gt;</span> <span class="n">N</span> <span class="o">=</span> <span class="n">bluthgen</span><span class="p">()</span>
-<span class="n">EcologicalNetwork</span><span class="o">.</span><span class="n">BipartiteQuantiNetwork</span><span class="p">(</span><span class="kt">Number</span><span class="p">[</span><span class="mf">1.0</span> <span class="mf">0.0</span> <span class="n">…</span> <span class="mf">0.0</span> <span class="mf">0.0</span><span class="p">;</span> <span class="mf">0.0</span> <span class="mf">0.0</span> <span class="n">…</span> <span class="mf">0.0</span> <span class="mf">0.0</span><span class="p">;</span> <span class="n">…</span> <span class="p">;</span> <span class="mf">0.0</span> <span class="mf">0.0</span> <span class="n">…</span> <span class="mf">0.0</span> <span class="mf">1.0</span><span class="p">;</span> <span class="mf">0.0</span> <span class="mf">0.0</span> <span class="n">…</span> <span class="mf">0.0</span> <span class="mf">0.0</span><span class="p">])</span>
-
-<span class="n">julia</span><span class="o">&gt;</span> <span class="n">plot_network</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="s">&quot;bluthgenDegree.png&quot;</span><span class="p">)</span>
+                <p><a id='Counting-motifs-1'></a></p>
+<h1 id="counting-motifs">Counting motifs</h1>
+<p>There are a number of ways to...</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The enumeration of motifs can take a little while. It depends on the number of nodes in the networks, and in the number of nodes in the motif. It may be wise, in case you want to count several motifs on a single network, to use Julia's parallel computing abilities to speed things up.</p>
+</div>
+<p><a id='How-it-works-1'></a></p>
+<h2 id="how-it-works">How it works</h2>
+<p>Internally, the code to count motifs is <em>Not Elegant</em>™. Every motif is represented by its adjacency matrix, as a <code>DeterministicNetwork</code> object. Then <em>all</em> possible induced sub-graphs with the same number of nodes (at either level if this is a <code>Bipartite</code>) are extracted, and matched against all <em>unique</em> possible permutations of the motif. If there is a match, then this induced subgraph is an instance of this motif.</p>
+<div class="codehilite"><pre><span></span>motifs
 </pre></div>
 
 
-<p>This is what the result should look like:</p>
-<p><img alt="Bluthgen network, ordered by degree" src="../bluthgenDegree.png" /></p>
-<p><a id='Plotting-modular-networks-1'></a></p>
-<h2 id="plotting-modular-networks">Plotting modular networks</h2>
-<p>Plotting modular networks is a special case, for which the <code>plot_network</code> function accepts an additional argument (a network <a href="../../lib/public/#EcologicalNetwork.Partition"><code>Partition</code></a>).</p>
-<p><a id='Additional-information-1'></a></p>
-<h2 id="additional-information">Additional information</h2>
-<p><a id='EcologicalNetwork.plot_network' href='#EcologicalNetwork.plot_network'>#</a>
-<strong><code>EcologicalNetwork.plot_network</code></strong> &mdash; <em>Function</em>.</p>
-<p>Draw a network as a matrix to a png file. In the case of a quantitative or probabilistic network, nuances of grey indicate interaction strength.</p>
-<p>Arguments:</p>
-<ol>
-<li><code>N::EcoNetwork</code>, the network to draw</li>
-</ol>
-<p>Keywords:</p>
-<ul>
-<li><code>order::Symbol</code>, either <code>:none</code> or <code>:degree</code> (default), the criteria to use to re-order nodes</li>
-<li><code>transform::Function</code>, the function to apply to every interaction (<code>x -&gt; x</code> by default, but can be <code>sqrt</code>, <code>log</code>, ...)</li>
-<li><code>file</code>, the name of the file (with the <code>.png</code> extension) to write to</li>
-</ul>
-<p><a target='_blank' href='https://github.com/PoisotLab/EcologicalNetwork.jl/tree/f55ca6bfbd3f3c710aa8114a2c6226b61b8abc58/src/./draw.jl#L1-L13' class='documenter-source'>source</a><br></p>
-<p>Draw a network as a matrix to a png file, and respects the modules of every nodes. In the case of a quantitative or probabilistic network, nuances of grey indicate interaction strength.</p>
-<p>Arguments:</p>
-<ol>
-<li><code>N::EcoNetwork</code>, the network to draw</li>
-<li><code>P::Partition</code>, the partition of the network</li>
-</ol>
-<p>Keywords:</p>
-<ul>
-<li><code>order::Symbol</code>, either <code>:none</code> or <code>:degree</code> (default), the criteria to use to re-order nodes within modules</li>
-<li><code>transform::Function</code>, the function to apply to every interaction (<code>x -&gt; x</code> by default, but can be <code>sqrt</code>, <code>log</code>, ...)</li>
-<li><code>file</code>, the name of the file (with the <code>.png</code> extension) to write to</li>
-</ul>
-<p><a target='_blank' href='https://github.com/PoisotLab/EcologicalNetwork.jl/tree/f55ca6bfbd3f3c710aa8114a2c6226b61b8abc58/src/./draw.jl#L45-L59' class='documenter-source'>source</a><br></p>
+<p><a id='Caveats-1'></a></p>
+<h2 id="caveats">Caveats</h2>
+<p>The motifs are counted in a way that ignore self-links. This should not be an issue most of the time, and was also the ways this was done in most publications counting motifs in ecological networks.</p>
+<p><a id='Usual-motifs-1'></a></p>
+<h2 id="usual-motifs">Usual motifs</h2>
+<p><a id='EcologicalNetwork.unipartitemotifs' href='#EcologicalNetwork.unipartitemotifs'>#</a>
+<strong><code>EcologicalNetwork.unipartitemotifs</code></strong> &mdash; <em>Function</em>.</p>
+<p>Returns a dictionary of the usual unipartite motifs. The names of the motifs come from Stouffer et al. (2007) – especially Fig. 1, available online at <a href="http://rspb.royalsocietypublishing.org/content/274/1621/1931.figures-only">http://rspb.royalsocietypublishing.org/content/274/1621/1931.figures-only</a></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/EcologicalNetwork.jl/tree/f55ca6bfbd3f3c710aa8114a2c6226b61b8abc58/src/./motifs.jl#L1-L5' class='documenter-source'>source</a><br></p>
               
               
             </article>
@@ -539,7 +530,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../motifs/" title="Motifs" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../modularity/" title="Modularity" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -548,19 +539,19 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Motifs
+                Modularity
               </span>
             </div>
           </a>
         
         
-          <a href="../../lib/public/" title="Public" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../plotting/" title="Plotting" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Public
+                Plotting
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
