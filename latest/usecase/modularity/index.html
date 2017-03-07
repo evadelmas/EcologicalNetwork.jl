@@ -432,50 +432,41 @@
                 <p><a id='Measuring-the-modularity-1'></a></p>
 <h1 id="measuring-the-modularity">Measuring the modularity</h1>
 <p>In this example, we will use <a href="../../lib/internals/#EcologicalNetwork.label_propagation-Tuple{EcologicalNetwork.EcoNetwork,Array{Int64,1}}"><code>label_propagation</code></a> to optimize the modularity of a network. The data are from the <a href="../../man/data/#EcologicalNetwork.mcmullen"><code>mcmullen</code></a> dataset.</p>
-<div class="codehilite"><pre><span></span><span class="n">julia</span><span class="o">&gt;</span> <span class="k">using</span> <span class="n">EcologicalNetwork</span>
+<div class="codehilite"><pre><span></span><span class="k">using</span> <span class="n">EcologicalNetwork</span>
 
-<span class="n">julia</span><span class="o">&gt;</span> <span class="c"># Get the data in an object</span>
-       <span class="n">N</span> <span class="o">=</span> <span class="n">mcmullen</span><span class="p">();</span>
+<span class="c"># Get the data in an object</span>
+<span class="n">N</span> <span class="o">=</span> <span class="n">mcmullen</span><span class="p">();</span>
 
-<span class="n">julia</span><span class="o">&gt;</span> <span class="c"># We will start with a random assignment of species within modules</span>
-       <span class="n">L</span> <span class="o">=</span> <span class="n">rand</span><span class="p">(</span><span class="mi">1</span><span class="o">:</span><span class="n">richness</span><span class="p">(</span><span class="n">N</span><span class="p">),</span> <span class="n">richness</span><span class="p">(</span><span class="n">N</span><span class="p">));</span>
+<span class="c"># We will start with a random assignment of species within modules</span>
+<span class="n">L</span> <span class="o">=</span> <span class="n">rand</span><span class="p">(</span><span class="mi">1</span><span class="o">:</span><span class="n">richness</span><span class="p">(</span><span class="n">N</span><span class="p">),</span> <span class="n">richness</span><span class="p">(</span><span class="n">N</span><span class="p">));</span>
 
-<span class="n">julia</span><span class="o">&gt;</span> <span class="c"># We can now start a repeated number of attempts to find the best partition. If</span>
-       <span class="c"># julia is started in parallel, this will use all assigned CPUs.</span>
-       <span class="n">M</span> <span class="o">=</span> <span class="n">modularity</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">L</span><span class="p">,</span> <span class="n">replicates</span><span class="o">=</span><span class="mi">100</span><span class="p">);</span>
+<span class="c"># We can now start a repeated number of attempts to find the best partition. If</span>
+<span class="c"># julia is started in parallel, this will use all assigned CPUs.</span>
+<span class="n">M</span> <span class="o">=</span> <span class="n">modularity</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">L</span><span class="p">,</span> <span class="n">replicates</span><span class="o">=</span><span class="mi">100</span><span class="p">);</span>
 
-<span class="n">INFO</span><span class="o">:</span> <span class="n">Cloning</span> <span class="n">cache</span> <span class="n">of</span> <span class="n">UnicodePlots</span> <span class="n">from</span> <span class="n">https</span><span class="o">://</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">Evizero</span><span class="o">/</span><span class="n">UnicodePlots</span><span class="o">.</span><span class="n">jl</span><span class="o">.</span><span class="n">git</span>
+<span class="c"># We can look at the distribution of the Q, using the `UnicodePlots` package</span>
+<span class="n">Pkg</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s">&quot;UnicodePlots&quot;</span><span class="p">)</span>
+<span class="k">using</span> <span class="n">UnicodePlots</span>
+
+<span class="c"># Note the &quot;dot&quot; notation here: we apply Q to every elements of M</span>
+<span class="n">histogram</span><span class="p">(</span><span class="n">Q</span><span class="o">.</span><span class="p">(</span><span class="n">M</span><span class="p">),</span> <span class="n">symb</span><span class="o">=</span><span class="s">&quot;-&quot;</span><span class="p">)</span>
+
+<span class="c"># Finally, we can get the best partition</span>
+<span class="n">b_part</span> <span class="o">=</span> <span class="n">best_partition</span><span class="p">(</span><span class="n">M</span><span class="p">);</span>
+
+<span class="c"># And print its modularity and number of modules</span>
+<span class="n">println</span><span class="p">(</span><span class="s">&quot;Q: &quot;</span><span class="p">,</span>
+        <span class="n">round</span><span class="p">(</span><span class="n">b_part</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">Q</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span>
+        <span class="s">&quot; |c|: &quot;</span><span class="p">,</span>
+        <span class="n">length</span><span class="p">(</span><span class="n">unique</span><span class="p">(</span><span class="n">b_part</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">L</span><span class="p">))</span>
+        <span class="p">)</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="n">INFO</span><span class="o">:</span> <span class="n">Cloning</span> <span class="n">cache</span> <span class="n">of</span> <span class="n">UnicodePlots</span> <span class="n">from</span> <span class="n">https</span><span class="o">://</span><span class="n">github</span><span class="o">.</span><span class="na">com</span><span class="sr">/Evizero/</span><span class="n">UnicodePlots</span><span class="o">.</span><span class="na">jl</span><span class="o">.</span><span class="na">git</span>
 <span class="n">INFO</span><span class="o">:</span> <span class="n">Installing</span> <span class="n">UnicodePlots</span> <span class="n">v0</span><span class="o">.</span><span class="mf">2.3</span>
 <span class="n">INFO</span><span class="o">:</span> <span class="n">Package</span> <span class="n">database</span> <span class="n">updated</span>
-<span class="n">julia</span><span class="o">&gt;</span> <span class="c"># We can look at the distribution of the Q, using the `UnicodePlots` package</span>
-       <span class="n">Pkg</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s">&quot;UnicodePlots&quot;</span><span class="p">)</span>
-
-<span class="n">julia</span><span class="o">&gt;</span> <span class="k">using</span> <span class="n">UnicodePlots</span>
-
-<span class="n">julia</span><span class="o">&gt;</span> <span class="c"># Note the &quot;dot&quot; notation here: we apply Q to every elements of M</span>
-       <span class="n">histogram</span><span class="p">(</span><span class="n">Q</span><span class="o">.</span><span class="p">(</span><span class="n">M</span><span class="p">),</span> <span class="n">symb</span><span class="o">=</span><span class="s">&quot;-&quot;</span><span class="p">)</span>
-               <span class="n">┌────────────────────────────────────────┐</span>
-    <span class="p">(</span><span class="mf">0.38</span><span class="p">,</span><span class="mf">0.4</span><span class="p">]</span> <span class="n">│</span><span class="o">-</span> <span class="mi">1</span>                                     <span class="n">│</span>
-    <span class="p">(</span><span class="mf">0.4</span><span class="p">,</span><span class="mf">0.42</span><span class="p">]</span> <span class="n">│</span><span class="o">--</span> <span class="mi">3</span>                                    <span class="n">│</span>
-   <span class="p">(</span><span class="mf">0.42</span><span class="p">,</span><span class="mf">0.44</span><span class="p">]</span> <span class="n">│</span><span class="o">--</span> <span class="mi">2</span>                                    <span class="n">│</span>
-   <span class="p">(</span><span class="mf">0.44</span><span class="p">,</span><span class="mf">0.46</span><span class="p">]</span> <span class="n">│</span><span class="o">--</span> <span class="mi">3</span>                                    <span class="n">│</span>
-   <span class="p">(</span><span class="mf">0.46</span><span class="p">,</span><span class="mf">0.48</span><span class="p">]</span> <span class="n">│</span><span class="o">---------</span> <span class="mi">11</span>                            <span class="n">│</span>
-    <span class="p">(</span><span class="mf">0.48</span><span class="p">,</span><span class="mf">0.5</span><span class="p">]</span> <span class="n">│</span><span class="o">---------------------</span> <span class="mi">26</span>                <span class="n">│</span>
-    <span class="p">(</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">0.52</span><span class="p">]</span> <span class="n">│</span><span class="o">------------------------------------</span> <span class="mi">44</span> <span class="n">│</span>
-   <span class="p">(</span><span class="mf">0.52</span><span class="p">,</span><span class="mf">0.54</span><span class="p">]</span> <span class="n">│</span><span class="o">-------</span> <span class="mi">9</span>                               <span class="n">│</span>
-   <span class="p">(</span><span class="mf">0.54</span><span class="p">,</span><span class="mf">0.56</span><span class="p">]</span> <span class="n">│</span><span class="o">-</span> <span class="mi">1</span>                                     <span class="n">│</span>
-               <span class="n">└────────────────────────────────────────┘</span>
-
-<span class="n">julia</span><span class="o">&gt;</span> <span class="c"># Finally, we can get the best partition</span>
-       <span class="n">b_part</span> <span class="o">=</span> <span class="n">best_partition</span><span class="p">(</span><span class="n">M</span><span class="p">);</span>
-
-<span class="n">Q</span><span class="o">:</span> <span class="mf">0.54</span> <span class="o">|</span><span class="n">c</span><span class="o">|:</span> <span class="mi">18</span>
-<span class="n">julia</span><span class="o">&gt;</span> <span class="c"># And print its modularity and number of modules</span>
-       <span class="n">println</span><span class="p">(</span><span class="s">&quot;Q: &quot;</span><span class="p">,</span>
-               <span class="n">round</span><span class="p">(</span><span class="n">b_part</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">Q</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span>
-               <span class="s">&quot; |c|: &quot;</span><span class="p">,</span>
-               <span class="n">length</span><span class="p">(</span><span class="n">unique</span><span class="p">(</span><span class="n">b_part</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">L</span><span class="p">))</span>
-               <span class="p">)</span>
+<span class="n">Q</span><span class="o">:</span> <span class="mf">0.54</span> <span class="o">|</span><span class="n">c</span><span class="o">|:</span> <span class="mi">19</span>
 </pre></div>
               
               
