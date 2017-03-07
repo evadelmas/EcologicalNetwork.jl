@@ -448,13 +448,44 @@
 
 <span class="c"># Get the data in an object</span>
 <span class="n">N</span> <span class="o">=</span> <span class="n">mcmullen</span><span class="p">();</span>
+</pre></div>
 
-<span class="c"># We will start with a random assignment of species within modules</span>
-<span class="n">L</span> <span class="o">=</span> <span class="n">rand</span><span class="p">(</span><span class="mi">1</span><span class="o">:</span><span class="n">richness</span><span class="p">(</span><span class="n">N</span><span class="p">),</span> <span class="n">richness</span><span class="p">(</span><span class="n">N</span><span class="p">));</span>
 
-<span class="c"># We can now start a repeated number of attempts to find the best partition. If</span>
-<span class="c"># julia is started in parallel, this will use all assigned CPUs.</span>
-<span class="n">M</span> <span class="o">=</span> <span class="n">modularity</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">L</span><span class="p">,</span> <span class="n">replicates</span><span class="o">=</span><span class="mi">100</span><span class="p">);</span>
+<div class="codehilite"><pre><span></span>EcologicalNetwork.BipartiteNetwork(Bool[false false … false false; false false … false false; … ; true false … false false; true true … true true])
+</pre></div>
+
+
+<p>The next step is to generate starting communities for every species. We will assign species to random initial modules.</p>
+<div class="codehilite"><pre><span></span><span class="n">L</span> <span class="o">=</span> <span class="n">rand</span><span class="p">(</span><span class="mi">1</span><span class="o">:</span><span class="n">richness</span><span class="p">(</span><span class="n">N</span><span class="p">),</span> <span class="n">richness</span><span class="p">(</span><span class="n">N</span><span class="p">));</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span>159-element Array{Int64,1}:
+ 139
+  93
+  47
+ 119
+  24
+  87
+ 129
+  89
+ 115
+ 119
+   ⋮
+ 125
+ 157
+ 151
+ 133
+ 114
+  22
+  89
+ 147
+  73
+</pre></div>
+
+
+<p>We can now start a repeated number of attempts to find the best partition. If <code>julia</code> is started in parallel, this will use all assigned CPUs.</p>
+<div class="codehilite"><pre><span></span><span class="n">M</span> <span class="o">=</span> <span class="n">modularity</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">L</span><span class="p">,</span> <span class="n">replicates</span><span class="o">=</span><span class="mi">100</span><span class="p">);</span>
 
 <span class="c"># Finally, we can get the best partition</span>
 <span class="n">b_part</span> <span class="o">=</span> <span class="n">best_partition</span><span class="p">(</span><span class="n">M</span><span class="p">);</span>
@@ -468,7 +499,7 @@
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="n">Q</span><span class="o">:</span> <span class="mf">0.54</span> <span class="o">|</span><span class="n">c</span><span class="o">|:</span> <span class="mi">20</span>
+<div class="codehilite"><pre><span></span><span class="n">Q</span><span class="o">:</span> <span class="mf">0.55</span> <span class="o">|</span><span class="n">c</span><span class="o">|:</span> <span class="mi">18</span>
 </pre></div>
               
               
