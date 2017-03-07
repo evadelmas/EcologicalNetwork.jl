@@ -50,7 +50,7 @@
   
   
   
-    <body data-md-color-primary="blue-grey" data-md-color-accent="orange">
+    <body data-md-color-primary="green" data-md-color-accent="deep-orange">
   
     <svg class="md-svg">
       <defs>
@@ -471,28 +471,23 @@
 </pre></div>
 
 
-<p>The <code>m</code> object has 13 different motifs, named as in [Stouffer <em>et al.</em> (2007)][sto]. The function <a href="../../man/motifs/#EcologicalNetwork.unipartitemotifs"><code>unipartitemotifs</code></a> will generate them when needed. Let's look at the <code>m[:S1]</code> motif:</p>
-<p>```@example</p>
-<p>plot_network(m[:S1], file="motifs1.png")</p>
-<div class="codehilite"><pre><span></span><span class="o">!</span><span class="p">[</span><span class="n">motif</span> <span class="n">s1</span><span class="p">][</span><span class="n">ms1</span><span class="p">]</span>
+<p>The <code>m</code> object has 13 different motifs, named as in <a href="http://rspb.royalsocietypublishing.org/content/274/1621/1931">Stouffer <em>et al.</em> (2007)</a>. The function <a href="../../man/motifs/#EcologicalNetwork.unipartitemotifs"><code>unipartitemotifs</code></a> will generate them when needed. Let's look at the <code>m[:S1]</code> motif:</p>
+<div class="codehilite"><pre><span></span><span class="n">plot_network</span><span class="p">(</span><span class="n">m</span><span class="p">[</span><span class="o">:</span><span class="n">S1</span><span class="p">],</span> <span class="n">file</span><span class="o">=</span><span class="s">&quot;motifs1.png&quot;</span><span class="p">)</span>
+</pre></div>
 
 
-<span class="p">[</span><span class="n">ms1</span><span class="p">]</span><span class="o">:</span> <span class="n">motifs1</span><span class="p">.</span><span class="n">png</span>
+<p><img alt="motif s1" src="../motifs1.png" /></p>
+<p>The function to count motifs is called <a href="../../lib/internals/#EcologicalNetwork.motif-Tuple{EcologicalNetwork.EcoNetwork,Union{EcologicalNetwork.BipartiteNetwork,EcologicalNetwork.UnipartiteNetwork}}"><code>motif</code></a>, and returns a count: how many triplets of species are in a given conformation. For example:</p>
+<div class="codehilite"><pre><span></span><span class="n">s1</span> <span class="o">=</span> <span class="n">motif</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">m</span><span class="p">[</span><span class="o">:</span><span class="n">S1</span><span class="p">])</span>
+</pre></div>
 
 
-<span class="p">[</span><span class="n">sto</span><span class="p">]</span><span class="o">:</span> <span class="nl">http</span><span class="p">:</span><span class="c1">//rspb.royalsocietypublishing.org/content/274/1621/1931</span>
-
-
-<span class="n">The</span> <span class="n">function</span> <span class="n">to</span> <span class="n">count</span> <span class="n">motifs</span> <span class="n">is</span> <span class="n">called</span> <span class="p">[</span><span class="err">`</span><span class="n">motif</span><span class="err">`</span><span class="p">](..</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">internals</span><span class="p">.</span><span class="n">md</span><span class="err">#</span><span class="n">EcologicalNetwork</span><span class="p">.</span><span class="n">motif</span><span class="o">-</span><span class="n">Tuple</span><span class="p">{</span><span class="n">EcologicalNetwork</span><span class="p">.</span><span class="n">EcoNetwork</span><span class="p">,</span><span class="n">Union</span><span class="p">{</span><span class="n">EcologicalNetwork</span><span class="p">.</span><span class="n">BipartiteNetwork</span><span class="p">,</span><span class="n">EcologicalNetwork</span><span class="p">.</span><span class="n">UnipartiteNetwork</span><span class="p">}}),</span> <span class="n">and</span> <span class="n">returns</span> <span class="n">a</span> <span class="nl">count</span><span class="p">:</span> <span class="n">how</span> <span class="n">many</span> <span class="n">triplets</span> <span class="n">of</span> <span class="n">species</span> <span class="n">are</span> <span class="k">in</span> <span class="n">a</span> <span class="n">given</span> <span class="n">conformation</span><span class="p">.</span> <span class="n">For</span> <span class="nl">example</span><span class="p">:</span>
-
-
-<span class="err">```</span><span class="p">@</span><span class="n">example</span>
-<span class="n">s1</span> <span class="o">=</span> <span class="n">motif</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">m</span><span class="p">[</span><span class="o">:</span><span class="n">S1</span><span class="p">])</span>
+<div class="codehilite"><pre><span></span>1035.0
 </pre></div>
 
 
 <p>We may be interested in knowing whether this motif is over or under-represented in the empirical network, compared to a random expectation. To determine this, we will shuffle interactions around in a way that preserves the distribution of degrees, using <a href="../../lib/internals/#EcologicalNetwork.swaps-Tuple{Union{EcologicalNetwork.BipartiteNetwork,EcologicalNetwork.UnipartiteNetwork},Int64}"><code>swaps</code></a>. We will create 100 replicated networks to test.</p>
-<p><code>@example
+<p><code>@example motif
 permutations = swaps(N, 100, constraint=:degree)
 ms1 = map(x -&gt; motif(x, m[:S1]), permutations)</code></p>
               
