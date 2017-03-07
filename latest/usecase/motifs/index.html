@@ -487,10 +487,34 @@
 
 
 <p>We may be interested in knowing whether this motif is over or under-represented in the empirical network, compared to a random expectation. To determine this, we will shuffle interactions around in a way that preserves only the number of interactions in the matrix, using <a href="../../lib/internals/#EcologicalNetwork.swaps-Tuple{Union{EcologicalNetwork.BipartiteNetwork,EcologicalNetwork.UnipartiteNetwork},Int64}"><code>swaps</code></a>. We will create 100 replicated networks to test.</p>
-<p>```@example motif
-permutations = swaps(N, 100, constraint=:fill)</p>
-<p>ms1 = map(x -&gt; motif(x, m[:S1]), permutations)
-```</p>
+<div class="codehilite"><pre><span></span><span class="n">permutations</span> <span class="o">=</span> <span class="n">swaps</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="n">constraint</span><span class="o">=:</span><span class="n">fill</span><span class="p">)</span>
+
+<span class="n">ms1</span> <span class="o">=</span> <span class="n">map</span><span class="p">(</span><span class="n">x</span> <span class="o">-&gt;</span> <span class="n">motif</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">m</span><span class="p">[</span><span class="o">:</span><span class="n">S1</span><span class="p">]),</span> <span class="n">permutations</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span>100-element Array{Float64,1}:
+ 4435.0
+ 4435.0
+ 4435.0
+ 4435.0
+ 4435.0
+ 4435.0
+ 4435.0
+ 4435.0
+ 4435.0
+ 4435.0
+    ⋮
+ 4435.0
+ 4435.0
+ 4435.0
+ 4435.0
+ 4435.0
+ 4435.0
+ 4435.0
+ 4435.0
+ 4435.0
+</pre></div>
               
               
             </article>
