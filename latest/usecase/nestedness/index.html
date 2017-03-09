@@ -443,7 +443,7 @@
                 
                 <p><a id='Measuring-the-nestedness-of-a-network-1'></a></p>
 <h1 id="measuring-the-nestedness-of-a-network">Measuring the nestedness of a network</h1>
-<p>The goal of this use case is to (i) measure the nestedness of a bipartite network and (ii) evaluate whether it differs from the random expectation. We will use the <a href="../../man/data/#EcologicalNetwork.ollerton"><code>ollerton</code></a> data, which are reasonably small, and the <a href="../../lib/internals/#EcologicalNetwork.η-Tuple{Union{EcologicalNetwork.BipartiteNetwork,EcologicalNetwork.BipartiteProbaNetwork}}"><code>η</code></a> measure of nestedness (note that <a href="../../lib/internals/#EcologicalNetwork.nodf-Tuple{Union{EcologicalNetwork.BipartiteNetwork,EcologicalNetwork.BipartiteQuantiNetwork}}"><code>nodf</code></a> is also available).</p>
+<p>The goal of this use case is to (i) measure the nestedness of a bipartite network and (ii) evaluate whether it differs from the random expectation. We will use the <a href="../../man/data/#EcologicalNetwork.ollerton"><code>ollerton</code></a> data, which are reasonably small, and the <a href="../@ref"><code>η</code></a> measure of nestedness (note that <a href="../@ref"><code>nodf</code></a> is also available).</p>
 <div class="codehilite"><pre><span></span><span class="k">using</span> <span class="n">EcologicalNetwork</span>
 
 <span class="c"># Get the data in an object</span>
@@ -481,7 +481,7 @@ which is greater than expected by chance (p ~ 0.0) -- 298 random networks.
 </pre></div>
 
 
-<p>In this simple example, we used <a href="../../man/nullmodels/#EcologicalNetwork.nullmodel"><code>nullmodel</code></a> to generate random realizations of a network, and <a href="../../lib/internals/#EcologicalNetwork.test_network_property-Tuple{EcologicalNetwork.EcoNetwork,Any,Any}"><code>test_network_property</code></a> to evaluate whether the observed nestedness was observed by chance. As it stands, all randomized networks had <em>lower</em> values, and so the <em>p</em>-value is (essentially) null. In short, this network is significantly more nested than expected by chance knowing its degree distribution.</p>
+<p>In this simple example, we used <a href="../../man/nullmodels/#EcologicalNetwork.nullmodel"><code>nullmodel</code></a> to generate random realizations of a network, and <a href="../@ref"><code>test_network_property</code></a> to evaluate whether the observed nestedness was observed by chance. As it stands, all randomized networks had <em>lower</em> values, and so the <em>p</em>-value is (essentially) null. In short, this network is significantly more nested than expected by chance knowing its degree distribution.</p>
 <p>We can also decide to plot the network to visualize what it looks like:</p>
 <div class="codehilite"><pre><span></span><span class="n">julia</span><span class="o">&gt;</span> <span class="k">using</span> <span class="n">EcologicalNetwork</span>
 
