@@ -423,42 +423,6 @@
   </li>
 
     
-      
-      
-      
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
-    
-    <label class="md-nav__link" for="nav-7">
-      Library
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-7">
-        Library
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../lib/internals/" title="Internals" class="md-nav__link">
-      Internals
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-    
   </ul>
 </nav>
                   </div>
@@ -491,7 +455,7 @@
                 
                 <p><a id='Null-Hypothesis-Significance-Testing-1'></a></p>
 <h1 id="null-hypothesis-significance-testing">Null Hypothesis Significance Testing</h1>
-<p>NHST is used to determine whether the observed value of a network measure is larger, or smaller, or similar to, what is expected by chance.</p>
+<p>NHST is used to determine whether the observed value of a network measure is larger, or smaller, or similar to, what is expected by chance. The function to perform a test is typically applied after you have generated randomized networks using either null models or network permutations.</p>
 <p><a id='EcologicalNetwork.test_network_property' href='#EcologicalNetwork.test_network_property'>#</a>
 <strong><code>EcologicalNetwork.test_network_property</code></strong> &mdash; <em>Function</em>.</p>
 <p><strong>Null Hypothesis Significance Testing</strong></p>
@@ -503,10 +467,20 @@
 <p>There are two possible values for the <code>test</code> keyword argument: <code>:greater</code> and <code>:smaller</code>. The test is one-tailed. The results are returned as a <code>NetworkTestOutput</code> object (see <code>?EcologicalNetwork.NetworkTestOutput</code> for the complete edocumentation).</p>
 <p>The <em>p</em>-value (<code>pval</code>) is measured by counting the proportion of networks with a larger (resp. smaller) value of the measure than the original network, as in normal permutation tests.</p>
 <p>The original value of the measure is given (<code>v0</code>), as well as the <em>z</em>-scores (<code>z</code>) of all randomized networks.</p>
-<p><a target='_blank' href='https://github.com/PoisotLab/EcologicalNetwork.jl/tree/f06823eb23a98f0cd11d47371ab9d3b26d1d320a/src/./test.jl#L20-L41' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/EcologicalNetwork.jl/tree/22c376a233710ca347328dfa79adf9ce3f959286/src/./test.jl#L20-L41' class='documenter-source'>source</a><br></p>
 <p>The output is a <code>NetworkTestOutput</code> object, with a number of fields.</p>
-<div class="codehilite"><pre><span></span>NetworkTestOutput
-</pre></div>
+<p><a id='EcologicalNetwork.NetworkTestOutput' href='#EcologicalNetwork.NetworkTestOutput'>#</a>
+<strong><code>EcologicalNetwork.NetworkTestOutput</code></strong> &mdash; <em>Type</em>.</p>
+<p><strong>Output of a permutation-based test</strong></p>
+<ul>
+<li><code>pval</code> – the test p-value</li>
+<li><code>test</code> – the type of test (<code>:smaller</code> or <code>:greater</code>)</li>
+<li><code>v0</code> – the measure of the empirical network</li>
+<li><code>n</code> – the number of randomized networks used</li>
+<li><code>hits</code> – the number of randomized network matching the test condition</li>
+<li><code>z</code> – the <em>z</em>-scores of the statistics for each randomized network</li>
+</ul>
+<p><a target='_blank' href='https://github.com/PoisotLab/EcologicalNetwork.jl/tree/22c376a233710ca347328dfa79adf9ce3f959286/src/./test.jl#L1-L10' class='documenter-source'>source</a><br></p>
               
               
             </article>
@@ -534,20 +508,6 @@
             </div>
           </a>
         
-        
-          <a href="../../lib/internals/" title="Internals" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
-            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
-              <span class="md-flex__ellipsis">
-                <span class="md-footer-nav__direction">
-                  Next
-                </span>
-                Internals
-              </span>
-            </div>
-            <div class="md-flex__cell md-flex__cell--shrink">
-              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
-            </div>
-          </a>
         
       </nav>
     </div>
