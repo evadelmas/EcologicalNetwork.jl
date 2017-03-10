@@ -19,7 +19,7 @@
     
     
       
-        <title>Motifs - EcologicalNetwork.jl</title>
+        <title>Linkage density and connectance - EcologicalNetwork.jl</title>
       
     
     
@@ -83,11 +83,11 @@
             
               
                 <span class="md-header-nav__parent">
-                  Manual
+                  Network structure
                 </span>
               
             
-            Motifs
+            Linkage density and connectance
           
         </span>
       </div>
@@ -201,15 +201,39 @@
       
 
 
+  <li class="md-nav__item">
+    <a href="../../types/" title="Different types of networks" class="md-nav__link">
+      Different types of networks
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../data/" title="Datasets" class="md-nav__link">
+      Datasets
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
     
-    <label class="md-nav__link" for="nav-2">
+    <label class="md-nav__link" for="nav-4">
       Use cases
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-2">
+      <label class="md-nav__title" for="nav-4">
         Use cases
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -265,65 +289,17 @@
 
   <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5" checked>
     
-    <label class="md-nav__link" for="nav-3">
-      Manual
+    <label class="md-nav__link" for="nav-5">
+      Network structure
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-3">
-        Manual
+      <label class="md-nav__title" for="nav-5">
+        Network structure
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../types/" title="Types" class="md-nav__link">
-      Types
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../data/" title="Data" class="md-nav__link">
-      Data
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../nullmodels/" title="Null models" class="md-nav__link">
-      Null models
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../modularity/" title="Modularity" class="md-nav__link">
-      Modularity
-    </a>
-  </li>
-
         
           
           
@@ -340,11 +316,11 @@
     
     
       <label class="md-nav__link md-nav__link--active" for="toc">
-        Motifs
+        Linkage density and connectance
       </label>
     
-    <a href="./" title="Motifs" class="md-nav__link md-nav__link--active">
-      Motifs
+    <a href="./" title="Linkage density and connectance" class="md-nav__link md-nav__link--active">
+      Linkage density and connectance
     </a>
     
       
@@ -358,22 +334,22 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#how-it-works" title="How it works" class="md-nav__link">
-    How it works
+  <a href="#number-of-links" title="Number of links" class="md-nav__link">
+    Number of links
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#caveats" title="Caveats" class="md-nav__link">
-    Caveats
+  <a href="#linkage-density" title="Linkage density" class="md-nav__link">
+    Linkage density
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#usual-motifs" title="Usual motifs" class="md-nav__link">
-    Usual motifs
+  <a href="#connectance" title="Connectance" class="md-nav__link">
+    Connectance
   </a>
   
 </li>
@@ -391,8 +367,32 @@
 
 
   <li class="md-nav__item">
-    <a href="../plotting/" title="Plotting" class="md-nav__link">
-      Plotting
+    <a href="../degree/" title="Degree and specificity" class="md-nav__link">
+      Degree and specificity
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../motifs/" title="Interaction motifs" class="md-nav__link">
+      Interaction motifs
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../nestedness/" title="Nestedness" class="md-nav__link">
+      Nestedness
     </a>
   </li>
 
@@ -409,14 +409,14 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
     
-    <label class="md-nav__link" for="nav-4">
-      Library
+    <label class="md-nav__link" for="nav-6">
+      Hypothesis testing
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-4">
-        Library
+      <label class="md-nav__title" for="nav-6">
+        Hypothesis testing
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
@@ -427,11 +427,59 @@
 
 
   <li class="md-nav__item">
-    <a href="../../lib/public/" title="Public" class="md-nav__link">
-      Public
+    <a href="../../nhst/nullmodels/" title="Probabilistic null models" class="md-nav__link">
+      Probabilistic null models
     </a>
   </li>
 
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../nhst/swaps/" title="Network permutations" class="md-nav__link">
+      Network permutations
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../nhst/nhst/" title="Null Hypothesis Significance Testing" class="md-nav__link">
+      Null Hypothesis Significance Testing
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+    
+    <label class="md-nav__link" for="nav-7">
+      Library
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-7">
+        Library
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
         
           
           
@@ -471,22 +519,22 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#how-it-works" title="How it works" class="md-nav__link">
-    How it works
+  <a href="#number-of-links" title="Number of links" class="md-nav__link">
+    Number of links
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#caveats" title="Caveats" class="md-nav__link">
-    Caveats
+  <a href="#linkage-density" title="Linkage density" class="md-nav__link">
+    Linkage density
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#usual-motifs" title="Usual motifs" class="md-nav__link">
-    Usual motifs
+  <a href="#connectance" title="Connectance" class="md-nav__link">
+    Connectance
   </a>
   
 </li>
@@ -502,33 +550,59 @@
           <div class="md-content">
             <article class="md-content__inner md-typeset">
                
-                 <a href="https://github.com/PoisotLab/EcologicalNetwork.jl/edit/master/docs/man/motifs.md" title="Edit this page" class="md-icon md-content__edit">edit</a>
+                 <a href="https://github.com/PoisotLab/EcologicalNetwork.jl/edit/master/docs/community/nlinks.md" title="Edit this page" class="md-icon md-content__edit">edit</a>
                
               
                 
-                <p><a id='Counting-motifs-1'></a></p>
-<h1 id="counting-motifs">Counting motifs</h1>
-<p>There are a number of ways to...</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>The enumeration of motifs can take a little while. It depends on the number of nodes in the networks, and in the number of nodes in the motif. It may be wise, in case you want to count several motifs on a single network, to use Julia's parallel computing abilities to speed things up.</p>
-</div>
-<p><a id='How-it-works-1'></a></p>
-<h2 id="how-it-works">How it works</h2>
-<p>Internally, the code to count motifs is <em>Not Elegant</em>™. Every motif is represented by its adjacency matrix, as a <code>DeterministicNetwork</code> object. Then <em>all</em> possible induced sub-graphs with the same number of nodes (at either level if this is a <code>Bipartite</code>) are extracted, and matched against all <em>unique</em> possible permutations of the motif. If there is a match, then this induced subgraph is an instance of this motif.</p>
-<div class="codehilite"><pre><span></span>motifs
+                <p><a id='Number-of-links-and-connectance-1'></a></p>
+<h1 id="number-of-links-and-connectance">Number of links and connectance</h1>
+<ul>
+<li><a href="./#EcologicalNetwork.connectance"><code>EcologicalNetwork.connectance</code></a></li>
+<li><a href="./#EcologicalNetwork.connectance_var"><code>EcologicalNetwork.connectance_var</code></a></li>
+<li><a href="./#EcologicalNetwork.linkage_density"><code>EcologicalNetwork.linkage_density</code></a></li>
+</ul>
+<p><a id='Number-of-links-1'></a></p>
+<h2 id="number-of-links">Number of links</h2>
+<div class="codehilite"><pre><span></span>links
+link_number
+links_var
 </pre></div>
 
 
-<p><a id='Caveats-1'></a></p>
-<h2 id="caveats">Caveats</h2>
-<p>The motifs are counted in a way that ignore self-links. This should not be an issue most of the time, and was also the ways this was done in most publications counting motifs in ecological networks.</p>
-<p><a id='Usual-motifs-1'></a></p>
-<h2 id="usual-motifs">Usual motifs</h2>
-<p><a id='EcologicalNetwork.unipartitemotifs' href='#EcologicalNetwork.unipartitemotifs'>#</a>
-<strong><code>EcologicalNetwork.unipartitemotifs</code></strong> &mdash; <em>Function</em>.</p>
-<p>Returns a dictionary of the usual unipartite motifs. The names of the motifs come from Stouffer et al. (2007) – especially Fig. 1, available online at <a href="http://rspb.royalsocietypublishing.org/content/274/1621/1931.figures-only">http://rspb.royalsocietypublishing.org/content/274/1621/1931.figures-only</a></p>
-<p><a target='_blank' href='https://github.com/PoisotLab/EcologicalNetwork.jl/tree/aa8c7c73212607717cf59b1e70edaaa1b12226e1/src/./motifs.jl#L1-L5' class='documenter-source'>source</a><br></p>
+<p><a id='Linkage-density-1'></a></p>
+<h2 id="linkage-density">Linkage density</h2>
+<p><a id='EcologicalNetwork.linkage_density' href='#EcologicalNetwork.linkage_density'>#</a>
+<strong><code>EcologicalNetwork.linkage_density</code></strong> &mdash; <em>Function</em>.</p>
+<div class="codehilite"><pre><span></span>linkage_density(N::DeterministicNetwork)
+</pre></div>
+
+
+<p>Number of links divided by species richness.</p>
+<p><a target='_blank' href='https://github.com/PoisotLab/EcologicalNetwork.jl/tree/3b8ec545bd8c9e525d2099bfc61f473206ad19fc/src/./connectance.jl#L50-L54' class='documenter-source'>source</a><br></p>
+<p><a id='Connectance-1'></a></p>
+<h2 id="connectance">Connectance</h2>
+<p><a id='EcologicalNetwork.connectance' href='#EcologicalNetwork.connectance'>#</a>
+<strong><code>EcologicalNetwork.connectance</code></strong> &mdash; <em>Function</em>.</p>
+<div class="codehilite"><pre><span></span>connectance(N::EcoNetwork)
+</pre></div>
+
+
+<p>Number of links divided by the number of possible interactions. In unipartite networks, this is $L/S^2$. In bipartite networks, this is $L/(T × B)$.</p>
+<p><a target='_blank' href='https://github.com/PoisotLab/EcologicalNetwork.jl/tree/3b8ec545bd8c9e525d2099bfc61f473206ad19fc/src/./connectance.jl#L29-L34' class='documenter-source'>source</a><br></p>
+<div class="codehilite"><pre><span></span>connectance(N::QuantitativeNetwork)
+</pre></div>
+
+
+<p>Connectance of a quantitative network – the information on link weight is ignored.</p>
+<p><a target='_blank' href='https://github.com/PoisotLab/EcologicalNetwork.jl/tree/3b8ec545bd8c9e525d2099bfc61f473206ad19fc/src/./connectance.jl#L39-L44' class='documenter-source'>source</a><br></p>
+<p><a id='EcologicalNetwork.connectance_var' href='#EcologicalNetwork.connectance_var'>#</a>
+<strong><code>EcologicalNetwork.connectance_var</code></strong> &mdash; <em>Function</em>.</p>
+<div class="codehilite"><pre><span></span>connectance_var(N::ProbabilisticNetwork)
+</pre></div>
+
+
+<p>Expected variance of the connectance for a probabilistic matrix, measured as the variance of the number of links divided by the squared size of the matrix.</p>
+<p><a target='_blank' href='https://github.com/PoisotLab/EcologicalNetwork.jl/tree/3b8ec545bd8c9e525d2099bfc61f473206ad19fc/src/./connectance.jl#L59-L65' class='documenter-source'>source</a><br></p>
               
               
             </article>
@@ -542,7 +616,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../modularity/" title="Modularity" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../../usecase/motifs/" title="Motifs" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -551,19 +625,19 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Modularity
+                Motifs
               </span>
             </div>
           </a>
         
         
-          <a href="../plotting/" title="Plotting" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../degree/" title="Degree and specificity" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Plotting
+                Degree and specificity
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">

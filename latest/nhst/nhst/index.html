@@ -19,7 +19,7 @@
     
     
       
-        <title>Modularity - EcologicalNetwork.jl</title>
+        <title>Null Hypothesis Significance Testing - EcologicalNetwork.jl</title>
       
     
     
@@ -83,11 +83,11 @@
             
               
                 <span class="md-header-nav__parent">
-                  Use cases
+                  Hypothesis testing
                 </span>
               
             
-            Modularity
+            Null Hypothesis Significance Testing
           
         </span>
       </div>
@@ -224,12 +224,10 @@
       
       
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" checked>
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
     
     <label class="md-nav__link" for="nav-4">
       Use cases
@@ -247,7 +245,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../nestedness/" title="Nestedness" class="md-nav__link">
+    <a href="../../usecase/nestedness/" title="Nestedness" class="md-nav__link">
       Nestedness
     </a>
   </li>
@@ -257,20 +255,11 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
-    
-      
-    
-    
-    <a href="./" title="Modularity" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../../usecase/modularity/" title="Modularity" class="md-nav__link">
       Modularity
     </a>
-    
   </li>
 
         
@@ -280,7 +269,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../motifs/" title="Motifs" class="md-nav__link">
+    <a href="../../usecase/motifs/" title="Motifs" class="md-nav__link">
       Motifs
     </a>
   </li>
@@ -367,10 +356,12 @@
       
       
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6" checked>
     
     <label class="md-nav__link" for="nav-6">
       Hypothesis testing
@@ -388,7 +379,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../nhst/nullmodels/" title="Probabilistic null models" class="md-nav__link">
+    <a href="../nullmodels/" title="Probabilistic null models" class="md-nav__link">
       Probabilistic null models
     </a>
   </li>
@@ -400,7 +391,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../nhst/swaps/" title="Network permutations" class="md-nav__link">
+    <a href="../swaps/" title="Network permutations" class="md-nav__link">
       Network permutations
     </a>
   </li>
@@ -410,11 +401,20 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../../nhst/nhst/" title="Null Hypothesis Significance Testing" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
+    
+      
+    
+    
+    <a href="./" title="Null Hypothesis Significance Testing" class="md-nav__link md-nav__link--active">
       Null Hypothesis Significance Testing
     </a>
+    
   </li>
 
         
@@ -485,69 +485,27 @@
           <div class="md-content">
             <article class="md-content__inner md-typeset">
                
-                 <a href="https://github.com/PoisotLab/EcologicalNetwork.jl/edit/master/docs/usecase/modularity.md" title="Edit this page" class="md-icon md-content__edit">edit</a>
+                 <a href="https://github.com/PoisotLab/EcologicalNetwork.jl/edit/master/docs/nhst/nhst.md" title="Edit this page" class="md-icon md-content__edit">edit</a>
                
               
                 
-                <p><a id='Measuring-the-modularity-1'></a></p>
-<h1 id="measuring-the-modularity">Measuring the modularity</h1>
-<p>In this example, we will use <a href="../@ref"><code>label_propagation</code></a> to optimize the modularity of a network. The data are from the <a href="../../data/#EcologicalNetwork.mcmullen"><code>mcmullen</code></a> dataset.</p>
-<div class="codehilite"><pre><span></span><span class="k">using</span> <span class="n">EcologicalNetwork</span>
-
-<span class="c"># Get the data in an object</span>
-<span class="n">N</span> <span class="o">=</span> <span class="n">mcmullen</span><span class="p">();</span>
+                <p><a id='Null-Hypothesis-Significance-Testing-1'></a></p>
+<h1 id="null-hypothesis-significance-testing">Null Hypothesis Significance Testing</h1>
+<p>NHST is used to determine whether the observed value of a network measure is larger, or smaller, or similar to, what is expected by chance.</p>
+<p><a id='EcologicalNetwork.test_network_property' href='#EcologicalNetwork.test_network_property'>#</a>
+<strong><code>EcologicalNetwork.test_network_property</code></strong> &mdash; <em>Function</em>.</p>
+<p><strong>Null Hypothesis Significance Testing</strong></p>
+<div class="codehilite"><pre><span></span><span class="nt">test_network_property</span><span class="o">(</span><span class="nt">N</span><span class="p">::</span><span class="nd">EcoNetwork</span><span class="o">,</span> <span class="nt">f</span><span class="o">,</span> <span class="nt">S</span><span class="o">;</span> <span class="nt">test</span><span class="p">::</span><span class="nd">Symbol</span><span class="o">=</span><span class="p">:</span><span class="nd">greater</span><span class="o">)</span>
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span>EcologicalNetwork.BipartiteNetwork(Bool[false false … false false; false false … false false; … ; true false … false false; true true … true true])
-</pre></div>
-
-
-<p>The next step is to generate starting communities for every species. We will assign species to random initial modules.</p>
-<div class="codehilite"><pre><span></span><span class="n">L</span> <span class="o">=</span> <span class="n">rand</span><span class="p">(</span><span class="mi">1</span><span class="o">:</span><span class="n">richness</span><span class="p">(</span><span class="n">N</span><span class="p">),</span> <span class="n">richness</span><span class="p">(</span><span class="n">N</span><span class="p">));</span>
-</pre></div>
-
-
-<div class="codehilite"><pre><span></span>159-element Array{Int64,1}:
- 113
-  23
- 103
- 134
- 100
- 129
- 142
- 134
-  77
- 110
-   ⋮
-  83
- 140
-  15
- 119
-  83
-  32
-  77
- 105
-  68
-</pre></div>
-
-
-<p>We can now start a repeated number of attempts to find the best partition. If <code>julia</code> is started in parallel, this will use all assigned CPUs.</p>
-<div class="codehilite"><pre><span></span><span class="n">M</span> <span class="o">=</span> <span class="n">modularity</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">L</span><span class="p">,</span> <span class="n">replicates</span><span class="o">=</span><span class="mi">100</span><span class="p">);</span>
-
-<span class="c"># Finally, we can get the best partition</span>
-<span class="n">b_part</span> <span class="o">=</span> <span class="n">best_partition</span><span class="p">(</span><span class="n">M</span><span class="p">);</span>
-
-<span class="c"># And print its modularity and number of modules</span>
-<span class="n">println</span><span class="p">(</span><span class="s">&quot;Q: &quot;</span><span class="p">,</span>
-        <span class="n">round</span><span class="p">(</span><span class="n">b_part</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">Q</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span>
-        <span class="s">&quot; |c|: &quot;</span><span class="p">,</span>
-        <span class="n">length</span><span class="p">(</span><span class="n">unique</span><span class="p">(</span><span class="n">b_part</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">L</span><span class="p">))</span>
-        <span class="p">)</span>
-</pre></div>
-
-
-<div class="codehilite"><pre><span></span><span class="n">Q</span><span class="o">:</span> <span class="mf">0.53</span> <span class="o">|</span><span class="n">c</span><span class="o">|:</span> <span class="mi">18</span>
+<p>Test whether the observed value (through applying a function <code>f</code>) on an empirical network <code>N</code> differs from the distribution derived from measuring the same value on a collection of randomized networks <code>S</code>. <code>S</code> is an array of networks of the same type as <code>N</code>.</p>
+<p>There are two possible values for the <code>test</code> keyword argument: <code>:greater</code> and <code>:smaller</code>. The test is one-tailed. The results are returned as a <code>NetworkTestOutput</code> object (see <code>?EcologicalNetwork.NetworkTestOutput</code> for the complete edocumentation).</p>
+<p>The <em>p</em>-value (<code>pval</code>) is measured by counting the proportion of networks with a larger (resp. smaller) value of the measure than the original network, as in normal permutation tests.</p>
+<p>The original value of the measure is given (<code>v0</code>), as well as the <em>z</em>-scores (<code>z</code>) of all randomized networks.</p>
+<p><a target='_blank' href='https://github.com/PoisotLab/EcologicalNetwork.jl/tree/3b8ec545bd8c9e525d2099bfc61f473206ad19fc/src/./test.jl#L20-L41' class='documenter-source'>source</a><br></p>
+<p>The output is a <code>NetworkTestOutput</code> object, with a number of fields.</p>
+<div class="codehilite"><pre><span></span>NetworkTestOutput
 </pre></div>
               
               
@@ -562,7 +520,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../nestedness/" title="Nestedness" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../swaps/" title="Network permutations" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -571,19 +529,19 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Nestedness
+                Network permutations
               </span>
             </div>
           </a>
         
         
-          <a href="../motifs/" title="Motifs" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../../lib/internals/" title="Internals" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Motifs
+                Internals
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
