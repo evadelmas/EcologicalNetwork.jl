@@ -15,7 +15,7 @@
       
         <link rel="shortcut icon" href="../../assets/images/favicon.png">
       
-      <meta name="generator" content="mkdocs-0.16.1, mkdocs-material-1.2.0">
+      <meta name="generator" content="mkdocs-0.16.1, mkdocs-material-1.3.0">
     
     
       
@@ -26,9 +26,9 @@
       <script src="../../assets/javascripts/modernizr-56ade86843.js"></script>
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/application-e17eeafcbc.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/application-1d1da4857d.css">
       
-        <link rel="stylesheet" href="../../assets/stylesheets/application-892b79c5c5.palette.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/application-66fa0d9bba.palette.css">
       
     
     
@@ -64,7 +64,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="search">
     <label class="md-overlay" data-md-component="overlay" for="drawer"></label>
     
-      <header class="md-header">
+      <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid">
     <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
@@ -354,6 +354,8 @@
   
 </li>
       
+      
+      
     </ul>
   
 </nav>
@@ -503,6 +505,8 @@
   
 </li>
       
+      
+      
     </ul>
   
 </nav>
@@ -513,10 +517,10 @@
           
           <div class="md-content">
             <article class="md-content__inner md-typeset">
-               
-                 <a href="https://github.com/PoisotLab/EcologicalNetwork.jl/edit/master/docs/community/nlinks.md" title="Edit this page" class="md-icon md-content__edit">edit</a>
-               
               
+                
+                  <a href="https://github.com/PoisotLab/EcologicalNetwork.jl/edit/master/docs/community/nlinks.md" title="Edit this page" class="md-icon md-content__icon">edit</a>
+                
                 
                 <p><a id='Number-of-links-and-connectance-1'></a></p>
 <h1 id="number-of-links-and-connectance">Number of links and connectance</h1>
@@ -542,7 +546,7 @@ links_var
 
 
 <p>Number of links divided by species richness.</p>
-<p><a target='_blank' href='https://github.com/PoisotLab/EcologicalNetwork.jl/tree/68579d807ecc20a4dfe5b35dea6f9590436c9768/src/./connectance.jl#L50-L54' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/EcologicalNetwork.jl/tree/4623d19dcbf0130956512ebf958861b3c33303cd/src/./connectance.jl#L50-L54' class='documenter-source'>source</a><br></p>
 <p><a id='Connectance-1'></a></p>
 <h2 id="connectance">Connectance</h2>
 <p><a id='EcologicalNetwork.connectance' href='#EcologicalNetwork.connectance'>#</a>
@@ -552,13 +556,13 @@ links_var
 
 
 <p>Number of links divided by the number of possible interactions. In unipartite networks, this is $L/S^2$. In bipartite networks, this is $L/(T × B)$.</p>
-<p><a target='_blank' href='https://github.com/PoisotLab/EcologicalNetwork.jl/tree/68579d807ecc20a4dfe5b35dea6f9590436c9768/src/./connectance.jl#L29-L34' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/EcologicalNetwork.jl/tree/4623d19dcbf0130956512ebf958861b3c33303cd/src/./connectance.jl#L29-L34' class='documenter-source'>source</a><br></p>
 <div class="codehilite"><pre><span></span>connectance(N::QuantitativeNetwork)
 </pre></div>
 
 
 <p>Connectance of a quantitative network – the information on link weight is ignored.</p>
-<p><a target='_blank' href='https://github.com/PoisotLab/EcologicalNetwork.jl/tree/68579d807ecc20a4dfe5b35dea6f9590436c9768/src/./connectance.jl#L39-L44' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/EcologicalNetwork.jl/tree/4623d19dcbf0130956512ebf958861b3c33303cd/src/./connectance.jl#L39-L44' class='documenter-source'>source</a><br></p>
 <p><a id='EcologicalNetwork.connectance_var' href='#EcologicalNetwork.connectance_var'>#</a>
 <strong><code>EcologicalNetwork.connectance_var</code></strong> &mdash; <em>Function</em>.</p>
 <div class="codehilite"><pre><span></span>connectance_var(N::ProbabilisticNetwork)
@@ -566,8 +570,13 @@ links_var
 
 
 <p>Expected variance of the connectance for a probabilistic matrix, measured as the variance of the number of links divided by the squared size of the matrix.</p>
-<p><a target='_blank' href='https://github.com/PoisotLab/EcologicalNetwork.jl/tree/68579d807ecc20a4dfe5b35dea6f9590436c9768/src/./connectance.jl#L59-L65' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/EcologicalNetwork.jl/tree/4623d19dcbf0130956512ebf958861b3c33303cd/src/./connectance.jl#L59-L65' class='documenter-source'>source</a><br></p>
+                
+                  
+                
               
+              
+                
               
             </article>
           </div>
@@ -631,7 +640,7 @@ links_var
       
     </div>
     
-      <script src="../../assets/javascripts/application-30ac6a1727.js"></script>
+      <script src="../../assets/javascripts/application-7aa26ad9ec.js"></script>
       <script>app.initialize({url:{base:"../.."}})</script>
       
         <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
