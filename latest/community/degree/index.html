@@ -19,7 +19,7 @@
     
     
       
-        <title>Degree and specificity - EcologicalNetwork.jl</title>
+        <title>Degree distribution - EcologicalNetwork.jl</title>
       
     
     
@@ -87,7 +87,7 @@
                 </span>
               
             
-            Degree and specificity
+            Degree distribution
           
         </span>
       </div>
@@ -328,11 +328,11 @@
     
     
       <label class="md-nav__link md-nav__link--active" for="toc">
-        Degree and specificity
+        Degree distribution
       </label>
     
-    <a href="./" title="Degree and specificity" class="md-nav__link md-nav__link--active">
-      Degree and specificity
+    <a href="./" title="Degree distribution" class="md-nav__link md-nav__link--active">
+      Degree distribution
     </a>
     
       
@@ -355,13 +355,6 @@
         <li class="md-nav__item">
   <a href="#counting-degrees" title="Counting degrees" class="md-nav__link">
     Counting degrees
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#meaasures-of-specificity" title="Meaasures of specificity" class="md-nav__link">
-    Meaasures of specificity
   </a>
   
 </li>
@@ -414,10 +407,58 @@
       <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
     
     <label class="md-nav__link" for="nav-6">
-      Hypothesis testing
+      Species-level measures
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
       <label class="md-nav__title" for="nav-6">
+        Species-level measures
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../species/specificity/" title="Specificity" class="md-nav__link">
+      Specificity
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../species/centrality/" title="Centrality" class="md-nav__link">
+      Centrality
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+    
+    <label class="md-nav__link" for="nav-7">
+      Hypothesis testing
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-7">
         Hypothesis testing
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -498,13 +539,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#meaasures-of-specificity" title="Meaasures of specificity" class="md-nav__link">
-    Meaasures of specificity
-  </a>
-  
-</li>
-      
       
       
     </ul>
@@ -522,8 +556,8 @@
                   <a href="https://github.com/PoisotLab/EcologicalNetwork.jl/edit/master/docs/community/degree.md" title="Edit this page" class="md-icon md-content__icon">edit</a>
                 
                 
-                <p><a id='Degree-distribution-and-specificity-1'></a></p>
-<h1 id="degree-distribution-and-specificity">Degree distribution and specificity</h1>
+                <p><a id='Degree-distribution-1'></a></p>
+<h1 id="degree-distribution">Degree distribution</h1>
 <ul>
 <li><a href="./#EcologicalNetwork.degree"><code>EcologicalNetwork.degree</code></a></li>
 <li><a href="./#EcologicalNetwork.degree_in"><code>EcologicalNetwork.degree_in</code></a></li>
@@ -532,16 +566,15 @@
 <li><a href="./#EcologicalNetwork.degree_out_var"><code>EcologicalNetwork.degree_out_var</code></a></li>
 <li><a href="./#EcologicalNetwork.degree_var"><code>EcologicalNetwork.degree_var</code></a></li>
 <li><a href="./#EcologicalNetwork.richness"><code>EcologicalNetwork.richness</code></a></li>
-<li><a href="./#EcologicalNetwork.specificity"><code>EcologicalNetwork.specificity</code></a></li>
 </ul>
 <p><a id='Species-richness-1'></a></p>
 <h2 id="species-richness">Species richness</h2>
 <p><a id='EcologicalNetwork.richness' href='#EcologicalNetwork.richness'>#</a>
 <strong><code>EcologicalNetwork.richness</code></strong> &mdash; <em>Function</em>.</p>
 <p>Richness (number of species) in a bipartite network</p>
-<p><a target='_blank' href='https://github.com/PoisotLab/EcologicalNetwork.jl/tree/db8b671d8a0cd60c5afdd14535d606b1c9de975e/src/./types.jl#L152-L154' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/EcologicalNetwork.jl/tree/2559ec19b054f98fc3b1ae6fac68b37e04d9ab9e/src/./types.jl#L152-L154' class='documenter-source'>source</a><br></p>
 <p>Richness (number of species) in a unipartite network</p>
-<p><a target='_blank' href='https://github.com/PoisotLab/EcologicalNetwork.jl/tree/db8b671d8a0cd60c5afdd14535d606b1c9de975e/src/./types.jl#L159-L161' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/EcologicalNetwork.jl/tree/2559ec19b054f98fc3b1ae6fac68b37e04d9ab9e/src/./types.jl#L159-L161' class='documenter-source'>source</a><br></p>
 <p><a id='Counting-degrees-1'></a></p>
 <h2 id="counting-degrees">Counting degrees</h2>
 <p><a id='EcologicalNetwork.degree' href='#EcologicalNetwork.degree'>#</a>
@@ -551,14 +584,14 @@
 </pre></div>
 
 
-<p><a target='_blank' href='https://github.com/PoisotLab/EcologicalNetwork.jl/tree/db8b671d8a0cd60c5afdd14535d606b1c9de975e/src/./degree.jl#L19-L23' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/EcologicalNetwork.jl/tree/2559ec19b054f98fc3b1ae6fac68b37e04d9ab9e/src/./degree.jl#L19-L23' class='documenter-source'>source</a><br></p>
 <p><strong>Degree of species in a bipartite network</strong></p>
 <div class="codehilite"><pre><span></span>degree(N::Bipartite)
 </pre></div>
 
 
 <p>This is a concatenation of the out degree and the in degrees of nodes on both sizes, as measured by making the graph unipartite first. Rows are first, columns second.</p>
-<p><a target='_blank' href='https://github.com/PoisotLab/EcologicalNetwork.jl/tree/db8b671d8a0cd60c5afdd14535d606b1c9de975e/src/./degree.jl#L28-L36' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/EcologicalNetwork.jl/tree/2559ec19b054f98fc3b1ae6fac68b37e04d9ab9e/src/./degree.jl#L28-L36' class='documenter-source'>source</a><br></p>
 <p><a id='EcologicalNetwork.degree_out' href='#EcologicalNetwork.degree_out'>#</a>
 <strong><code>EcologicalNetwork.degree_out</code></strong> &mdash; <em>Function</em>.</p>
 <div class="codehilite"><pre><span></span>degree_out(N::EcoNetwork)
@@ -566,7 +599,7 @@
 
 
 <p>Expected number of outgoing degrees.</p>
-<p><a target='_blank' href='https://github.com/PoisotLab/EcologicalNetwork.jl/tree/db8b671d8a0cd60c5afdd14535d606b1c9de975e/src/./degree.jl#L1-L5' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/EcologicalNetwork.jl/tree/2559ec19b054f98fc3b1ae6fac68b37e04d9ab9e/src/./degree.jl#L1-L5' class='documenter-source'>source</a><br></p>
 <p><a id='EcologicalNetwork.degree_in' href='#EcologicalNetwork.degree_in'>#</a>
 <strong><code>EcologicalNetwork.degree_in</code></strong> &mdash; <em>Function</em>.</p>
 <p><strong>Expected number of ingoing degrees.</strong></p>
@@ -574,7 +607,7 @@
 </pre></div>
 
 
-<p><a target='_blank' href='https://github.com/PoisotLab/EcologicalNetwork.jl/tree/db8b671d8a0cd60c5afdd14535d606b1c9de975e/src/./degree.jl#L10-L14' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/EcologicalNetwork.jl/tree/2559ec19b054f98fc3b1ae6fac68b37e04d9ab9e/src/./degree.jl#L10-L14' class='documenter-source'>source</a><br></p>
 <p>For probabilistic networks only, there are measures of degree variance:</p>
 <p><a id='EcologicalNetwork.degree_var' href='#EcologicalNetwork.degree_var'>#</a>
 <strong><code>EcologicalNetwork.degree_var</code></strong> &mdash; <em>Function</em>.</p>
@@ -582,54 +615,21 @@
 </pre></div>
 
 
-<p><a target='_blank' href='https://github.com/PoisotLab/EcologicalNetwork.jl/tree/db8b671d8a0cd60c5afdd14535d606b1c9de975e/src/./degree.jl#L55-L57' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/EcologicalNetwork.jl/tree/2559ec19b054f98fc3b1ae6fac68b37e04d9ab9e/src/./degree.jl#L55-L57' class='documenter-source'>source</a><br></p>
 <p><a id='EcologicalNetwork.degree_out_var' href='#EcologicalNetwork.degree_out_var'>#</a>
 <strong><code>EcologicalNetwork.degree_out_var</code></strong> &mdash; <em>Function</em>.</p>
 <div class="codehilite"><pre><span></span>degree_out_var(N::ProbabilisticNetwork)
 </pre></div>
 
 
-<p><a target='_blank' href='https://github.com/PoisotLab/EcologicalNetwork.jl/tree/db8b671d8a0cd60c5afdd14535d606b1c9de975e/src/./degree.jl#L41-L43' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/EcologicalNetwork.jl/tree/2559ec19b054f98fc3b1ae6fac68b37e04d9ab9e/src/./degree.jl#L41-L43' class='documenter-source'>source</a><br></p>
 <p><a id='EcologicalNetwork.degree_in_var' href='#EcologicalNetwork.degree_in_var'>#</a>
 <strong><code>EcologicalNetwork.degree_in_var</code></strong> &mdash; <em>Function</em>.</p>
 <div class="codehilite"><pre><span></span>degree_in_var(N::ProbabilisticNetwork)
 </pre></div>
 
 
-<p><a target='_blank' href='https://github.com/PoisotLab/EcologicalNetwork.jl/tree/db8b671d8a0cd60c5afdd14535d606b1c9de975e/src/./degree.jl#L48-L50' class='documenter-source'>source</a><br></p>
-<p><a id='Meaasures-of-specificity-1'></a></p>
-<h2 id="meaasures-of-specificity">Meaasures of specificity</h2>
-<p>All measures of specificity are setup so that maximal specificity is 1, and maximal generality is 0. By default, specificity of quantitative networks is measured using the <em>PDI</em> index, and the specificity of deterministic networks is measured using the <em>RR</em> index. These two are mathematically equivalent when applied to a deterministic network.</p>
-<p><a id='EcologicalNetwork.specificity' href='#EcologicalNetwork.specificity'>#</a>
-<strong><code>EcologicalNetwork.specificity</code></strong> &mdash; <em>Function</em>.</p>
-<p><strong>Resource-range</strong></p>
-<div class="codehilite"><pre><span></span>specificity(N::DeterministicNetwork)
-</pre></div>
-
-
-<p>Measure of specificity in a deterministic network. This returns a value between 0 and 1, where 1 indicates maximal specificity.</p>
-<div class="codehilite"><pre><span></span><span class="gp">julia&gt;</span> <span class="n">N</span> <span class="o">=</span> <span class="n">BipartiteNetwork</span><span class="p">(</span><span class="n">eye</span><span class="p">(</span><span class="kt">Bool</span><span class="p">,</span> <span class="mi">10</span><span class="p">));</span>
-
-<span class="gp">julia&gt;</span> <span class="n">specificity</span><span class="p">(</span><span class="n">N</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
-<span class="go">1.0</span>
-</pre></div>
-
-
-<p><a target='_blank' href='https://github.com/PoisotLab/EcologicalNetwork.jl/tree/db8b671d8a0cd60c5afdd14535d606b1c9de975e/src/./degree.jl#L89-L103' class='documenter-source'>source</a><br></p>
-<p><strong>Paired Differences Index</strong></p>
-<div class="codehilite"><pre><span></span>specificity(N::QuantitativeNetwork)
-</pre></div>
-
-
-<p>Measure of specificity in a quantitative network. This returns a value between 0 and 1, where 1 indicates maximal specificity. Note that the PDI is measured species-wise, and the maximal interaction strength of every species is set to 1.</p>
-<div class="codehilite"><pre><span></span><span class="gp">julia&gt;</span> <span class="n">N</span> <span class="o">=</span> <span class="n">BipartiteNetwork</span><span class="p">(</span><span class="n">eye</span><span class="p">(</span><span class="kt">Int64</span><span class="p">,</span> <span class="mi">10</span><span class="p">));</span>
-
-<span class="gp">julia&gt;</span> <span class="n">specificity</span><span class="p">(</span><span class="n">N</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
-<span class="go">1.0</span>
-</pre></div>
-
-
-<p><a target='_blank' href='https://github.com/PoisotLab/EcologicalNetwork.jl/tree/db8b671d8a0cd60c5afdd14535d606b1c9de975e/src/./degree.jl#L109-L124' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/EcologicalNetwork.jl/tree/2559ec19b054f98fc3b1ae6fac68b37e04d9ab9e/src/./degree.jl#L48-L50' class='documenter-source'>source</a><br></p>
                 
                   
                 

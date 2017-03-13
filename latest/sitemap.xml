@@ -78,6 +78,22 @@
     
         
     <url>
+     <loc>/species/specificity/</loc>
+     <lastmod>2017-03-13</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/species/centrality/</loc>
+     <lastmod>2017-03-13</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
+    
+        
+    <url>
      <loc>/nhst/nullmodels/</loc>
      <lastmod>2017-03-13</lastmod>
      <changefreq>daily</changefreq>

@@ -19,7 +19,7 @@
     
     
       
-        <title>Motifs - EcologicalNetwork.jl</title>
+        <title>Specificity - EcologicalNetwork.jl</title>
       
     
     
@@ -83,11 +83,11 @@
             
               
                 <span class="md-header-nav__parent">
-                  Use cases
+                  Species-level measures
                 </span>
               
             
-            Motifs
+            Specificity
           
         </span>
       </div>
@@ -224,12 +224,10 @@
       
       
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" checked>
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
     
     <label class="md-nav__link" for="nav-4">
       Use cases
@@ -247,7 +245,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../nestedness/" title="Nestedness" class="md-nav__link">
+    <a href="../../usecase/nestedness/" title="Nestedness" class="md-nav__link">
       Nestedness
     </a>
   </li>
@@ -259,7 +257,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../modularity/" title="Modularity" class="md-nav__link">
+    <a href="../../usecase/modularity/" title="Modularity" class="md-nav__link">
       Modularity
     </a>
   </li>
@@ -269,20 +267,11 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
-    
-      
-    
-    
-    <a href="./" title="Motifs" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../../usecase/motifs/" title="Motifs" class="md-nav__link">
       Motifs
     </a>
-    
   </li>
 
         
@@ -367,10 +356,12 @@
       
       
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6" checked>
     
     <label class="md-nav__link" for="nav-6">
       Species-level measures
@@ -386,11 +377,20 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../../species/specificity/" title="Specificity" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
+    
+      
+    
+    
+    <a href="./" title="Specificity" class="md-nav__link md-nav__link--active">
       Specificity
     </a>
+    
   </li>
 
         
@@ -400,7 +400,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../species/centrality/" title="Centrality" class="md-nav__link">
+    <a href="../centrality/" title="Centrality" class="md-nav__link">
       Centrality
     </a>
   </li>
@@ -498,83 +498,42 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/PoisotLab/EcologicalNetwork.jl/edit/master/docs/usecase/motifs.md" title="Edit this page" class="md-icon md-content__icon">edit</a>
+                  <a href="https://github.com/PoisotLab/EcologicalNetwork.jl/edit/master/docs/species/specificity.md" title="Edit this page" class="md-icon md-content__icon">edit</a>
                 
                 
-                <p><a id='Counting-motifs-1'></a></p>
-<h1 id="counting-motifs">Counting motifs</h1>
-<p>In this use case, we will count the number of motifs in a food web. Specifically, we will count how many times there is a linear food chain (A→B→C) between three species.</p>
-<div class="codehilite"><pre><span></span><span class="k">using</span> <span class="n">EcologicalNetwork</span>
-
-<span class="c"># Load a network</span>
-<span class="n">N</span> <span class="o">=</span> <span class="n">stony</span><span class="p">();</span>
-
-<span class="c"># List of motifs</span>
-<span class="n">m</span> <span class="o">=</span> <span class="n">unipartitemotifs</span><span class="p">();</span>
+                <p><a id='Specificity-1'></a></p>
+<h1 id="specificity">Specificity</h1>
+<p>All measures of specificity are setup so that maximal specificity is 1, and maximal generality is 0. By default, specificity of quantitative networks is measured using the <em>PDI</em> index, and the specificity of deterministic networks is measured using the <em>RR</em> index. These two are mathematically equivalent when applied to a deterministic network.</p>
+<p><a id='EcologicalNetwork.specificity' href='#EcologicalNetwork.specificity'>#</a>
+<strong><code>EcologicalNetwork.specificity</code></strong> &mdash; <em>Function</em>.</p>
+<p><strong>Resource-range</strong></p>
+<div class="codehilite"><pre><span></span>specificity(N::DeterministicNetwork)
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span>Dict{Symbol,EcologicalNetwork.UnipartiteNetwork} with 13 entries:
-  :S4 =&gt; EcologicalNetwork.UnipartiteNetwork(Bool[false true false; false false…
-  :S1 =&gt; EcologicalNetwork.UnipartiteNetwork(Bool[false true false; false false…
-  :D6 =&gt; EcologicalNetwork.UnipartiteNetwork(Bool[false true true; true false t…
-  :D3 =&gt; EcologicalNetwork.UnipartiteNetwork(Bool[false false true; false false…
-  :S2 =&gt; EcologicalNetwork.UnipartiteNetwork(Bool[false true true; false false …
-  :D8 =&gt; EcologicalNetwork.UnipartiteNetwork(Bool[false true true; true false f…
-  :D1 =&gt; EcologicalNetwork.UnipartiteNetwork(Bool[false true true; false false …
-  :D7 =&gt; EcologicalNetwork.UnipartiteNetwork(Bool[false true true; true false f…
-  :D5 =&gt; EcologicalNetwork.UnipartiteNetwork(Bool[false true false; false false…
-  :S3 =&gt; EcologicalNetwork.UnipartiteNetwork(Bool[false true false; false false…
-  :D4 =&gt; EcologicalNetwork.UnipartiteNetwork(Bool[false true false; false false…
-  :S5 =&gt; EcologicalNetwork.UnipartiteNetwork(Bool[false true true; false false …
-  :D2 =&gt; EcologicalNetwork.UnipartiteNetwork(Bool[false true true; false false …
+<p>Measure of specificity in a deterministic network. This returns a value between 0 and 1, where 1 indicates maximal specificity.</p>
+<div class="codehilite"><pre><span></span><span class="gp">julia&gt;</span> <span class="n">N</span> <span class="o">=</span> <span class="n">BipartiteNetwork</span><span class="p">(</span><span class="n">eye</span><span class="p">(</span><span class="kt">Bool</span><span class="p">,</span> <span class="mi">10</span><span class="p">));</span>
+
+<span class="gp">julia&gt;</span> <span class="n">specificity</span><span class="p">(</span><span class="n">N</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+<span class="go">1.0</span>
 </pre></div>
 
 
-<p>The <code>m</code> object has 13 different motifs, named as in <a href="http://rspb.royalsocietypublishing.org/content/274/1621/1931">Stouffer <em>et al.</em> (2007)</a>. The function <a href="../../community/motifs/#EcologicalNetwork.unipartitemotifs"><code>unipartitemotifs</code></a> will generate them when needed. Let's look at the <code>m[:S1]</code> motif:</p>
-<div class="codehilite"><pre><span></span><span class="n">plot_network</span><span class="p">(</span><span class="n">m</span><span class="p">[</span><span class="o">:</span><span class="n">S1</span><span class="p">],</span> <span class="n">file</span><span class="o">=</span><span class="s">&quot;motifs1.png&quot;</span><span class="p">)</span>
+<p><a target='_blank' href='https://github.com/PoisotLab/EcologicalNetwork.jl/tree/2559ec19b054f98fc3b1ae6fac68b37e04d9ab9e/src/./degree.jl#L89-L103' class='documenter-source'>source</a><br></p>
+<p><strong>Paired Differences Index</strong></p>
+<div class="codehilite"><pre><span></span>specificity(N::QuantitativeNetwork)
 </pre></div>
 
 
-<p><img alt="motif s1" src="../motifs1.png" /></p>
-<p>The function to count motifs is called <a href="../../community/motifs/#EcologicalNetwork.motif"><code>motif</code></a>, and returns a count: how many triplets of species are in a given conformation. For example:</p>
-<div class="codehilite"><pre><span></span><span class="n">s1</span> <span class="o">=</span> <span class="n">motif</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">m</span><span class="p">[</span><span class="o">:</span><span class="n">S1</span><span class="p">])</span>
+<p>Measure of specificity in a quantitative network. This returns a value between 0 and 1, where 1 indicates maximal specificity. Note that the PDI is measured species-wise, and the maximal interaction strength of every species is set to 1.</p>
+<div class="codehilite"><pre><span></span><span class="gp">julia&gt;</span> <span class="n">N</span> <span class="o">=</span> <span class="n">BipartiteNetwork</span><span class="p">(</span><span class="n">eye</span><span class="p">(</span><span class="kt">Int64</span><span class="p">,</span> <span class="mi">10</span><span class="p">));</span>
+
+<span class="gp">julia&gt;</span> <span class="n">specificity</span><span class="p">(</span><span class="n">N</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+<span class="go">1.0</span>
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span>1035.0
-</pre></div>
-
-
-<p>We may be interested in knowing whether this motif is over or under-represented in the empirical network, compared to a random expectation. To determine this, we will shuffle interactions around in a way that preserves the number of interactions<em>and</em> the degree distribution of all species, using <a href="../../nhst/swaps/#EcologicalNetwork.swaps"><code>swaps</code></a>. We will create 100 replicated networks to test.</p>
-<div class="codehilite"><pre><span></span><span class="n">permutations</span> <span class="o">=</span> <span class="n">swaps</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="n">constraint</span><span class="o">=:</span><span class="n">degree</span><span class="p">)</span>
-
-<span class="n">ms1</span> <span class="o">=</span> <span class="n">map</span><span class="p">(</span><span class="n">x</span> <span class="o">-&gt;</span> <span class="n">motif</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">m</span><span class="p">[</span><span class="o">:</span><span class="n">S1</span><span class="p">]),</span> <span class="n">permutations</span><span class="p">)</span>
-</pre></div>
-
-
-<div class="codehilite"><pre><span></span>100-element Array{Float64,1}:
- 484.0
- 539.0
- 570.0
- 487.0
- 527.0
- 598.0
- 549.0
- 644.0
- 519.0
- 604.0
-   ⋮
- 612.0
- 569.0
- 606.0
- 604.0
- 613.0
- 658.0
- 592.0
- 554.0
- 530.0
-</pre></div>
+<p><a target='_blank' href='https://github.com/PoisotLab/EcologicalNetwork.jl/tree/2559ec19b054f98fc3b1ae6fac68b37e04d9ab9e/src/./degree.jl#L109-L124' class='documenter-source'>source</a><br></p>
                 
                   
                 
@@ -593,7 +552,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../modularity/" title="Modularity" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../../community/nestedness/" title="Nestedness" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -602,19 +561,19 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Modularity
+                Nestedness
               </span>
             </div>
           </a>
         
         
-          <a href="../../community/nlinks/" title="Linkage density and connectance" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../centrality/" title="Centrality" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Linkage density and connectance
+                Centrality
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
