@@ -433,6 +433,18 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="species/foodweb/" title="Food-web specific" class="md-nav__link">
+      Food-web specific
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -548,7 +560,7 @@
 <p>The structure of this documentation is trying to match (as much as possible) the structure of Delmas <em>et al.</em> (<a href="http://biorxiv.org/content/early/2017/02/28/112540">2017</a>), where most of the measures presented here are reviewed.</p>
 <p><a id='Overview-of-methods-1'></a></p>
 <h2 id="overview-of-methods">Overview of methods</h2>
-<p>This table gives an overview of the currently available methods, as a function of the network type. In the <em>Quantitative</em> column, a <code>D</code> means that the method exists <em>but</em> works on the <em>Deterministic</em> part of the network (<em>i.e.</em> the information about interaction weight is removed).</p>
+<p>This table gives an overview of the currently available methods, as a function of the network type. In the <em>Quantitative</em> column, a <code>D</code> means that the method exists <em>but</em> works on the <em>Deterministic</em> part of the network (<em>i.e.</em> the information about interaction weight is removed). <code>B</code>: bipartite; <code>U</code>: unipartite.</p>
 <table>
 <thead>
 <tr>
@@ -626,14 +638,14 @@
 <tr>
 <td align="left">nestedness</td>
 <td align="left">$\eta$</td>
-<td align="center">bipartite</td>
+<td align="center">B</td>
 <td align="center"></td>
-<td align="center">bipartite</td>
+<td align="center">B</td>
 </tr>
 <tr>
 <td align="left"></td>
 <td align="left">NODF</td>
-<td align="center">bipartite</td>
+<td align="center">B</td>
 <td align="center"></td>
 <td align="center"></td>
 </tr>
@@ -641,7 +653,7 @@
 <td align="left"></td>
 <td align="left">WNODF</td>
 <td align="center"></td>
-<td align="center">bipartite</td>
+<td align="center">B</td>
 <td align="center"></td>
 </tr>
 <tr>
@@ -808,15 +820,22 @@
 <tr>
 <td align="left">trophic level</td>
 <td align="left">fractional</td>
-<td align="center">unipartite</td>
-<td align="center"></td>
+<td align="center">U</td>
+<td align="center">D</td>
 <td align="center"></td>
 </tr>
 <tr>
 <td align="left"></td>
 <td align="left">weighted</td>
-<td align="center">unipartite</td>
+<td align="center">U</td>
+<td align="center">D</td>
 <td align="center"></td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">position</td>
+<td align="center">U</td>
+<td align="center">D</td>
 <td align="center"></td>
 </tr>
 </tbody>

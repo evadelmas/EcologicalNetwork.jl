@@ -412,6 +412,18 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../species/foodweb/" title="Food-web specific" class="md-nav__link">
+      Food-web specific
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -521,37 +533,37 @@
 </pre></div>
 
 
-<p>The next step is to generate starting communities for every species. We will assign species to random initial modules.</p>
+<p>The next step is to generate starting communities for every species. We will assign species to random initial modules:</p>
 <div class="codehilite"><pre><span></span><span class="n">L</span> <span class="o">=</span> <span class="n">rand</span><span class="p">(</span><span class="mi">1</span><span class="o">:</span><span class="n">richness</span><span class="p">(</span><span class="n">N</span><span class="p">),</span> <span class="n">richness</span><span class="p">(</span><span class="n">N</span><span class="p">));</span>
 </pre></div>
 
 
 <div class="codehilite"><pre><span></span>159-element Array{Int64,1}:
-  37
-  76
- 102
-  40
- 120
-  58
- 146
- 115
- 117
- 138
-   ⋮
- 103
-   1
- 122
- 156
- 139
- 145
- 125
+  74
+  49
+   4
+  63
+  82
+ 148
+  56
+  93
+ 147
   33
-  41
+   ⋮
+  29
+  99
+  19
+ 124
+  89
+  29
+ 140
+  75
+ 116
 </pre></div>
 
 
-<p>We can now start a repeated number of attempts to find the best partition. If <code>julia</code> is started in parallel, this will use all assigned CPUs.</p>
-<div class="codehilite"><pre><span></span><span class="n">M</span> <span class="o">=</span> <span class="n">modularity</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">L</span><span class="p">,</span> <span class="n">replicates</span><span class="o">=</span><span class="mi">100</span><span class="p">);</span>
+<p>We can now start a repeated number of attempts to find the best partition, here using <a href="../community/modularity.md#EcologicalNetwork.label_propagation"><code>label_propagation</code></a>. If <code>julia</code> is started in parallel, this will use all assigned CPUs.</p>
+<div class="codehilite"><pre><span></span><span class="n">M</span> <span class="o">=</span> <span class="n">modularity</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">L</span><span class="p">,</span> <span class="n">label_propagation</span><span class="p">,</span> <span class="n">replicates</span><span class="o">=</span><span class="mi">100</span><span class="p">);</span>
 
 <span class="c"># Finally, we can get the best partition</span>
 <span class="n">b_part</span> <span class="o">=</span> <span class="n">best_partition</span><span class="p">(</span><span class="n">M</span><span class="p">);</span>
