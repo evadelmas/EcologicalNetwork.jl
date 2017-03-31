@@ -15,7 +15,7 @@
       
         <link rel="shortcut icon" href="../../assets/images/favicon.png">
       
-      <meta name="generator" content="mkdocs-0.16.2, mkdocs-material-1.5.0">
+      <meta name="generator" content="mkdocs-0.16.2, mkdocs-material-1.5.1">
     
     
       
@@ -26,7 +26,7 @@
       <script src="../../assets/javascripts/modernizr-56ade86843.js"></script>
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/application-d848f886dc.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/application-8d06ab29f4.css">
       
         <link rel="stylesheet" href="../../assets/stylesheets/application-66fa0d9bba.palette.css">
       
@@ -353,6 +353,18 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../community/modularity/" title="Modularity" class="md-nav__link">
+      Modularity
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -541,7 +553,10 @@
 </pre></div>
 
 
-<p><a target='_blank' href='https://github.com/PoisotLab/EcologicalNetwork.jl/tree/58e333aa55a7cd16ca3e34b09daef3a6f63eb824/src/./centrality.jl#L1-L21' class='documenter-source'>source</a><br></p>
+<blockquote>
+<p>Katz, L., 1953. A new status index derived from sociometric analysis. Psychometrika 18, 39–43. doi:10.1007/bf02289026</p>
+</blockquote>
+<p><a target='_blank' href='https://github.com/PoisotLab/EcologicalNetwork.jl/tree/079cfae51cb82a78e165564b12541330354b6309/src/./centrality.jl#L1-L25' class='documenter-source'>source</a><br></p>
 <p><a id='EcologicalNetwork.centrality_degree' href='#EcologicalNetwork.centrality_degree'>#</a>
 <strong><code>EcologicalNetwork.centrality_degree</code></strong> &mdash; <em>Function</em>.</p>
 <p><strong>Degree centrality</strong></p>
@@ -550,8 +565,8 @@
 
 
 <p>Degree centrality, corrected by the maximum degree (the most central species has a degree of 1).</p>
-<p>$C_{d}(i) = k_i /   ext{max}(mathbf{k})$</p>
-<p><a target='_blank' href='https://github.com/PoisotLab/EcologicalNetwork.jl/tree/58e333aa55a7cd16ca3e34b09daef3a6f63eb824/src/./centrality.jl#L58-L68' class='documenter-source'>source</a><br></p>
+<p>$C_{d}(i) = k_i / \text{max}(\mathbf{k})$</p>
+<p><a target='_blank' href='https://github.com/PoisotLab/EcologicalNetwork.jl/tree/079cfae51cb82a78e165564b12541330354b6309/src/./centrality.jl#L66-L76' class='documenter-source'>source</a><br></p>
 <p><a id='EcologicalNetwork.centrality_closeness' href='#EcologicalNetwork.centrality_closeness'>#</a>
 <strong><code>EcologicalNetwork.centrality_closeness</code></strong> &mdash; <em>Function</em>.</p>
 <p><strong>Closeness centrality</strong></p>
@@ -560,10 +575,13 @@
 
 
 <p>Closeness centrality is defined as:</p>
-<p>$C_{c}(i) = sum_j left( rac{n-1}{d_{ji}}  ight)$</p>
+<p>$C_{c}(i) = \sum_j \left( \frac{n-1}{d_{ji}} \right)$</p>
 <p>where $mathbf{d}$ is a matrix containing the lengths of the shortest paths between all pairs of species, and $n$ is the number of species.</p>
 <p>The function calls <code>shortest_path</code> internally – the <code>nmax</code> argument is the maximal path length that wil be tried.</p>
-<p><a target='_blank' href='https://github.com/PoisotLab/EcologicalNetwork.jl/tree/58e333aa55a7cd16ca3e34b09daef3a6f63eb824/src/./centrality.jl#L30-L44' class='documenter-source'>source</a><br></p>
+<blockquote>
+<p>Bavelas, A., 1950. Communication Patterns in Task‐Oriented Groups. The Journal of the Acoustical Society of America 22, 725–730. doi:10.1121/1.1906679</p>
+</blockquote>
+<p><a target='_blank' href='https://github.com/PoisotLab/EcologicalNetwork.jl/tree/079cfae51cb82a78e165564b12541330354b6309/src/./centrality.jl#L34-L52' class='documenter-source'>source</a><br></p>
                 
                   
                 

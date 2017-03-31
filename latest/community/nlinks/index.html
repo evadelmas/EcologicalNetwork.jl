@@ -15,7 +15,7 @@
       
         <link rel="shortcut icon" href="../../assets/images/favicon.png">
       
-      <meta name="generator" content="mkdocs-0.16.2, mkdocs-material-1.5.0">
+      <meta name="generator" content="mkdocs-0.16.2, mkdocs-material-1.5.1">
     
     
       
@@ -26,7 +26,7 @@
       <script src="../../assets/javascripts/modernizr-56ade86843.js"></script>
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/application-d848f886dc.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/application-8d06ab29f4.css">
       
         <link rel="stylesheet" href="../../assets/stylesheets/application-66fa0d9bba.palette.css">
       
@@ -405,6 +405,18 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../modularity/" title="Modularity" class="md-nav__link">
+      Modularity
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -590,53 +602,73 @@
                 
                 <p><a id='Number-of-links-and-connectance-1'></a></p>
 <h1 id="number-of-links-and-connectance">Number of links and connectance</h1>
-<ul>
-<li><a href="./#EcologicalNetwork.connectance"><code>EcologicalNetwork.connectance</code></a></li>
-<li><a href="./#EcologicalNetwork.connectance_var"><code>EcologicalNetwork.connectance_var</code></a></li>
-<li><a href="./#EcologicalNetwork.linkage_density"><code>EcologicalNetwork.linkage_density</code></a></li>
-</ul>
 <p><a id='Number-of-links-1'></a></p>
 <h2 id="number-of-links">Number of links</h2>
-<div class="codehilite"><pre><span></span>links
-link_number
-links_var
+<p><a id='EcologicalNetwork.links' href='#EcologicalNetwork.links'>#</a>
+<strong><code>EcologicalNetwork.links</code></strong> &mdash; <em>Function</em>.</p>
+<p><strong>Number of links in a network</strong></p>
+<div class="codehilite"><pre><span></span>links(N::EcoNetwork)
 </pre></div>
 
 
+<p>For all type of networks, this is the sum of the adjacency matrix. Note that for quantitative networks, this is the cumulative sum of link weights.</p>
+<p><a target='_blank' href='https://github.com/PoisotLab/EcologicalNetwork.jl/tree/079cfae51cb82a78e165564b12541330354b6309/src/./connectance.jl#L1-L8' class='documenter-source'>source</a><br></p>
+<p><a id='EcologicalNetwork.link_number' href='#EcologicalNetwork.link_number'>#</a>
+<strong><code>EcologicalNetwork.link_number</code></strong> &mdash; <em>Function</em>.</p>
+<p><strong>Number of links in a quantitative network</strong></p>
+<div class="codehilite"><pre><span></span>link_number(N::QuantitativeNetwork)
+</pre></div>
+
+
+<p>In quantitative networks only, returns the number of non-zero interactions.</p>
+<p><a target='_blank' href='https://github.com/PoisotLab/EcologicalNetwork.jl/tree/079cfae51cb82a78e165564b12541330354b6309/src/./connectance.jl#L13-L19' class='documenter-source'>source</a><br></p>
+<p><a id='EcologicalNetwork.links_var' href='#EcologicalNetwork.links_var'>#</a>
+<strong><code>EcologicalNetwork.links_var</code></strong> &mdash; <em>Function</em>.</p>
+<p><strong>Variance in the expected number of links</strong></p>
+<div class="codehilite"><pre><span></span>links_var(N::ProbabilisticNetwork)
+</pre></div>
+
+
+<p>Expected variance of the number of links for a probabilistic network.</p>
+<p><a target='_blank' href='https://github.com/PoisotLab/EcologicalNetwork.jl/tree/079cfae51cb82a78e165564b12541330354b6309/src/./connectance.jl#L24-L30' class='documenter-source'>source</a><br></p>
 <p><a id='Linkage-density-1'></a></p>
 <h2 id="linkage-density">Linkage density</h2>
 <p><a id='EcologicalNetwork.linkage_density' href='#EcologicalNetwork.linkage_density'>#</a>
 <strong><code>EcologicalNetwork.linkage_density</code></strong> &mdash; <em>Function</em>.</p>
+<p><strong>Linkage density</strong></p>
 <div class="codehilite"><pre><span></span>linkage_density(N::DeterministicNetwork)
 </pre></div>
 
 
 <p>Number of links divided by species richness.</p>
-<p><a target='_blank' href='https://github.com/PoisotLab/EcologicalNetwork.jl/tree/58e333aa55a7cd16ca3e34b09daef3a6f63eb824/src/./connectance.jl#L50-L54' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/EcologicalNetwork.jl/tree/079cfae51cb82a78e165564b12541330354b6309/src/./connectance.jl#L60-L66' class='documenter-source'>source</a><br></p>
 <p><a id='Connectance-1'></a></p>
 <h2 id="connectance">Connectance</h2>
 <p><a id='EcologicalNetwork.connectance' href='#EcologicalNetwork.connectance'>#</a>
 <strong><code>EcologicalNetwork.connectance</code></strong> &mdash; <em>Function</em>.</p>
+<p><strong>Connectance</strong></p>
 <div class="codehilite"><pre><span></span>connectance(N::EcoNetwork)
 </pre></div>
 
 
 <p>Number of links divided by the number of possible interactions. In unipartite networks, this is $L/S^2$. In bipartite networks, this is $L/(T × B)$.</p>
-<p><a target='_blank' href='https://github.com/PoisotLab/EcologicalNetwork.jl/tree/58e333aa55a7cd16ca3e34b09daef3a6f63eb824/src/./connectance.jl#L29-L34' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/EcologicalNetwork.jl/tree/079cfae51cb82a78e165564b12541330354b6309/src/./connectance.jl#L35-L42' class='documenter-source'>source</a><br></p>
+<p><strong>Connectance of a quantitative network</strong></p>
 <div class="codehilite"><pre><span></span>connectance(N::QuantitativeNetwork)
 </pre></div>
 
 
 <p>Connectance of a quantitative network – the information on link weight is ignored.</p>
-<p><a target='_blank' href='https://github.com/PoisotLab/EcologicalNetwork.jl/tree/58e333aa55a7cd16ca3e34b09daef3a6f63eb824/src/./connectance.jl#L39-L44' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/EcologicalNetwork.jl/tree/079cfae51cb82a78e165564b12541330354b6309/src/./connectance.jl#L47-L54' class='documenter-source'>source</a><br></p>
 <p><a id='EcologicalNetwork.connectance_var' href='#EcologicalNetwork.connectance_var'>#</a>
 <strong><code>EcologicalNetwork.connectance_var</code></strong> &mdash; <em>Function</em>.</p>
+<p><strong>Variance in the expected connectance</strong></p>
 <div class="codehilite"><pre><span></span>connectance_var(N::ProbabilisticNetwork)
 </pre></div>
 
 
 <p>Expected variance of the connectance for a probabilistic matrix, measured as the variance of the number of links divided by the squared size of the matrix.</p>
-<p><a target='_blank' href='https://github.com/PoisotLab/EcologicalNetwork.jl/tree/58e333aa55a7cd16ca3e34b09daef3a6f63eb824/src/./connectance.jl#L59-L65' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/EcologicalNetwork.jl/tree/079cfae51cb82a78e165564b12541330354b6309/src/./connectance.jl#L71-L78' class='documenter-source'>source</a><br></p>
                 
                   
                 

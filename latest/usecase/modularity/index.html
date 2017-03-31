@@ -15,7 +15,7 @@
       
         <link rel="shortcut icon" href="../../assets/images/favicon.png">
       
-      <meta name="generator" content="mkdocs-0.16.2, mkdocs-material-1.5.0">
+      <meta name="generator" content="mkdocs-0.16.2, mkdocs-material-1.5.1">
     
     
       
@@ -26,7 +26,7 @@
       <script src="../../assets/javascripts/modernizr-56ade86843.js"></script>
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/application-d848f886dc.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/application-8d06ab29f4.css">
       
         <link rel="stylesheet" href="../../assets/stylesheets/application-66fa0d9bba.palette.css">
       
@@ -364,6 +364,18 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../community/modularity/" title="Modularity" class="md-nav__link">
+      Modularity
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -521,7 +533,7 @@
                 
                 <p><a id='Measuring-the-modularity-1'></a></p>
 <h1 id="measuring-the-modularity">Measuring the modularity</h1>
-<p>In this example, we will use <a href="../community/modularity.md#EcologicalNetwork.label_propagation"><code>label_propagation</code></a> to optimize the modularity of a network. The data are from the <a href="../../data/#EcologicalNetwork.mcmullen"><code>mcmullen</code></a> dataset.</p>
+<p>In this example, we will use <a href="../../community/modularity/#EcologicalNetwork.label_propagation"><code>label_propagation</code></a> to optimize the modularity of a network. The data are from the <a href="../../data/#EcologicalNetwork.mcmullen"><code>mcmullen</code></a> dataset.</p>
 <div class="codehilite"><pre><span></span><span class="k">using</span> <span class="n">EcologicalNetwork</span>
 
 <span class="c"># Get the data in an object</span>
@@ -539,30 +551,30 @@
 
 
 <div class="codehilite"><pre><span></span>159-element Array{Int64,1}:
- 149
-  23
-  26
-  77
- 115
- 141
- 135
- 116
-  47
-  50
+  33
+   2
+ 137
+ 101
+ 118
+  16
+  85
+ 156
+   5
+  21
    ⋮
+  29
+  80
+  40
+  49
+   3
+  89
+ 135
   74
- 151
-  53
-  74
- 122
-  98
-  37
-  97
-  72
+  84
 </pre></div>
 
 
-<p>We can now start a repeated number of attempts to find the best partition, here using <a href="../community/modularity.md#EcologicalNetwork.label_propagation"><code>label_propagation</code></a>. If <code>julia</code> is started in parallel, this will use all assigned CPUs.</p>
+<p>We can now start a repeated number of attempts to find the best partition, here using <a href="../../community/modularity/#EcologicalNetwork.label_propagation"><code>label_propagation</code></a>. If <code>julia</code> is started in parallel, this will use all assigned CPUs.</p>
 <div class="codehilite"><pre><span></span><span class="n">M</span> <span class="o">=</span> <span class="n">modularity</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">L</span><span class="p">,</span> <span class="n">label_propagation</span><span class="p">,</span> <span class="n">replicates</span><span class="o">=</span><span class="mi">100</span><span class="p">);</span>
 
 <span class="c"># Finally, we can get the best partition</span>
@@ -577,7 +589,7 @@
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="n">Q</span><span class="o">:</span> <span class="mf">0.54</span> <span class="o">|</span><span class="n">c</span><span class="o">|:</span> <span class="mi">14</span>
+<div class="codehilite"><pre><span></span><span class="n">Q</span><span class="o">:</span> <span class="mf">0.5</span> <span class="o">|</span><span class="n">c</span><span class="o">|:</span> <span class="mi">16</span>
 </pre></div>
                 
                   

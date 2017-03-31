@@ -15,7 +15,7 @@
       
         <link rel="shortcut icon" href="../../assets/images/favicon.png">
       
-      <meta name="generator" content="mkdocs-0.16.2, mkdocs-material-1.5.0">
+      <meta name="generator" content="mkdocs-0.16.2, mkdocs-material-1.5.1">
     
     
       
@@ -26,7 +26,7 @@
       <script src="../../assets/javascripts/modernizr-56ade86843.js"></script>
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/application-d848f886dc.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/application-8d06ab29f4.css">
       
         <link rel="stylesheet" href="../../assets/stylesheets/application-66fa0d9bba.palette.css">
       
@@ -353,6 +353,18 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../community/modularity/" title="Modularity" class="md-nav__link">
+      Modularity
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -598,7 +610,10 @@
 </pre></div>
 
 
-<p><a target='_blank' href='https://github.com/PoisotLab/EcologicalNetwork.jl/tree/58e333aa55a7cd16ca3e34b09daef3a6f63eb824/src/./foodwebs.jl#L12-L36' class='documenter-source'>source</a><br></p>
+<blockquote>
+<p>Pauly, D., Palomares, M.-L., 2005. Fishing down marine food web: it is far more pervasive than we thought. Bulletin of Marine Science 76, 197–212.</p>
+</blockquote>
+<p><a target='_blank' href='https://github.com/PoisotLab/EcologicalNetwork.jl/tree/079cfae51cb82a78e165564b12541330354b6309/src/./foodwebs.jl#L12-L40' class='documenter-source'>source</a><br></p>
 <p>Because some species higher-up the food chain eat preys at various fractional trophic levels, there is also a more integrative measure – the trophic level of a species is the weighted average of the fractional trophic level of its preys:</p>
 <p><a id='EcologicalNetwork.trophic_level' href='#EcologicalNetwork.trophic_level'>#</a>
 <strong><code>EcologicalNetwork.trophic_level</code></strong> &mdash; <em>Function</em>.</p>
@@ -609,10 +624,13 @@
 
 <p>As defined by Pauly &amp; Palomares.</p>
 <p>This function weighs the fractional trophic level as returned by <code>fractional_trophic_level</code> by the proportion of the prey in the predator's diet. Specifically, this is done with:</p>
-<p>$ext{TL}<em ext_preys="ext{preys" in="in" j="j">i = 1 + sum</em>} left(mathbf{f}<em ij="ij">j    imesmathbf{D}</em> ight)$</p>
-<p>The $mathbf{j}$ array has the fractional trophic levels, and $mathbf{D}$ is the matrix with diet proportions. $mathbf{D}<em ij="ij">{ij}$ is $0.0$ for all non-consumed preys. In a quantitative network, it is $mathbf{A}</em>/summathbf{A}<em o="o">{idot}$, and it is the same in deterministic networks although it works out to $1 / k</em>(i)$ in the end.</p>
+<p>$\text{TL}<em _in="\in" _text_preys="\text{preys" j="j">i = 1 + \sum</em>} \left(\mathbf{f}<em ij="ij">j\times\mathbf{D}</em>\right)$</p>
+<p>The $\mathbf{j}$ array has the fractional trophic levels, and $mathbf{D}$ is the matrix with diet proportions. $\mathbf{D}<em ij="ij">{ij}$ is $0.0$ for all non-consumed preys. In a quantitative network, it is $\mathbf{A}</em>/\sum\mathbf{A}<em o="o">{i\dot}$, and it is the same in deterministic networks although it works out to $1 / k</em>(i)$ in the end.</p>
 <p>As for <code>fractional_trophic_level</code>, this function is applied to the network without self-edges.</p>
-<p><a target='_blank' href='https://github.com/PoisotLab/EcologicalNetwork.jl/tree/58e333aa55a7cd16ca3e34b09daef3a6f63eb824/src/./foodwebs.jl#L64-L85' class='documenter-source'>source</a><br></p>
+<blockquote>
+<p>Pauly, D., Palomares, M.-L., 2005. Fishing down marine food web: it is far more pervasive than we thought. Bulletin of Marine Science 76, 197–212.</p>
+</blockquote>
+<p><a target='_blank' href='https://github.com/PoisotLab/EcologicalNetwork.jl/tree/079cfae51cb82a78e165564b12541330354b6309/src/./foodwebs.jl#L68-L93' class='documenter-source'>source</a><br></p>
 <p><a id='Measures-of-trophic-positions-1'></a></p>
 <h2 id="measures-of-trophic-positions">Measures of trophic positions</h2>
 <p>For every species in a food web, this will return an array with its overall position:</p>
@@ -624,14 +642,14 @@
 
 
 <p>Returns the trophic positions (<code>:top</code>, <code>:intermediate</code>, or <code>:bottom</code>) of species in a food web. Uses a keyword argument <code>loops</code> to decide whether self-interactions should count – this is <code>false</code> by default, so the network is used without self-interactions.</p>
-<p><a target='_blank' href='https://github.com/PoisotLab/EcologicalNetwork.jl/tree/58e333aa55a7cd16ca3e34b09daef3a6f63eb824/src/./foodwebs.jl#L103-L112' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/EcologicalNetwork.jl/tree/079cfae51cb82a78e165564b12541330354b6309/src/./foodwebs.jl#L111-L120' class='documenter-source'>source</a><br></p>
 <p><strong>Relative food web position</strong></p>
 <div class="codehilite"><pre><span></span><span class="nt">foodweb_position</span><span class="o">(</span><span class="nt">N</span><span class="p">::</span><span class="nd">UnipartiteQuantiNetwork</span><span class="o">;</span> <span class="nt">loops</span><span class="p">::</span><span class="nd">Bool</span><span class="o">=</span><span class="nt">false</span><span class="o">)</span>
 </pre></div>
 
 
 <p>Returns the trophic position based on the adjacency matrix.</p>
-<p><a target='_blank' href='https://github.com/PoisotLab/EcologicalNetwork.jl/tree/58e333aa55a7cd16ca3e34b09daef3a6f63eb824/src/./foodwebs.jl#L134-L140' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/EcologicalNetwork.jl/tree/079cfae51cb82a78e165564b12541330354b6309/src/./foodwebs.jl#L142-L148' class='documenter-source'>source</a><br></p>
                 
                   
                 

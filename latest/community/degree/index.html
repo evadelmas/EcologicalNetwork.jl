@@ -15,7 +15,7 @@
       
         <link rel="shortcut icon" href="../../assets/images/favicon.png">
       
-      <meta name="generator" content="mkdocs-0.16.2, mkdocs-material-1.5.0">
+      <meta name="generator" content="mkdocs-0.16.2, mkdocs-material-1.5.1">
     
     
       
@@ -26,7 +26,7 @@
       <script src="../../assets/javascripts/modernizr-56ade86843.js"></script>
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/application-d848f886dc.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/application-8d06ab29f4.css">
       
         <link rel="stylesheet" href="../../assets/stylesheets/application-66fa0d9bba.palette.css">
       
@@ -398,6 +398,18 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../modularity/" title="Modularity" class="md-nav__link">
+      Modularity
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -576,23 +588,14 @@
                 
                 <p><a id='Degree-distribution-1'></a></p>
 <h1 id="degree-distribution">Degree distribution</h1>
-<ul>
-<li><a href="./#EcologicalNetwork.degree"><code>EcologicalNetwork.degree</code></a></li>
-<li><a href="./#EcologicalNetwork.degree_in"><code>EcologicalNetwork.degree_in</code></a></li>
-<li><a href="./#EcologicalNetwork.degree_in_var"><code>EcologicalNetwork.degree_in_var</code></a></li>
-<li><a href="./#EcologicalNetwork.degree_out"><code>EcologicalNetwork.degree_out</code></a></li>
-<li><a href="./#EcologicalNetwork.degree_out_var"><code>EcologicalNetwork.degree_out_var</code></a></li>
-<li><a href="./#EcologicalNetwork.degree_var"><code>EcologicalNetwork.degree_var</code></a></li>
-<li><a href="./#EcologicalNetwork.richness"><code>EcologicalNetwork.richness</code></a></li>
-</ul>
 <p><a id='Species-richness-1'></a></p>
 <h2 id="species-richness">Species richness</h2>
 <p><a id='EcologicalNetwork.richness' href='#EcologicalNetwork.richness'>#</a>
 <strong><code>EcologicalNetwork.richness</code></strong> &mdash; <em>Function</em>.</p>
 <p>Richness (number of species) in a bipartite network</p>
-<p><a target='_blank' href='https://github.com/PoisotLab/EcologicalNetwork.jl/tree/58e333aa55a7cd16ca3e34b09daef3a6f63eb824/src/./types.jl#L166-L168' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/EcologicalNetwork.jl/tree/079cfae51cb82a78e165564b12541330354b6309/src/./types.jl#L166-L168' class='documenter-source'>source</a><br></p>
 <p>Richness (number of species) in a unipartite network</p>
-<p><a target='_blank' href='https://github.com/PoisotLab/EcologicalNetwork.jl/tree/58e333aa55a7cd16ca3e34b09daef3a6f63eb824/src/./types.jl#L173-L175' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/EcologicalNetwork.jl/tree/079cfae51cb82a78e165564b12541330354b6309/src/./types.jl#L173-L175' class='documenter-source'>source</a><br></p>
 <p><a id='Counting-degrees-1'></a></p>
 <h2 id="counting-degrees">Counting degrees</h2>
 <p><a id='EcologicalNetwork.degree' href='#EcologicalNetwork.degree'>#</a>
@@ -602,52 +605,56 @@
 </pre></div>
 
 
-<p><a target='_blank' href='https://github.com/PoisotLab/EcologicalNetwork.jl/tree/58e333aa55a7cd16ca3e34b09daef3a6f63eb824/src/./degree.jl#L19-L23' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/EcologicalNetwork.jl/tree/079cfae51cb82a78e165564b12541330354b6309/src/./degree.jl#L21-L25' class='documenter-source'>source</a><br></p>
 <p><strong>Degree of species in a bipartite network</strong></p>
 <div class="codehilite"><pre><span></span>degree(N::Bipartite)
 </pre></div>
 
 
 <p>This is a concatenation of the out degree and the in degrees of nodes on both sizes, as measured by making the graph unipartite first. Rows are first, columns second.</p>
-<p><a target='_blank' href='https://github.com/PoisotLab/EcologicalNetwork.jl/tree/58e333aa55a7cd16ca3e34b09daef3a6f63eb824/src/./degree.jl#L28-L36' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/EcologicalNetwork.jl/tree/079cfae51cb82a78e165564b12541330354b6309/src/./degree.jl#L30-L38' class='documenter-source'>source</a><br></p>
 <p><a id='EcologicalNetwork.degree_out' href='#EcologicalNetwork.degree_out'>#</a>
 <strong><code>EcologicalNetwork.degree_out</code></strong> &mdash; <em>Function</em>.</p>
+<p><strong>Expected number of outgoing degrees</strong></p>
 <div class="codehilite"><pre><span></span>degree_out(N::EcoNetwork)
 </pre></div>
 
 
 <p>Expected number of outgoing degrees.</p>
-<p><a target='_blank' href='https://github.com/PoisotLab/EcologicalNetwork.jl/tree/58e333aa55a7cd16ca3e34b09daef3a6f63eb824/src/./degree.jl#L1-L5' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/EcologicalNetwork.jl/tree/079cfae51cb82a78e165564b12541330354b6309/src/./degree.jl#L1-L7' class='documenter-source'>source</a><br></p>
 <p><a id='EcologicalNetwork.degree_in' href='#EcologicalNetwork.degree_in'>#</a>
 <strong><code>EcologicalNetwork.degree_in</code></strong> &mdash; <em>Function</em>.</p>
-<p><strong>Expected number of ingoing degrees.</strong></p>
+<p><strong>Expected number of ingoing degrees</strong></p>
 <div class="codehilite"><pre><span></span>degree_in(N::EcoNetwork)
 </pre></div>
 
 
-<p><a target='_blank' href='https://github.com/PoisotLab/EcologicalNetwork.jl/tree/58e333aa55a7cd16ca3e34b09daef3a6f63eb824/src/./degree.jl#L10-L14' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/EcologicalNetwork.jl/tree/079cfae51cb82a78e165564b12541330354b6309/src/./degree.jl#L12-L16' class='documenter-source'>source</a><br></p>
 <p>For probabilistic networks only, there are measures of degree variance:</p>
 <p><a id='EcologicalNetwork.degree_var' href='#EcologicalNetwork.degree_var'>#</a>
 <strong><code>EcologicalNetwork.degree_var</code></strong> &mdash; <em>Function</em>.</p>
+<p><strong>Variance in the degree</strong></p>
 <div class="codehilite"><pre><span></span>degree_var(N::UnipartiteProbaNetwork)
 </pre></div>
 
 
-<p><a target='_blank' href='https://github.com/PoisotLab/EcologicalNetwork.jl/tree/58e333aa55a7cd16ca3e34b09daef3a6f63eb824/src/./degree.jl#L55-L57' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/EcologicalNetwork.jl/tree/079cfae51cb82a78e165564b12541330354b6309/src/./degree.jl#L61-L65' class='documenter-source'>source</a><br></p>
 <p><a id='EcologicalNetwork.degree_out_var' href='#EcologicalNetwork.degree_out_var'>#</a>
 <strong><code>EcologicalNetwork.degree_out_var</code></strong> &mdash; <em>Function</em>.</p>
+<p><strong>Variance in the outgoing degree</strong></p>
 <div class="codehilite"><pre><span></span>degree_out_var(N::ProbabilisticNetwork)
 </pre></div>
 
 
-<p><a target='_blank' href='https://github.com/PoisotLab/EcologicalNetwork.jl/tree/58e333aa55a7cd16ca3e34b09daef3a6f63eb824/src/./degree.jl#L41-L43' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/EcologicalNetwork.jl/tree/079cfae51cb82a78e165564b12541330354b6309/src/./degree.jl#L43-L47' class='documenter-source'>source</a><br></p>
 <p><a id='EcologicalNetwork.degree_in_var' href='#EcologicalNetwork.degree_in_var'>#</a>
 <strong><code>EcologicalNetwork.degree_in_var</code></strong> &mdash; <em>Function</em>.</p>
+<p><strong>Variance in the ingoing degree</strong></p>
 <div class="codehilite"><pre><span></span>degree_in_var(N::ProbabilisticNetwork)
 </pre></div>
 
 
-<p><a target='_blank' href='https://github.com/PoisotLab/EcologicalNetwork.jl/tree/58e333aa55a7cd16ca3e34b09daef3a6f63eb824/src/./degree.jl#L48-L50' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/EcologicalNetwork.jl/tree/079cfae51cb82a78e165564b12541330354b6309/src/./degree.jl#L52-L56' class='documenter-source'>source</a><br></p>
                 
                   
                 

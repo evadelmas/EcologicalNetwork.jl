@@ -15,7 +15,7 @@
       
         <link rel="shortcut icon" href="./assets/images/favicon.png">
       
-      <meta name="generator" content="mkdocs-0.16.2, mkdocs-material-1.5.0">
+      <meta name="generator" content="mkdocs-0.16.2, mkdocs-material-1.5.1">
     
     
       
@@ -26,7 +26,7 @@
       <script src="./assets/javascripts/modernizr-56ade86843.js"></script>
     
     
-      <link rel="stylesheet" href="./assets/stylesheets/application-d848f886dc.css">
+      <link rel="stylesheet" href="./assets/stylesheets/application-8d06ab29f4.css">
       
         <link rel="stylesheet" href="./assets/stylesheets/application-66fa0d9bba.palette.css">
       
@@ -200,36 +200,9 @@
       
     
     
-      <label class="md-nav__link md-nav__link--active" for="toc">
-        Home
-      </label>
-    
     <a href="." title="Home" class="md-nav__link md-nav__link--active">
       Home
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="toc">Table of contents</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#overview-of-methods" title="Overview of methods" class="md-nav__link">
-    Overview of methods
-  </a>
-  
-</li>
-      
-      
-      
-    </ul>
-  
-</nav>
     
   </li>
 
@@ -385,6 +358,18 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="community/modularity/" title="Modularity" class="md-nav__link">
+      Modularity
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -527,20 +512,6 @@
     
   
   
-    <label class="md-nav__title" for="toc">Table of contents</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#overview-of-methods" title="Overview of methods" class="md-nav__link">
-    Overview of methods
-  </a>
-  
-</li>
-      
-      
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -556,290 +527,18 @@
                 
                 <p><a id='Analysis-of-ecological-networks-1'></a></p>
 <h1 id="analysis-of-ecological-networks">Analysis of ecological networks</h1>
-<p>The <code>EcologicalNetwork</code> package offers a convenient interface to analyse several types of ecological networks. Rather than providing multiple measures of the same property, we selected measures that have been demonstrated to work and be robust.</p>
+<p>The <code>EcologicalNetwork</code> package offers a convenient interface to analyze several types of ecological networks. Rather than providing multiple measures of the same property, we selected measures that have been demonstrated to work and be robust.</p>
+<p>You can read more about the selection of measures in:</p>
+<blockquote>
+<p>Delmas, E. et al. Analyzing ecological networks of species interactions.</p>
+</blockquote>
+<p>bioRxiv 112540 (2017). doi:10.1101/112540</p>
 <p>The structure of this documentation is trying to match (as much as possible) the structure of Delmas <em>et al.</em> (<a href="http://biorxiv.org/content/early/2017/02/28/112540">2017</a>), where most of the measures presented here are reviewed.</p>
-<p><a id='Overview-of-methods-1'></a></p>
-<h2 id="overview-of-methods">Overview of methods</h2>
-<p>This table gives an overview of the currently available methods, as a function of the network type. In the <em>Quantitative</em> column, a <code>D</code> means that the method exists <em>but</em> works on the <em>Deterministic</em> part of the network (<em>i.e.</em> the information about interaction weight is removed). <code>B</code>: bipartite; <code>U</code>: unipartite.</p>
-<table>
-<thead>
-<tr>
-<th align="left">Measure type</th>
-<th align="left">Measure</th>
-<th align="center">Deterministic</th>
-<th align="center">Quantitative</th>
-<th align="center">Probabilistic</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left">degree</td>
-<td align="left"></td>
-<td align="center">yes</td>
-<td align="center">yes</td>
-<td align="center">yes</td>
-</tr>
-<tr>
-<td align="left"></td>
-<td align="left"></td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="left">specificity</td>
-<td align="left">PDI</td>
-<td align="center"></td>
-<td align="center">yes</td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="left"></td>
-<td align="left">RR</td>
-<td align="center">yes</td>
-<td align="center"></td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="left"></td>
-<td align="left"></td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="left">connectance</td>
-<td align="left"></td>
-<td align="center">yes</td>
-<td align="center">D</td>
-<td align="center">yes</td>
-</tr>
-<tr>
-<td align="left"></td>
-<td align="left"></td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="left">link density</td>
-<td align="left"></td>
-<td align="center">yes</td>
-<td align="center"></td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="left"></td>
-<td align="left"></td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="left">nestedness</td>
-<td align="left">$\eta$</td>
-<td align="center">B</td>
-<td align="center"></td>
-<td align="center">B</td>
-</tr>
-<tr>
-<td align="left"></td>
-<td align="left">NODF</td>
-<td align="center">B</td>
-<td align="center"></td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="left"></td>
-<td align="left">WNODF</td>
-<td align="center"></td>
-<td align="center">B</td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="left"></td>
-<td align="left"></td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="left">modularity</td>
-<td align="left">$Q$</td>
-<td align="center">yes</td>
-<td align="center">yes</td>
-<td align="center">yes</td>
-</tr>
-<tr>
-<td align="left"></td>
-<td align="left">$Q'_R$</td>
-<td align="center">yes</td>
-<td align="center">yes</td>
-<td align="center">yes</td>
-</tr>
-<tr>
-<td align="left"></td>
-<td align="left">label propagation</td>
-<td align="center">yes</td>
-<td align="center">yes</td>
-<td align="center">yes</td>
-</tr>
-<tr>
-<td align="left"></td>
-<td align="left"></td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="left">motif counting</td>
-<td align="left"></td>
-<td align="center">yes</td>
-<td align="center">D</td>
-<td align="center">yes</td>
-</tr>
-<tr>
-<td align="left"></td>
-<td align="left"></td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="left">null models</td>
-<td align="left">1 (connectance)</td>
-<td align="center">yes</td>
-<td align="center"></td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="left"></td>
-<td align="left">2 (degree)</td>
-<td align="center">yes</td>
-<td align="center"></td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="left"></td>
-<td align="left">3in (columns)</td>
-<td align="center">yes</td>
-<td align="center"></td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="left"></td>
-<td align="left">3out (rows)</td>
-<td align="center">yes</td>
-<td align="center"></td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="left"></td>
-<td align="left"></td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="left">swap</td>
-<td align="left">fill</td>
-<td align="center">yes</td>
-<td align="center"></td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="left"></td>
-<td align="left">generality</td>
-<td align="center">yes</td>
-<td align="center"></td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="left"></td>
-<td align="left">vulnerability</td>
-<td align="center">yes</td>
-<td align="center"></td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="left"></td>
-<td align="left">degre distribution</td>
-<td align="center">yes</td>
-<td align="center"></td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="left"></td>
-<td align="left"></td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="left">centrality</td>
-<td align="left">Katz</td>
-<td align="center">yes</td>
-<td align="center"></td>
-<td align="center">yes</td>
-</tr>
-<tr>
-<td align="left"></td>
-<td align="left">Closeness</td>
-<td align="center">yes</td>
-<td align="center"></td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="left"></td>
-<td align="left"></td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="left">paths</td>
-<td align="left">number</td>
-<td align="center">yes</td>
-<td align="center"></td>
-<td align="center">yes</td>
-</tr>
-<tr>
-<td align="left"></td>
-<td align="left">shortest</td>
-<td align="center">yes</td>
-<td align="center">yes</td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="left"></td>
-<td align="left"></td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="left">trophic level</td>
-<td align="left">fractional</td>
-<td align="center">U</td>
-<td align="center">D</td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="left"></td>
-<td align="left">weighted</td>
-<td align="center">U</td>
-<td align="center">D</td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="left"></td>
-<td align="left">position</td>
-<td align="center">U</td>
-<td align="center">D</td>
-<td align="center"></td>
-</tr>
-</tbody>
-</table>
+<p>This package also offers an interface for probabilistic network, about which you can read more in:</p>
+<blockquote>
+<p>Poisot, T. et al. The structure of probabilistic networks. Methods in Ecology</p>
+</blockquote>
+<p>and Evolution 7, 303–312 (2016). doi: 10.1111/2041-210X.12468</p>
                 
                   
                 
