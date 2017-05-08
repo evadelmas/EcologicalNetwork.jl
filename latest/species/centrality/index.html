@@ -541,15 +541,15 @@
 
 
 <p>This measure can work on different path length (<code>k</code>), and give a different weight to every subsequent connection (<code>a</code>). <code>k</code> must be at least 1 (only immediate neighbors are considered). <code>a</code> (being a weight), must be positive.</p>
-<div class="codehilite"><pre><span></span><span class="gp">julia&gt;</span> <span class="n">N</span> <span class="o">=</span> <span class="n">UnipartiteNetwork</span><span class="p">(</span><span class="n">eye</span><span class="p">(</span><span class="mi">5</span><span class="p">));</span>
+<div class="codehilite"><pre><span></span>julia&gt; N = UnipartiteNetwork(eye(5));
 
-<span class="gp">julia&gt;</span> <span class="n">centrality_katz</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
-<span class="go">5×1 Array{Float64,2}:</span>
-<span class="go"> 0.2</span>
-<span class="go"> 0.2</span>
-<span class="go"> 0.2</span>
-<span class="go"> 0.2</span>
-<span class="go"> 0.2</span>
+julia&gt; centrality_katz(N)
+5×1 Array{Float64,2}:
+ 0.2
+ 0.2
+ 0.2
+ 0.2
+ 0.2
 </pre></div>
 
 

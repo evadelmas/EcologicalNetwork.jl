@@ -602,11 +602,11 @@
 <p>This function takes a unipartite network, either deterministic or quantitative, as its input. There is currently no trophic rank formulation for probabilistic networks.</p>
 <p>The primary producers have a rank of 1, and species consuming any species of maximal level $n$ have level $n+1$.</p>
 <p>Note that the trophic level is measured on the network with self-interactions removed.</p>
-<div class="codehilite"><pre><span></span><span class="gp">julia&gt;</span> <span class="n">stony</span><span class="p">()</span> <span class="o">|&gt;</span> <span class="n">fractional_trophic_level</span> <span class="o">|&gt;</span> <span class="n">maximum</span>
-<span class="go">5.0</span>
+<div class="codehilite"><pre><span></span>julia&gt; stony() |&gt; fractional_trophic_level |&gt; maximum
+5.0
 
-<span class="gp">julia&gt;</span> <span class="n">stony</span><span class="p">()</span> <span class="o">|&gt;</span> <span class="n">fractional_trophic_level</span> <span class="o">|&gt;</span> <span class="n">minimum</span>
-<span class="go">1.0</span>
+julia&gt; stony() |&gt; fractional_trophic_level |&gt; minimum
+1.0
 </pre></div>
 
 

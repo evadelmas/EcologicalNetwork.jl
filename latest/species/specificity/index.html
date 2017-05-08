@@ -542,10 +542,10 @@
 
 
 <p>Measure of specificity in a deterministic network. This returns a value between 0 and 1, where 1 indicates maximal specificity.</p>
-<div class="codehilite"><pre><span></span><span class="gp">julia&gt;</span> <span class="n">N</span> <span class="o">=</span> <span class="n">BipartiteNetwork</span><span class="p">(</span><span class="n">eye</span><span class="p">(</span><span class="kt">Bool</span><span class="p">,</span> <span class="mi">10</span><span class="p">));</span>
+<div class="codehilite"><pre><span></span>julia&gt; N = BipartiteNetwork(eye(Bool, 10));
 
-<span class="gp">julia&gt;</span> <span class="n">specificity</span><span class="p">(</span><span class="n">N</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
-<span class="go">1.0</span>
+julia&gt; specificity(N)[1]
+1.0
 </pre></div>
 
 
@@ -559,10 +559,10 @@
 
 
 <p>Measure of specificity in a quantitative network. This returns a value between 0 and 1, where 1 indicates maximal specificity. Note that the PDI is measured species-wise, and the maximal interaction strength of every species is set to 1.</p>
-<div class="codehilite"><pre><span></span><span class="gp">julia&gt;</span> <span class="n">N</span> <span class="o">=</span> <span class="n">BipartiteNetwork</span><span class="p">(</span><span class="n">eye</span><span class="p">(</span><span class="kt">Int64</span><span class="p">,</span> <span class="mi">10</span><span class="p">));</span>
+<div class="codehilite"><pre><span></span>julia&gt; N = BipartiteNetwork(eye(Int64, 10));
 
-<span class="gp">julia&gt;</span> <span class="n">specificity</span><span class="p">(</span><span class="n">N</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
-<span class="go">1.0</span>
+julia&gt; specificity(N)[1]
+1.0
 </pre></div>
 
 
