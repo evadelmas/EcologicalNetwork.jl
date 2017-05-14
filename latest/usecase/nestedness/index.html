@@ -567,18 +567,18 @@
 
 
 <div class="codehilite"><pre><span></span>The original network has a nestedness of 0.641,
-which is greater than expected by chance (p ~ 0.0) -- 286 random networks.
+which is greater than expected by chance (p ~ 0.0) -- 311 random networks.
 </pre></div>
 
 
 <p>In this simple example, we used <a href="../../nhst/nullmodels/#EcologicalNetwork.nullmodel"><code>nullmodel</code></a> to generate random realizations of a network, and <a href="../../nhst/nhst/#EcologicalNetwork.test_network_property"><code>test_network_property</code></a> to evaluate whether the observed nestedness was observed by chance. As it stands, all randomized networks had <em>lower</em> values, and so the <em>p</em>-value is (essentially) null. In short, this network is significantly more nested than expected by chance knowing its degree distribution.</p>
 <p>We can also decide to plot the network to visualize what it looks like:</p>
-<div class="codehilite"><pre><span></span><span class="n">julia</span><span class="o">&gt;</span> <span class="k">using</span> <span class="n">EcologicalNetwork</span>
+<div class="codehilite"><pre><span></span>julia&gt; using EcologicalNetwork
 
-<span class="n">julia</span><span class="o">&gt;</span> <span class="n">N</span> <span class="o">=</span> <span class="n">ollerton</span><span class="p">()</span>
-<span class="n">EcologicalNetwork</span><span class="o">.</span><span class="n">BipartiteNetwork</span><span class="p">(</span><span class="kt">Bool</span><span class="p">[</span><span class="kc">true</span> <span class="kc">true</span> <span class="n">…</span> <span class="kc">true</span> <span class="kc">true</span><span class="p">;</span> <span class="kc">true</span> <span class="kc">true</span> <span class="n">…</span> <span class="kc">false</span> <span class="kc">false</span><span class="p">;</span> <span class="n">…</span> <span class="p">;</span> <span class="kc">false</span> <span class="kc">false</span> <span class="n">…</span> <span class="kc">false</span> <span class="kc">false</span><span class="p">;</span> <span class="kc">false</span> <span class="kc">true</span> <span class="n">…</span> <span class="kc">false</span> <span class="kc">false</span><span class="p">])</span>
+julia&gt; N = ollerton()
+EcologicalNetwork.BipartiteNetwork(Bool[true true … true true; true true … false false; … ; false false … false false; false true … false false])
 
-<span class="n">julia</span><span class="o">&gt;</span> <span class="n">plot_network</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="s">&quot;ollerton.png&quot;</span><span class="p">)</span>
+julia&gt; plot_network(N, file=&quot;ollerton.png&quot;)
 </pre></div>
 
 
