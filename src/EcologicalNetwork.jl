@@ -102,7 +102,7 @@ include(joinpath(".", "betadiversity.jl"))
 include(joinpath(".", "motifs.jl"))
 include(joinpath(".", "data.jl"))
 include(joinpath(".", "test.jl"))
-include(joinpath(".", "draw.jl"))
+include(joinpath(".", "plots.jl"))
 include(joinpath(".", "foodwebs.jl"))
 
 end

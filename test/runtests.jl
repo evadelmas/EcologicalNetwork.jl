@@ -23,7 +23,7 @@ my_tests = [
    "motifs.jl",
    "betadiversity.jl",
    "modularity.jl",
-   "draw.jl"
+   "plots.jl"
   ]
 
 for my_test in my_tests
