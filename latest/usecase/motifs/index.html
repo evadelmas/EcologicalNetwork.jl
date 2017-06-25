@@ -546,28 +546,23 @@
 
 
 <div class="codehilite"><pre><span></span>Dict{Symbol,EcologicalNetwork.UnipartiteNetwork} with 13 entries:
-  :S4 =&gt; EcologicalNetwork.UnipartiteNetwork(Bool[false true false; false false…
+  :D4 =&gt; EcologicalNetwork.UnipartiteNetwork(Bool[false true false; false false…
   :S1 =&gt; EcologicalNetwork.UnipartiteNetwork(Bool[false true false; false false…
+  :D1 =&gt; EcologicalNetwork.UnipartiteNetwork(Bool[false true true; false false …
   :D6 =&gt; EcologicalNetwork.UnipartiteNetwork(Bool[false true true; true false t…
   :D3 =&gt; EcologicalNetwork.UnipartiteNetwork(Bool[false false true; false false…
-  :S2 =&gt; EcologicalNetwork.UnipartiteNetwork(Bool[false true true; false false …
-  :D8 =&gt; EcologicalNetwork.UnipartiteNetwork(Bool[false true true; true false f…
-  :D1 =&gt; EcologicalNetwork.UnipartiteNetwork(Bool[false true true; false false …
-  :D7 =&gt; EcologicalNetwork.UnipartiteNetwork(Bool[false true true; true false f…
   :D5 =&gt; EcologicalNetwork.UnipartiteNetwork(Bool[false true false; false false…
+  :S4 =&gt; EcologicalNetwork.UnipartiteNetwork(Bool[false true false; false false…
   :S3 =&gt; EcologicalNetwork.UnipartiteNetwork(Bool[false true false; false false…
-  :D4 =&gt; EcologicalNetwork.UnipartiteNetwork(Bool[false true false; false false…
-  :S5 =&gt; EcologicalNetwork.UnipartiteNetwork(Bool[false true true; false false …
+  :D8 =&gt; EcologicalNetwork.UnipartiteNetwork(Bool[false true true; true false f…
+  :S2 =&gt; EcologicalNetwork.UnipartiteNetwork(Bool[false true true; false false …
   :D2 =&gt; EcologicalNetwork.UnipartiteNetwork(Bool[false true true; false false …
+  :D7 =&gt; EcologicalNetwork.UnipartiteNetwork(Bool[false true true; true false f…
+  :S5 =&gt; EcologicalNetwork.UnipartiteNetwork(Bool[false true true; false false …
 </pre></div>
 
 
-<p>The <code>m</code> object has 13 different motifs, named as in <a href="http://rspb.royalsocietypublishing.org/content/274/1621/1931">Stouffer <em>et al.</em> (2007)</a>. The function <a href="../../community/motifs/#EcologicalNetwork.unipartitemotifs"><code>unipartitemotifs</code></a> will generate them when needed. Let's look at the <code>m[:S1]</code> motif:</p>
-<div class="codehilite"><pre><span></span><span class="n">plot_network</span><span class="p">(</span><span class="n">m</span><span class="p">[</span><span class="o">:</span><span class="n">S1</span><span class="p">],</span> <span class="n">file</span><span class="o">=</span><span class="s">&quot;motifs1.png&quot;</span><span class="p">)</span>
-</pre></div>
-
-
-<p><img alt="motif s1" src="../motifs1.png" /></p>
+<p>The <code>m</code> object has 13 different motifs, named as in <a href="http://rspb.royalsocietypublishing.org/content/274/1621/1931">Stouffer <em>et al.</em> (2007)</a>. The function <a href="../../community/motifs/#EcologicalNetwork.unipartitemotifs"><code>unipartitemotifs</code></a> will generate them when needed.</p>
 <p>The function to count motifs is called <a href="../../community/motifs/#EcologicalNetwork.motif"><code>motif</code></a>, and returns a count: how many triplets of species are in a given conformation. For example:</p>
 <div class="codehilite"><pre><span></span><span class="n">s1</span> <span class="o">=</span> <span class="n">motif</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">m</span><span class="p">[</span><span class="o">:</span><span class="n">S1</span><span class="p">])</span>
 </pre></div>
@@ -585,26 +580,26 @@
 
 
 <div class="codehilite"><pre><span></span>100-element Array{Float64,1}:
- 602.0
- 501.0
- 563.0
- 601.0
- 658.0
- 503.0
- 621.0
- 474.0
- 586.0
- 536.0
-   ⋮
- 648.0
  569.0
- 540.0
- 550.0
- 473.0
- 587.0
- 588.0
- 581.0
- 618.0
+ 646.0
+ 557.0
+ 583.0
+ 505.0
+ 545.0
+ 620.0
+ 604.0
+ 569.0
+ 575.0
+   ⋮
+ 601.0
+ 595.0
+ 655.0
+ 573.0
+ 642.0
+ 596.0
+ 575.0
+ 598.0
+ 595.0
 </pre></div>
                 
                   
