@@ -164,3 +164,51 @@ end
 
 end
 
+
+"""
+**Plot a unipartite network**
+"""
+@recipe function f(n::Unipartite)
+
+   legend --> false
+   grid --> false
+   ticks --> nothing
+   foreground_color_axis --> nothing
+   foreground_color_border --> nothing
+
+   markersize --> 10
+   markerstrokewidth --> 0.8
+   markerstrokecolor --> colorant"#888888"
+
+   ftl = fractional_trophic_level(n)
+   y = trophic_level(n)
+   x = zeros(Float64, richness(n))
+   
+   for tl in 1:maximum(ftl)
+      x[ftl.==tl] = sortperm(degree(n)[ftl.==tl])
+      on_this_tl = sum(ftl.==tl)
+      x[ftl.==tl] = x[ftl.==tl] ./ on_this_tl
+      if on_this_tl == 1
+         x[ftl.==tl] = 0
+      end
+   end
+   
+   for i in 1:richness(n)
+      for j in 1:richness(n)
+         if has_interaction(n, i, j)
+            @series begin
+               color --> colorant"#888888"
+               xi = [x[i], x[j]]
+               yi = [y[i], y[j]]
+               xi, yi
+            end
+         end
+      end
+   end
+
+   @series begin
+      seriestype --> :scatter
+      x, y
+   end
+
+end
