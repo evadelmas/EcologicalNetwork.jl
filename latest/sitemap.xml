@@ -45,6 +45,12 @@
      <changefreq>daily</changefreq>
     </url>
         
+    <url>
+     <loc>/usecase/plot/</loc>
+     <lastmod>2017-06-25</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
     
 
     
