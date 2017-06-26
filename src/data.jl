@@ -1,3 +1,17 @@
+function noempty(N::Unipartite)
+  have_deg = degree(N) .> 0
+  keep_sp = filter(x -> have_deg[x], 1:richness(N))
+  return N[keep_sp, keep_sp]
+end
+
+function nomepty(N::Bipartite)
+  have_deg_in = degree_in(N) .> 0
+  have_deg_out = degree_out(N) .> 0
+  keep_sp_top = filter(x -> have_deg_out[x], 1:length(have_deg_out))
+  keep_sp_bot = filter(x -> have_deg_in[x], 1:length(have_deg_in))
+  return N[keep_sp_top, keep_sp_bot]
+end
+
 """
 **Kyoto University Forest of Ashu pollination network**
 
@@ -25,11 +39,7 @@ with no interactions. It is removed when generating the network.
 function stony()
   n_path = joinpath(@__DIR__, "..", "data", "du_stony.txt")
   N = UnipartiteNetwork(readdlm(n_path))
-  # remove species without interactions
-  have_deg = degree(N) .> 0
-  keep_sp = filter(x -> have_deg[x], 1:richness(N))
-  # return
-  return UnipartiteNetwork(N[keep_sp, keep_sp])
+  return noempty(N)
 end
 
 """
@@ -61,7 +71,8 @@ natural forest and pasture.
 """
 function robertson()
   n_path = joinpath(@__DIR__, "..", "data", "db_robertson.txt")
-  return BipartiteNetwork(readdlm(n_path))
+  N = BipartiteNetwork(readdlm(n_path))
+  return noempty(N)
 end
 
 """
