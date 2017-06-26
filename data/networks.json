@@ -1,0 +1,30 @@
+{
+   "ollerton2007": {
+      "interactions": "binary",
+      "shape": "bipartite",
+      "type": "anemonefish",
+      "source": "https://www.nceas.ucsb.edu/interactionweb/html/ollerton_et_al_2007.html",
+      "refs": [
+         "Fautin, D. G. & Allen, G. R. 1997 Anemonefishes and their host sea anemones. Perth, Australia: Western Australian Museum. Revised edition",
+         "Ollerton, J., McCollin, D., Fautin, D.G. & Allen, G.R. (2007) Finding NEMO: nestedness engendered by mutualistic organisation in anemonefish and their hosts. Proceedings of the Royal Society B, doi:10.1098/rspb.2006.3758."
+      ]
+   },
+   "mcmullen1993": {
+      "interactions": "binary",
+      "shape": "bipartite",
+      "type": "pollination",
+      "source": "https://www.nceas.ucsb.edu/interactionweb/html/mcmullen_1993.html",
+      "refs": [
+         "McCullen, C. K. 1993. Flower-visiting insects of the Galapagos Islands. Pan-Pacific Entomologist 69:95-106."
+      ]
+   },
+   "schemske1978": {
+      "interactions": "quantitative",
+      "shape": "bipartite",
+      "type": "pollination",
+      "source": "https://www.nceas.ucsb.edu/interactionweb/html/schemske_1978.html",
+      "refs": [
+         "Schemske, D. W., M. F. Willson, M. N. Melampy, L. J. Miller, L. Verner, K. M. Schemske, and L. B. Best. 1978. Flowering Ecology of Some Spring Woodland Herbs. Ecology 59:351-366."
+      ]
+   }
+}
