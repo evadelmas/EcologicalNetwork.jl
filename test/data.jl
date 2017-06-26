@@ -33,7 +33,7 @@ module TestData
   # Robertson
   @test typeof(robertson()) <: Bipartite
   @test typeof(robertson()) <: DeterministicNetwork
-  @test size(robertson()) == (1428, 456)
+  @test size(robertson()) == (1044, 456)
 
   # Phage and bacteria
   for i in 1:5

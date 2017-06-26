@@ -1,15 +1,29 @@
+"""
+**Returns a non-empty unipartite network**
+
+    noempty(N::Unipartite)
+
+All species have at least one interaction
+"""
 function noempty(N::Unipartite)
   have_deg = degree(N) .> 0
   keep_sp = filter(x -> have_deg[x], 1:richness(N))
-  return N[keep_sp, keep_sp]
+  return typeof(N)(N[keep_sp, keep_sp])
 end
 
-function nomepty(N::Bipartite)
+"""
+**Returns a non-empty bipartite network**
+
+    noempty(N::Bipartite)
+
+All species have at least one interaction
+"""
+function noempty(N::Bipartite)
   have_deg_in = degree_in(N) .> 0
   have_deg_out = degree_out(N) .> 0
   keep_sp_top = filter(x -> have_deg_out[x], 1:length(have_deg_out))
   keep_sp_bot = filter(x -> have_deg_in[x], 1:length(have_deg_in))
-  return N[keep_sp_top, keep_sp_bot]
+  return typeof(N)(N[keep_sp_top, keep_sp_bot])
 end
 
 """
@@ -39,6 +53,7 @@ with no interactions. It is removed when generating the network.
 function stony()
   n_path = joinpath(@__DIR__, "..", "data", "du_stony.txt")
   N = UnipartiteNetwork(readdlm(n_path))
+  println(typeof(noempty(N)))
   return noempty(N)
 end
 
