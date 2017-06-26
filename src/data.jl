@@ -26,6 +26,25 @@ function noempty(N::Bipartite)
   return typeof(N)(N[keep_sp_top, keep_sp_bot])
 end
 
+function endata(name)
+   dataindex = joinpath(@__DIR__, "..", "data", "networks.json")
+   metadata = JSON.parsefile(dataindex)
+   @assert name ∈ keys(metadata)
+   data = metadata[name]
+   txtfile = joinpath(@__DIR__, "..", "data", data["shape"], data["interactions"], name * ".txt")
+   f = UnipartiteNetwork
+   if data["shape"] == "bipartite"
+      f = data["interactions"] == "binary" ? BipartiteNetwork : f
+      f = data["interactions"] == "probabilistic" ? BipartiteProbaNetwork : f
+      f = data["interactions"] == "quantitative" ? BipartiteQuantiNetwork : f
+   else
+      f = data["interactions"] == "binary" ? UnipartiteNetwork : f
+      f = data["interactions"] == "probabilistic" ? UnipartiteProbaNetwork : f
+      f = data["interactions"] == "quantitative" ? UnipartiteQuantiNetwork : f
+   end
+   return noempty(f(readdlm(txtfile)))
+end
+
 """
 **Kyoto University Forest of Ashu pollination network**
 
@@ -74,8 +93,8 @@ end
 From Ollerton et al. 2007
 """
 function ollerton()
-  n_path = joinpath(@__DIR__, "..", "data", "db_ollerton.txt")
-  return BipartiteNetwork(readdlm(n_path))
+   warn("Calling data this way is deprecated -- use `endata` instead")
+   return endata("ollerton2007")
 end
 
 """

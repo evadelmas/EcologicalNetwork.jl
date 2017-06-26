@@ -5,6 +5,7 @@ using StatsBase
 using Plots
 using RecipesBase
 using Combinatorics
+using JSON
 
 export EcoNetwork,
 
